@@ -1,0 +1,20 @@
+{
+  "name": "repository-maintenance",
+  "version": "0.0.1",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "format": "prettier --cache --write .",
+    "format-check": "prettier --cache --check .",
+    "clean": "node ./scripts/clean.js",
+    "install-local": "node ./scripts/install-local.js",
+    "install-jfrog": "node ./scripts/install-jfrog.js",
+    "build": "node ./scripts/build.js"
+  },
+  "dependencies": {
+    "zx": "^8.1.9"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3"
+  }
+}
