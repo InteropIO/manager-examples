@@ -8,8 +8,9 @@
     "format-check": "prettier --cache --check .",
     "clean": "node ./scripts/clean.js",
     "install-local": "node ./scripts/install-local.js",
-    "install-jfrog": "node ./scripts/install-jfrog.js",
+    "install-remote": "node ./scripts/install-remote.js",
     "server-start-stop": "node ./scripts/server-start-stop.js",
+    "local-registry-check": "node ./scripts/local-registry-check.js",
     "build": "node ./scripts/build.js"
   },
   "dependencies": {

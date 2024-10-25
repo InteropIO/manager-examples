@@ -2,6 +2,12 @@ import { $ } from 'zx';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
+import {
+  localRegistryURl,
+  packageScope,
+  remoteRegistryURL,
+} from './variables.js';
+
 async function useNpmrc(contents, fn) {
   const npmrcPath = path.join($.cwd, '.npmrc');
   try {
@@ -40,25 +46,25 @@ function createNpmrcFile(options) {
 export async function useLocalRegistryNpmrc(fn) {
   await useNpmrc(
     createNpmrcFile({
-      url: 'http://localhost:4873',
+      url: localRegistryURl,
       global: false,
-      scopes: ['@interopio'],
+      scopes: [packageScope],
       attributes: {
-        _authToken: 'fake-token',
+        _authToken: '${VERDACCIO_TOKEN}',
       },
     }),
     fn
   );
 }
 
-export async function useJfrogRegistryNpmrc(fn) {
+export async function useRemoteRegistryNpmrc(fn) {
   await useNpmrc(
     createNpmrcFile({
-      url: 'https://glue42.jfrog.io/artifactory/api/npm/default-npm-virtual',
+      url: remoteRegistryURL,
       global: false,
-      scopes: ['@interopio'],
+      scopes: [packageScope],
       attributes: {
-        _authToken: process.env['JFROG_TOKEN'],
+        _authToken: '${JFROG_TOKEN}',
         'always-auth': 'true',
       },
     }),
