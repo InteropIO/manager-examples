@@ -1,4 +1,4 @@
-import { $ } from 'zx/core';
+import { $ } from 'zx';
 
 import { getPackages } from './helpers/get-packages.js';
 import { setupZx } from './helpers/setup-zx.js';
@@ -6,15 +6,20 @@ import { setupZx } from './helpers/setup-zx.js';
 setupZx();
 
 for (const { directoryPath, packageJson } of await getPackages()) {
+  const packageNames = Object.keys(packageJson.dependencies).filter((x) =>
+    x.startsWith('@interopio/')
+  );
+
+  if (packageNames.includes('@interopio/manager')) {
+    continue;
+  }
+
   $.cwd = directoryPath;
   console.log(`Switching to package "${packageJson.name}"...`);
 
-  await $`npx -y rimraf node_modules`;
-  await $`npx -y rimraf dist`;
-  await $`npx -y rimraf logs`;
+  $.env['DEBUG_START_STOP'] = 'true';
 
-  await $`npx -y rimraf package-lock.json`;
-  await $`npx -y rimraf .npmrc`;
+  await $`npm run start`;
 
   console.log();
 }
