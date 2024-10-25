@@ -1,0 +1,19 @@
+{
+  "name": "otel-basic-setup",
+  "version": "0.0.1",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc",
+    "start": "npm run build && node ./dist/index.js",
+    "format": "prettier --cache --write .",
+    "format-check": "prettier --cache --check ."
+  },
+  "dependencies": {
+    "@interopio/manager": "^1.7.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.3"
+  }
+}

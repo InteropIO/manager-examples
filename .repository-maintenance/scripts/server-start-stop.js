@@ -10,7 +10,7 @@ for (const { directoryPath, packageJson } of await getPackages()) {
     x.startsWith('@interopio/')
   );
 
-  if (packageNames.includes('@interopio/manager')) {
+  if (!packageNames.includes('@interopio/manager')) {
     continue;
   }
 
