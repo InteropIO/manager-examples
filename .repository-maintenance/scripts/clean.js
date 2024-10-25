@@ -1,10 +1,9 @@
-import { $, usePowerShell } from 'zx/core';
+import { $ } from 'zx/core';
 
 import { getPackages } from './helpers/get-packages.js';
+import { setupZx } from './helpers/setup-zx.js';
 
-usePowerShell();
-
-$.verbose = true;
+setupZx();
 
 for (const { directoryPath, packageJson } of await getPackages()) {
   $.cwd = directoryPath;
