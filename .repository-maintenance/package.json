@@ -11,7 +11,8 @@
     "install-remote": "node ./scripts/install-remote.js",
     "server-start-stop": "node ./scripts/server-start-stop.js",
     "local-registry-check": "node ./scripts/local-registry-check.js",
-    "build": "node ./scripts/build.js"
+    "build": "node ./scripts/build.js",
+    "format-examples": "node ./scripts/format.js"
   },
   "dependencies": {
     "zx": "^8.1.9"
