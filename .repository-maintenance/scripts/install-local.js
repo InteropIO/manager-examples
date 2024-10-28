@@ -1,16 +1,10 @@
-import { $ } from 'zx';
+import { $ } from 'zx/core';
 
-import { getPackages } from './helpers/get-packages.js';
+import { visitPackages } from './helpers/visit-packages.js';
 import { useLocalRegistryNpmrc } from './helpers/use-npmrc.js';
-import { setupZx } from './helpers/setup-zx.js';
 import { packageScope } from './helpers/variables.js';
 
-setupZx();
-
-for (const { directoryPath, packageJson } of await getPackages()) {
-  $.cwd = directoryPath;
-  console.log(`Switching to package "${packageJson.name}"...`);
-
+await visitPackages(async ({ packageJson }) => {
   await useLocalRegistryNpmrc(async () => {
     await $`npm install`;
 
@@ -21,7 +15,7 @@ for (const { directoryPath, packageJson } of await getPackages()) {
     for (const packageName of packageNames) {
       await $`npm install ${packageName}`;
     }
-  });
 
-  console.log();
-}
+    await $`npm audit fix`.nothrow();
+  });
+});

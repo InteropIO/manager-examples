@@ -1,12 +1,10 @@
-import { $ } from 'zx';
-
-import { getPackages } from './helpers/get-packages.js';
-import { setupZx } from './helpers/setup-zx.js';
-import { packageScope } from './helpers/variables.js';
 import path from 'node:path';
 import fs from 'node:fs/promises';
 
-setupZx();
+import { $ } from 'zx';
+
+import { packageScope } from './helpers/variables.js';
+import { visitPackages } from './helpers/visit-packages.js';
 
 async function patchIndexTs(indexTsPath) {
   const indexTsContents = (await fs.readFile(indexTsPath)).toString();
@@ -28,17 +26,14 @@ async function patchIndexTs(indexTsPath) {
   return lines.join('\n');
 }
 
-for (const { directoryPath, packageJson } of await getPackages()) {
+await visitPackages(async ({ packageJson }) => {
   const packageNames = Object.keys(packageJson.dependencies).filter((x) =>
     x.startsWith(`${packageScope}/`)
   );
 
   if (!packageNames.includes('@interopio/manager')) {
-    continue;
+    return;
   }
-
-  $.cwd = directoryPath;
-  console.log(`Switching to package "${packageJson.name}"...`);
 
   const indexTsPath = path.join($.cwd, 'src/index.ts');
   const indexTsBackupPath = indexTsPath + '.backup';
@@ -54,6 +49,4 @@ for (const { directoryPath, packageJson } of await getPackages()) {
     await fs.copyFile(indexTsBackupPath, indexTsPath);
     await fs.rm(indexTsBackupPath);
   }
-
-  console.log();
-}
+});
