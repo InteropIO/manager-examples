@@ -1,6 +1,6 @@
 # Introduction
 
-An example showing how to configure **io.Manager** to use a custom logs processor with OpenTelemetry
+An example showing how to configure **io.Manager** to use a custom OpenTelemetry logs processor 
 
 # Prerequisites
 
