@@ -1,5 +1,5 @@
 {
-  "name": "otel-custom-trace-exporter",
+  "name": "auth-okta-manager",
   "version": "0.0.1",
   "private": true,
   "type": "commonjs",
@@ -10,8 +10,7 @@
     "format-check": "prettier --cache --check ."
   },
   "dependencies": {
-    "@interopio/manager": "^1.7.0",
-    "@opentelemetry/exporter-trace-otlp-http": "^0.54.0"
+    "@interopio/manager": "^1.7.0"
   },
   "devDependencies": {
     "prettier": "^3.3.3",
