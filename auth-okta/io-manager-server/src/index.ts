@@ -1,9 +1,9 @@
 import { start, Config } from '@interopio/manager';
 
 const config: Config = {
-  name: 'local',
-  base: 'api',
+  name: 'example',
   port: 4356,
+  base: 'api',
   store: {
     type: 'mongo',
 
