@@ -1,3 +1,4 @@
+import React from 'react';
 import AdminUI from '@interopio/manager-admin-ui';
 
 import '@interopio/theme-demo-apps';
