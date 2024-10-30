@@ -4,17 +4,19 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "format": "prettier --cache --write .",
-    "format-check": "prettier --cache --check .",
+    "format-self": "prettier --cache --write .",
+    "format-check-self": "prettier --cache --check .",
     "clean": "node ./scripts/clean.js",
     "install-local": "node ./scripts/install-local.js",
     "install-remote": "node ./scripts/install-remote.js",
-    "test-examples": "node ./scripts/test-examples.js",
+    "test": "node ./scripts/test-examples.js",
     "local-registry-check": "node ./scripts/local-registry-check.js",
     "build": "node ./scripts/build.js",
-    "format-examples": "node ./scripts/format.js"
+    "format": "node ./scripts/format.js",
+    "exec": "node ./scripts/exec.js"
   },
   "dependencies": {
+    "commander": "^12.1.0",
     "zx": "^8.1.9"
   },
   "devDependencies": {

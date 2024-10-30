@@ -2,9 +2,12 @@ import path from 'node:path';
 import fs from 'node:fs/promises';
 
 import { $ } from 'zx';
+import { program } from 'commander';
 
 import { packageScope } from './helpers/variables.js';
 import { visitPackages } from './helpers/visit-packages.js';
+
+const options = program.parse().opts();
 
 async function patchIndexTs(indexTsPath) {
   const indexTsContents = (await fs.readFile(indexTsPath)).toString();
@@ -26,7 +29,7 @@ async function patchIndexTs(indexTsPath) {
   return lines.join('\n');
 }
 
-await visitPackages(async ({ packageJson }) => {
+await visitPackages(options.package, async ({ packageJson }) => {
   const directDependencies = Object.keys(packageJson.dependencies).filter((x) =>
     x.startsWith(`${packageScope}/`)
   );
