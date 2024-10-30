@@ -10,8 +10,7 @@
     "format": "prettier --cache --write .",
     "format-check": "prettier --cache --check ."
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "prettier": "^3.3.3",
     "typescript": "^5.6.3",

@@ -16,9 +16,9 @@ After you don this each request to the server will goes through the custom **aut
 
 If successful the **authenticator** must return an object corresponding the user making the request. This object contains the user **id** and an array of **groups** that this user belongs to. Based on those groups the server determines the list of applications and layouts that should be returned to the user.
 
-In this example the "token" passed to the server is simply the username encoded in the following format `user:<USERNAME>`; The list of initial users & groups are hardcoded [data.ts](./server/src/data.ts).
+In this example the "token" passed to the server is simply the username encoded in the following format `user:<USERNAME>`; The list of initial users & groups are hardcoded [data.ts](./io-manager-server/src/data.ts).
 
-To start the example server follow the [instructions](./server/README.md) in the server folder.
+To start the example server follow the [instructions](./io-manager-server/README.md) in the server folder.
 
 ## Adding a Custom Login Screen
 
@@ -26,7 +26,7 @@ io.Connect Desktop allows showing a login screen before the first application is
 
 In this example the login page contains a single email field and produces a "token" based on the submitted email.
 
-To start the example login page follow the [instructions](./login/README.md) in the server folder.
+To start the example login page follow the [instructions](./io-cd-login/README.md) in the server folder.
 
 For more info on customizing the login screen check our docs [Login Screen](https://docs.interop.io/desktop/getting-started/how-to/rebrand-io-connect/functionality/index.html#login_screen).
 
@@ -91,12 +91,12 @@ To remove the default app stores, set the "appStores" top-level key to an empty 
 
 ## Protecting the Admin UI with a login page
 
-In this example the Administrative UI is customized with a [custom **authenticator**](./admin-ui/src/auth.ts). The authenticator re-directs to the login page. After the user log-ins the login sends back the generated token as a query param. Then **Admin UI** then uses this token for calls to the server.
+In this example the Administrative UI is customized with a [custom **authenticator**](./io-manager-admin-ui/src/MyAuthProvider.ts). The authenticator re-directs to the login page. After the user log-ins the login sends back the generated token as a query param. Then **Admin UI** then uses this token for calls to the server.
 **Note that this example is for demonstrative purposes and should not be used in production.**
 
-To access **Admin UI** users must belong to a special group (**GLUE42_SERVER_ADMIN**). Check [data.ts](./server/src/data.ts) for the list of users that have that group and use one of them to login.
+To access **Admin UI** users must belong to a special group (**GLUE42_SERVER_ADMIN**). Check [data.ts](./io-manager-server/src/data.ts) for the list of users that have that group and use one of them to login.
 
-To start the Admin UI follow the [instructions](./admin-ui/README.md) in the admin-ui folder.
+To start the Admin UI follow the [instructions](./io-manager-admin-ui/README.md) in the admin-ui folder.
 
 In a real world scenario you have the following options to protect admin-ui:
 

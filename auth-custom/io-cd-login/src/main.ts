@@ -1,3 +1,5 @@
+import './t42bootstrap.bundle.css';
+
 const glue42gd = (window as any).glue42gd;
 
 async function login() {
