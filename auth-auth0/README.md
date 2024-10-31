@@ -87,6 +87,8 @@ npm run start
 
 ```
 
+- The Admin UI can be found at http://localhost:8080/admin
+
 # io.Connect Desktop configuration
 
 ### Configure io.Connect Desktop to connect to io.Manager
