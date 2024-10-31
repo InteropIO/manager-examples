@@ -6,11 +6,7 @@ Basic example that shows how to use OpenTelemetry with **io.Manager**
 
 ### Database
 
-This example is configured to use **MongoDB**.
-
-You will need to either have a local instance or setup a remote database to connect to.
-
-For more information visit our documentation page on the subject: https://docs.interop.io/manager/databases/mongo/index.html
+io.Manager requires a database to connect to - this example uses MongoDB, but you can use any other of the supported databases. You will need to either have a local instance or setup a remote database to connect to. For more information visit our Documentation page on the subject: https://docs.interop.io/manager/databases/overview/index.html
 
 ### interop.io Artifactory
 
