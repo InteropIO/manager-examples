@@ -36,16 +36,13 @@ interface AppProps {
 
 export const App = ({ baseName }: AppProps) => {
   const authProvider = useCustomOktaProvider(baseName);
-
   return (
-    <>
-      <AdminUI
-        apiURL="http://localhost:4356/api"
-        theme="dark"
-        baseName={baseName}
-        auth={authProvider}
-      />
-    </>
+    <AdminUI
+      apiURL="http://localhost:4356/api"
+      theme="dark"
+      baseName={baseName}
+      auth={authProvider}
+    />
   );
 };
 

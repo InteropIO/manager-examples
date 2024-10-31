@@ -15,7 +15,6 @@ const config: Config = {
   token: {
     secret: '<YOUR_SECRET>',
   },
-  auth_exclusive_users: ['admin'],
   auth_method: 'custom',
   auth_custom: new MyAuthenticator(),
   groups_service: new MyGroupsService(),

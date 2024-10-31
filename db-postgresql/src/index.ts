@@ -5,7 +5,7 @@ const config: Config = {
   port: 4356,
   base: 'api',
   auth_method: 'none',
-  auth_exclusive_users: ['example_user'],
+  auth_exclusive_users: ['admin'],
   store: {
     type: 'postgresql',
     connection: 'postgresql://db_user:Password123$@localhost:5432',

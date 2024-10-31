@@ -5,7 +5,7 @@ const config: Config = {
   port: 4356,
   base: 'api',
   auth_method: 'none',
-  auth_exclusive_users: ['example_user'],
+  auth_exclusive_users: ['admin'],
   store: {
     type: 'mongo',
     connection:
