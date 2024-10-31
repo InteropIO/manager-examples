@@ -2,6 +2,12 @@
 
 This repository contains various examples on how to setup **io.Manager**
 
+# Database
+
+- [db-mongo](./db-mongo) - An example that demonstrates how to setup a **io.Manager** instance to use MongoDB
+- [db-postgresql](./db-postgresql) - An example that demonstrates how to setup a **io.Manager** instance to use PostgreSQL
+- [db-mssql](./db-mssql) - An example that demonstrates how to setup a **io.Manager** instance to use MSSQL (SQL Server)
+
 # Authentication
 
 - [auth-none](./auth-none) - An example that demonstrates how to setup a **io.Manager** instance to use None authentication
