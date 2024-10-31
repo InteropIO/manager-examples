@@ -1,6 +1,6 @@
-# io.Manager Okta Example
+# io.Manager Auth0 Example
 
-This example demonstrates how to setup a io.Manager instance to use Okta authentication (OAuth2 & OIDC).
+This example demonstrates how to setup a io.Manager instance to use Auth0 authentication (OAuth2 & OIDC).
 
 ## Prerequisites
 
@@ -20,17 +20,39 @@ Before you begin you need to add _.npmrc_ files with the following content into 
 //glue42.jfrog.io/artifactory/api/npm/default-npm-virtual/:always-auth=true
 ```
 
-# Okta Setup
+# Auth0 Setup
 
-In your Okta admin panel go to the **Applications** menu and select **Create App Integration**.
+### Create an Auth0 API 
+- In your Auth0 admin panel go to the **Applications** => **APIs** => **Create API**
+- Put `http://localhost:4356/api` as the identifier
+- Navigate to the **Settings** tab of the API
+- Scroll down and check the **Allow Offline Access** checkbox
+- Go to the **RBAC Settings** section and enable both **Enable RBAC** and **Add Permissions in the Access Token**
+- Scroll down and click **Save**
+- In the **Permission** tab of the API, add a permission called `admin` with a description `io.Manager Admin access`. The **Permission** tab should look like this:
+  ![image](./permissions-screenshot.png)
+ 
 
-When asked, select **OIDC - OpenID Connect** for the **Sign-in method** and **Single-Page Application** for the **Application type**.
+### Create an Auth0 Application
+- In your Auth0 admin panel go to the **Applications** => **Applications** => **Create Application**
+- Give it a name, select **Single Page Web Applications** and hit **Create**
+- In the **Settings** tab of the API
+  - Copy **Client ID**, **Domain** for later use.
+  - Scroll down to **Advanced Settings**, go to the **Endpoints** tab and copy the value of **JSON Web Key Set** for later use.  
+- Scroll to **Application URIs** and fill out the URLs
+  - Set **Allowed Callback URLs** to `http://localhost:8080/login/callback` 
+  - Set **Allowed Logout URLs** to `http://localhost:8080/admin/logout`
+  - Set **Allowed Web Origins** to `http://localhost:8080`
+  - Click **Save Changes**
+  
+### Assign the "admin" permission to your user
+- In your Auth0 admin panel go to the **User Management** => **Users**
+- Select yor user
+- Navigate to the **Permissions** tab
+- Click on **Assign Permissions**
+- Select the correct API and permission
+- Click **Add Permission**
 
-Click the **Refresh Token** checkbox under **Grant type** and **Core grants**.
-
-Make sure to enter the correct redirect urls for the applications.
-- Set "Sign-in redirect URIs" to `http://localhost:8080/login/callback`
-- Set "Sign-out redirect URIs" to `http://localhost:8080/admin/logout`
 
 # How to run
 
@@ -54,7 +76,7 @@ npm run start
 
 - Navigate to the `io-manager-admin-ui` directory.
 
-- Open `src/App.tsx` and fill out the okta client options. Look for the `TODO` comments.
+- Open `src/App.tsx` and fill out the Auth0 client options. Look for the `TODO` comments.
 
 - Run the following commands to restore the npm packages and start the application:
 
@@ -88,9 +110,9 @@ This will add the Server as an additional application store. If you want the io.
 
 This will also instruct io.Connect Desktop to store Layouts and Application Preferences on the io.Manager Server.
 
-### Configure io.Connect Desktop to use the okta sign-in page
+### Configure io.Connect Desktop to use the Auth0 sign-in page
 
-To configure io.Connect Desktop to use the okta sign-in page add the following configuration in `system.json`:
+To configure io.Connect Desktop to use the Auth0 sign-in page add the following configuration in `system.json`:
 
 ```json
 {
