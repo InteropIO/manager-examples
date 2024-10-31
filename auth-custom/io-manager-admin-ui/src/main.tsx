@@ -1,14 +1,16 @@
 import ReactDOM from 'react-dom';
 import React, { StrictMode } from 'react';
-import AdminUI from '@interopio/manager-admin-ui';
 
-import { MyAuthProvider } from './MyAuthProvider';
+import AdminUI from '@interopio/manager-admin-ui';
 
 import '@interopio/theme-demo-apps';
 import '@interopio/theme-demo-apps/dist/packages/rc-select.css';
 import '@interopio/manager-admin-ui/dist/src/styles/index.css';
 import '@ag-grid-community/core/dist/styles/ag-grid.css';
+
 import './styles.css';
+
+import { MyAuthProvider } from './MyAuthProvider';
 
 ReactDOM.render(
   <StrictMode>

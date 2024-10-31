@@ -75,7 +75,7 @@ npm run start
 
 - Navigate to the `io-manager-admin-ui` directory.
 
-- Open `src/App.tsx` and fill out the Auth0 client options. Look for the `TODO` comments.
+- Open `src/main.tsx` and fill out the Auth0 client options. Look for the `TODO` comments.
 
 - Run the following commands to restore the npm packages and start the application:
 
