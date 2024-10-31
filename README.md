@@ -4,6 +4,7 @@ This repository contains various examples on how to setup **io.Manager**
 
 # Authentication
 
+- [auth-none](./auth-none) - An example that demonstrates how to setup a **io.Manager** instance to use None authentication
 - [auth-basic](./auth-basic) - An example that demonstrates how to setup a **io.Manager** instance to use Basic authentication
 - [auth-auth0](./auth-auth0) - An example that demonstrates how to setup a **io.Manager** instance to use Auth0 authentication 
 - [auth-okta](./auth-okta) - An example that demonstrates how to setup a **io.Manager** instance to use Okta authentication

@@ -1,4 +1,4 @@
-import { start, Config } from '@interopio/manager';
+import { start, type Config } from '@interopio/manager';
 
 const config: Config = {
   name: 'example',

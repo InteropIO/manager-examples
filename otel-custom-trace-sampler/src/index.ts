@@ -1,4 +1,4 @@
-import { start, Config } from '@interopio/manager';
+import { start, type Config } from '@interopio/manager';
 import { TraceIdRatioBasedSampler } from '@opentelemetry/sdk-trace-node';
 
 const config: Config = {
