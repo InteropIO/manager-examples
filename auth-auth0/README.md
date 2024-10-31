@@ -38,7 +38,6 @@ Before you begin you need to add _.npmrc_ files with the following content into 
 - Give it a name, select **Single Page Web Applications** and hit **Create**
 - In the **Settings** tab of the API
   - Copy **Client ID**, **Domain** for later use.
-  - Scroll down to **Advanced Settings**, go to the **Endpoints** tab and copy the value of **JSON Web Key Set** for later use.  
 - Scroll to **Application URIs** and fill out the URLs
   - Set **Allowed Callback URLs** to `http://localhost:8080/login/callback` 
   - Set **Allowed Logout URLs** to `http://localhost:8080/admin/logout`

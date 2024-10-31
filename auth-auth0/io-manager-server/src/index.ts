@@ -17,11 +17,9 @@ const config: Config = {
   },
   auth_method: 'auth0',
   auth_auth0: {
-    // TODO: Replace this with your domain. (you must place https:// at the start of the string and / at the end)
-    issuer: 'https://dev-vccmw066d2ot7rcj.eu.auth0.com/',
+    // TODO: Replace this with your domain. (you must place https:// at the start of the string)
+    issuerBaseURL: 'https://dev-vccmw066d2ot7rcj.eu.auth0.com',
     audience: 'http://localhost:4356/api',
-    // TODO: Replace this with your JWKS Uri.
-    jwksUri: 'https://dev-vccmw066d2ot7rcj.eu.auth0.com/.well-known/jwks.json',
   },
 };
 
