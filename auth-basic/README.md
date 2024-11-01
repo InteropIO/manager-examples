@@ -56,7 +56,7 @@ npm run start
 
 - You can create new users by navigating to **Users** => **All users** => **Add User**
  
-- You can give the newly created user permissions to use the Admin UI, click on the user and assign it to the `GLUE42_SERVER_ADMIN` group.
+- To give the newly created user permissions to use the Admin UI, click on the user and assign it to the `GLUE42_SERVER_ADMIN` group.
 
 - The user page should look like this: ![user-page-admin-group.png](./user-page-admin-group.png)
 
