@@ -22,6 +22,10 @@ async function patchIndexTs(indexTsPath) {
         lines[i] = 'start(config).then(server => server.stop());';
       }
 
+      if (line === '})().catch(console.error);') {
+        lines[i] = 'await server.stop(); })().catch(console.error);';
+      }
+
       break;
     }
   }
