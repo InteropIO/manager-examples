@@ -10,7 +10,7 @@ export async function visitPackages(packageName, fn) {
 
   for (const packageObject of await getPackages()) {
     if (packageName && packageObject.packageJson.name !== packageName) {
-      return;
+      continue;
     }
 
     $.cwd = packageObject.packagePath;
