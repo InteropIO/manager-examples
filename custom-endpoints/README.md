@@ -1,16 +1,12 @@
 # Introduction
 
-An example that demonstrates how to setup a **io.Manager** instance to use MongoDB
+An example that demonstrates how add custom endpoints to **io.Manager**.
 
 # Prerequisites
 
 ### Database
 
-This example requires you to have a MongoDB database to connect to.
-
-You will need to either have a local instance or setup a remote database.
-
-For more information visit our Documentation page on the subject: https://docs.interop.io/manager/databases/mongo/index.html
+io.Manager requires a database to connect to - this example uses MongoDB, but you can use any other of the supported databases. You will need to either have a local instance or setup a remote database to connect to. For more information visit our Documentation page on the subject: https://docs.interop.io/manager/databases/overview/index.html
 
 ### interop.io Artifactory
 

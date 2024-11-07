@@ -2,8 +2,6 @@ import { start, type Config } from '@interopio/manager';
 import type { DataRequest } from '@interopio/manager-api';
 
 void (async () => {
-  const serverPort = 4356;
-
   const managerPort = 4357;
   const managerBase = 'api';
 
@@ -23,6 +21,7 @@ void (async () => {
     },
   };
 
+  // Start io.Manager on port 4357
   const server = await start(config);
 
   const { getLogger } = await import('log4js');
@@ -33,20 +32,29 @@ void (async () => {
   const { default: cors } = await import('cors');
   const { createProxyMiddleware } = await import('http-proxy-middleware');
 
+  // Create a new express HTTP server
   const app = express();
 
+  // Enable CORS
+  app.use(cors());
+
+  // Use reverse-proxy middleware to forward traffic:
+  //
+  // From: http://localhost:4356/api (the proxy server)
+  // To:   http://localhost:4357/api (io.Manager server)
   app.use(
     `/${managerBase}`,
     createProxyMiddleware({
       target: `http://localhost:${managerPort}/${managerBase}`,
-      changeOrigin: false,
+      changeOrigin: true,
     })
   );
 
-  app.use(cors());
-
+  // Implement any custom endpoints.
   app.post('/custom/publish-layout', bodyParser.json(), async (req, res) => {
     try {
+      // Use the `server` object received by starting io.Manager to interface with it
+      // by calling the io.Manager controllers directly.
       const layoutQuery: DataRequest = {
         filter: {
           type: {
@@ -90,7 +98,10 @@ void (async () => {
     }
   });
 
-  app.listen(serverPort, () => {
-    proxyLogger.log(`Proxy server started on ${serverPort}`);
+  const proxyServerPort = 4356;
+
+  // Start the proxy server on port 4356
+  app.listen(proxyServerPort, () => {
+    proxyLogger.log(`Proxy server started on ${proxyServerPort}`);
   });
 })().catch(console.error);
