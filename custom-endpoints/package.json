@@ -1,0 +1,26 @@
+{
+  "name": "custom-endpoints",
+  "version": "0.0.1",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "build": "rimraf ./dist && tsc",
+    "start": "npm run build && node ./dist/index.js",
+    "format": "prettier --cache --write .",
+    "format-check": "prettier --cache --check ."
+  },
+  "dependencies": {
+    "@interopio/manager": "^1.7.0",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "http-proxy-middleware": "^3.0.3"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "prettier": "^3.3.3",
+    "rimraf": "^5.0.10",
+    "typescript": "^5.6.3"
+  }
+}
