@@ -29,6 +29,7 @@ When asked, select **OIDC - OpenID Connect** for the **Sign-in method** and **Si
 Click the **Refresh Token** checkbox under **Grant type** and **Core grants**.
 
 Make sure to enter the correct redirect urls for the applications.
+
 - Set "Sign-in redirect URIs" to `http://localhost:8080/login/callback`
 - Set "Sign-out redirect URIs" to `http://localhost:8080/admin/logout`
 
@@ -40,7 +41,7 @@ Make sure to enter the correct redirect urls for the applications.
 
 - Open `src/index.ts` and look for the `TODO` comments.
 
-- Run the following commands to restore the npm packages and start the server:
+- Run the following commands to install the npm packages and start the server:
 
 ```sh
 
@@ -56,7 +57,7 @@ npm run start
 
 - Open `src/main.tsx` and fill out the okta client options. Look for the `TODO` comments.
 
-- Run the following commands to restore the npm packages and start the application:
+- Run the following commands to install the npm packages and start the application:
 
 ```sh
 
@@ -65,6 +66,7 @@ npm install
 npm run start
 
 ```
+
 - The Admin UI can be found at http://localhost:8080/admin
 
 # io.Connect Desktop configuration

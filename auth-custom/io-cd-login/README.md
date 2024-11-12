@@ -1,6 +1,6 @@
 # How to run
 
-- Restore npm packages
+- Install npm packages
 
 ```sh
 

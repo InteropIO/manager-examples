@@ -40,7 +40,7 @@ npm run start
 
 - Navigate to the `io-manager-admin-ui` directory.
 
-- Run the following commands to restore the npm packages and start the application:
+- Run the following commands to install the npm packages and start the application:
 
 ```sh
 
@@ -55,7 +55,7 @@ npm run start
 - Use username `admin` and password `admin` to login.
 
 - You can create new users by navigating to **Users** => **All users** => **Add User**
- 
+
 - To give the newly created user permissions to use the Admin UI, click on the user and assign it to the `GLUE42_SERVER_ADMIN` group.
 
 - The user page should look like this: ![user-page-admin-group.png](./user-page-admin-group.png)

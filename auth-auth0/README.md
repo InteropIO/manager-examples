@@ -22,7 +22,8 @@ Before you begin you need to add _.npmrc_ files with the following content into 
 
 # Auth0 Setup
 
-### Create an Auth0 API 
+### Create an Auth0 API
+
 - In your Auth0 admin panel go to the **Applications** => **APIs** => **Create API**
 - Put `http://localhost:4356/api` as the identifier
 - Navigate to the **Settings** tab of the API
@@ -31,27 +32,27 @@ Before you begin you need to add _.npmrc_ files with the following content into 
 - Scroll down and click **Save**
 - In the **Permission** tab of the API, add a permission called `admin` with a description `io.Manager Admin access`. The **Permission** tab should look like this:
   ![image](./permissions-screenshot.png)
- 
 
 ### Create an Auth0 Application
+
 - In your Auth0 admin panel go to the **Applications** => **Applications** => **Create Application**
 - Give it a name, select **Single Page Web Applications** and hit **Create**
 - In the **Settings** tab of the API
   - Copy **Client ID**, **Domain** for later use.
 - Scroll to **Application URIs** and fill out the URLs
-  - Set **Allowed Callback URLs** to `http://localhost:8080/login/callback` 
+  - Set **Allowed Callback URLs** to `http://localhost:8080/login/callback`
   - Set **Allowed Logout URLs** to `http://localhost:8080/admin/logout`
   - Set **Allowed Web Origins** to `http://localhost:8080`
   - Click **Save Changes**
-  
+
 ### Assign the "admin" permission to your user
+
 - In your Auth0 admin panel go to the **User Management** => **Users**
 - Select yor user
 - Navigate to the **Permissions** tab
 - Click on **Assign Permissions**
 - Select the correct API and permission
 - Click **Add Permission**
-
 
 # How to run
 
@@ -61,7 +62,7 @@ Before you begin you need to add _.npmrc_ files with the following content into 
 
 - Open `src/index.ts` and look for the `TODO` comments.
 
-- Run the following commands to restore the npm packages and start the server:
+- Run the following commands to install the npm packages and start the server:
 
 ```sh
 
@@ -77,7 +78,7 @@ npm run start
 
 - Open `src/main.tsx` and fill out the Auth0 client options. Look for the `TODO` comments.
 
-- Run the following commands to restore the npm packages and start the application:
+- Run the following commands to install the npm packages and start the application:
 
 ```sh
 
