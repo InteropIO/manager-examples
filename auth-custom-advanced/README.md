@@ -1,7 +1,6 @@
 # io.Manager custom authentication example (using Okta)
 
-**NOTE: This is an example implementation of custom authentication and authorization for io.Manager that just happens to be using Okta. io.Manager has out of the box support for Okta authentication/authorization. An example can be found here: [auth-okta](../auth-okta)
-
+\*\*NOTE: This is an example implementation of custom authentication and authorization for io.Manager that just happens to be using Okta. io.Manager has out of the box support for Okta authentication/authorization. An example can be found here: [auth-okta](../auth-okta)
 
 ## Prerequisites
 
@@ -39,7 +38,7 @@ In your Okta admin panel go to the **Applications** menu and select **Create App
 
 When asked, select **OIDC - OpenID Connect** for the **Sign-in method** and **Single-Page Application** for the **Application type**.
 
-Click the **Refresh Token** checkbox under **Grant type** and **Core grants**. 
+Click the **Refresh Token** checkbox under **Grant type** and **Core grants**.
 
 Make sure to enter the correct redirect urls for the applications. In this development setup the io.Connect Desktop login page is served on `http://localhost:3000`.
 
@@ -53,7 +52,7 @@ Make sure to enter the correct redirect urls for the applications. In this devel
 
 - Open `src/CustomOktaAuthenticator.ts` and fill out the okta verifier options and audiences. Look for the `TODO` comments.
 
-- Run the following commands to restore the npm packages and start the server:
+- Run the following commands to install the npm packages and start the server:
 
 ```sh
 
@@ -69,7 +68,7 @@ npm run start
 
 - Open `src/main.tsx` and fill out the okta client options. Look for the `TODO` comments.
 
-- Run the following commands to restore the npm packages and start the application:
+- Run the following commands to install the npm packages and start the application:
 
 ```sh
 
@@ -85,7 +84,7 @@ npm run start
 
 - Open `src/main.ts` and fill out the okta client options. Look for the `TODO` comments.
 
-- Run the following commands to restore the npm packages and start the application:
+- Run the following commands to install the npm packages and start the application:
 
 ```sh
 

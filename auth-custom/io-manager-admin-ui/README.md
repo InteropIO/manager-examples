@@ -14,7 +14,7 @@ Before you begin you need to add _.npmrc_ file with the following content into t
 
 # How to run
 
-- Restore npm packages
+- Install npm packages
 
 ```sh
 
