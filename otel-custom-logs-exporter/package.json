@@ -10,7 +10,7 @@
     "format-check": "prettier --cache --check ."
   },
   "dependencies": {
-    "@interopio/manager": "^1.7.1",
+    "@interopio/manager": "^1.7.2",
     "@opentelemetry/exporter-logs-otlp-http": "^0.54.0"
   },
   "devDependencies": {
