@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "@interopio/manager-admin-ui": "^2.0.4",
+    "@interopio/manager-admin-ui": "^2.0.5",
     "@interopio/theme-demo-apps": "^4.1.3",
     "@okta/okta-react": "^6.9.0",
     "react": "^17.0.2",
