@@ -10,7 +10,7 @@
     "format-check": "prettier --cache --check ."
   },
   "dependencies": {
-    "@interopio/manager": "^1.7.2",
+    "@interopio/manager": "^1.7.3",
     "@okta/jwt-verifier": "^4.0.1"
   },
   "devDependencies": {
