@@ -27,9 +27,9 @@ void (async () => {
   const { getLogger } = await import('log4js');
   const proxyLogger = getLogger('proxy-logger');
 
-  const { default: express } = await import('express');
-  const { default: bodyParser } = await import('body-parser');
-  const { default: cors } = await import('cors');
+  const express = await import('express');
+  const bodyParser = await import('body-parser');
+  const cors = await import('cors');
   const { createProxyMiddleware } = await import('http-proxy-middleware');
 
   // Create a new express HTTP server

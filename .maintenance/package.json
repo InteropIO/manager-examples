@@ -9,17 +9,20 @@
     "clean": "node ./scripts/clean.js",
     "install-local": "node ./scripts/install-local.js",
     "install-remote": "node ./scripts/install-remote.js",
+    "update-local": "node ./scripts/update-local.js",
+    "update-remote": "node ./scripts/update-remote.js",
     "test": "node ./scripts/test-examples.js",
     "local-registry-check": "node ./scripts/local-registry-check.js",
     "build": "node ./scripts/build.js",
     "format": "node ./scripts/format.js",
-    "exec": "node ./scripts/exec.js"
+    "exec": "node ./scripts/exec.js",
+    "outdated": "node ./scripts/outdated.js"
   },
   "dependencies": {
     "commander": "^12.1.0",
-    "zx": "^8.1.9"
+    "zx": "^8.2.4"
   },
   "devDependencies": {
-    "prettier": "^3.3.3"
+    "prettier": "^3.4.2"
   }
 }
