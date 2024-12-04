@@ -31,3 +31,4 @@ This repository contains various examples on how to setup **io.Manager**
 # Other
 
 - [custom-endpoints](./custom-endpoints) - An example that demonstrates how add custom endpoints to **io.Manager**.
+- [node-esm](./node-esm) - An example that demonstrates how to setup a **io.Manager** in a Node.js native ESM project.
