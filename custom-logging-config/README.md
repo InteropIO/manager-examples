@@ -1,6 +1,14 @@
 # Introduction
 
-An example that demonstrates how to implement custom endpoints to **io.Manager**.
+An example that demonstrates how to pass custom logging configuration to **io.Manager**.
+
+# Custom logging config
+
+**io.Manager** uses [log4js](https://log4js-node.github.io/log4js-node/) for logging.
+
+When started, **io.Manager** will try to load [log4js](https://log4js-node.github.io/log4js-node/) configuration file from `./config/logger.json` (relative to the working directory of the process). If not found it will default to a hardcoded configuration that will write logs into the `./logs` directory (relative to the working directory of the process).
+
+This example uses a [custom log4js config](./config/logger.json) to change the logging directory to `./custom-log-location`.
 
 # Prerequisites
 

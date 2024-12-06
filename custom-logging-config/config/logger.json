@@ -1,0 +1,31 @@
+{
+  "appenders": {
+    "out": {
+      "type": "stdout"
+    },
+    "app": {
+      "type": "file",
+      "filename": "custom-log-location/application.log",
+      "maxLogSize": 10000000,
+      "backups": 5,
+      "minLevel": "info"
+    },
+    "access": {
+      "type": "file",
+      "filename": "custom-log-location/access.log",
+      "maxLogSize": 10000000,
+      "backups": 5,
+      "minLevel": "info"
+    }
+  },
+  "categories": {
+    "default": {
+      "appenders": ["out", "app"],
+      "level": "info"
+    },
+    "access": {
+      "appenders": ["access"],
+      "level": "debug"
+    }
+  }
+}
