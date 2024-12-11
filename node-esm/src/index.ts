@@ -16,4 +16,4 @@ const config: Config = {
   },
 };
 
-start(config);
+await start(config);
