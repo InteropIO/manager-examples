@@ -88,7 +88,7 @@ export const CustomOktaProvider = ({
         );
         void oktaAuth.signInWithRedirect({
           // Where to redirect back to after auth is done. Will be passed to `restoreOriginalUri`.
-          originalUri: location.pathname,
+          originalUri: getReturnToUrl(),
         });
       }
     }
@@ -136,6 +136,10 @@ function getLogOutUrl(baseName?: string) {
 
 function isLogOutUrl(baseName?: string) {
   return location.href.startsWith(getLogOutUrl(baseName));
+}
+
+function getReturnToUrl() {
+  return location.href.substring(location.origin.length);
 }
 
 interface LoggedOutPageProps {
@@ -210,7 +214,7 @@ export const useCustomOktaProvider = (baseName?: string) => {
 
         await oktaAuth.signInWithRedirect({
           // Where to redirect back to after auth is done. Will be passed to `restoreOriginalUri`.
-          originalUri: location.pathname,
+          originalUri: getReturnToUrl(),
         });
       },
 

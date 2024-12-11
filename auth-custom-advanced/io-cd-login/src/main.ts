@@ -1,7 +1,6 @@
 import { OktaAuth, toRelativeUrl } from '@okta/okta-auth-js';
-import IODesktop, { type IOConnectDesktop } from '@interopio/desktop';
 
-type IOConnectWindow = IOConnectDesktop.Windows.IOConnectWindow;
+import { getWindowFromSDK } from './sdk-helpers';
 
 declare global {
   interface Window {
@@ -9,9 +8,26 @@ declare global {
   }
 }
 
-function setUIMessage(message: string) {
-  const element = document.getElementById('indicator')!;
-  element.innerText = message;
+async function showWindow() {
+  if (window.iodesktop?.showWindow) {
+    await window.iodesktop?.showWindow();
+    return;
+  }
+
+  const myWindow = await getWindowFromSDK();
+
+  await myWindow.show();
+  await myWindow.focus();
+}
+
+async function hideWindow() {
+  if (window.iodesktop?.hideWindow) {
+    await window.iodesktop?.hideWindow();
+    return;
+  }
+
+  const myWindow = await getWindowFromSDK();
+  await myWindow.hide();
 }
 
 function reportUnknownError(error: unknown) {
@@ -33,48 +49,41 @@ function reportUnknownError(error: unknown) {
   setUIMessage(message);
 }
 
-async function showSignInScreen(
-  oktaAuth: OktaAuth,
-  ioCDWindow: IOConnectWindow
-) {
+function setUIMessage(message: string) {
+  const element = document.getElementById('indicator')!;
+  element.innerText = message;
+}
+
+function getReturnToUrl() {
+  return location.href.substring(location.origin.length);
+}
+
+async function showSignInScreen(oktaAuth: OktaAuth) {
   setUIMessage('Signing in ...');
 
-  console.log('[io.CD Auth] Showing the sign-in window.');
-  await ioCDWindow.show();
-  await ioCDWindow.focus();
+  await showWindow();
 
   console.log('[io.CD Auth] Redirecting to the Okta sign-in page.');
   await oktaAuth.signInWithRedirect({
     // Pass the current relative url so that we get it in `restoreOriginalUri`
     // at the end of the flow.
-    originalUri: location.pathname,
+    originalUri: getReturnToUrl(),
   });
 }
 
-async function setIOCDPlatformToken(
-  oktaAuth: OktaAuth,
-  ioCDWindow: IOConnectWindow
-) {
+async function setIOCDPlatformToken(oktaAuth: OktaAuth) {
   const user = await oktaAuth.getUser();
 
-  const ioGlobal: any = window.iodesktop || window.glue42gd;
-
   console.log('[io.CD Auth] Setting the io.CD platform token.');
-  ioGlobal.authDone({
+  window.iodesktop.authDone({
     token: oktaAuth.getAccessToken(),
     user: user.sub,
   });
 
-  if (ioCDWindow.isVisible) {
-    console.log('[io.CD Auth] Hiding the sign-in window.');
-    await ioCDWindow.hide();
-  }
+  await hideWindow();
 }
 
-async function onAuthenticated(
-  oktaAuth: OktaAuth,
-  ioCDWindow: IOConnectWindow
-) {
+async function onAuthenticated(oktaAuth: OktaAuth) {
   console.log('[io.CD Auth] Starting auth tracking service. ');
 
   // Subscribe to authentication state changes.
@@ -90,11 +99,11 @@ async function onAuthenticated(
       // If the Okta authentication server allowed the session to be extended,
       // giving us new set of tokens.
       if (newAuthState.isAuthenticated) {
-        await setIOCDPlatformToken(oktaAuth, ioCDWindow);
+        await setIOCDPlatformToken(oktaAuth);
 
         // If the Okta authentication server declined to extend the session.
       } else {
-        await showSignInScreen(oktaAuth, ioCDWindow);
+        await showSignInScreen(oktaAuth);
       }
     } catch (error) {
       reportUnknownError(error);
@@ -115,7 +124,7 @@ async function onAuthenticated(
   // While this may result in sometimes calling `setIOCDPlatformToken(...)` twice,
   // it's better than sometimes not being called at all, which will result in
   // io.CD getting stuck and not being able to complete its initialization.
-  await setIOCDPlatformToken(oktaAuth, ioCDWindow);
+  await setIOCDPlatformToken(oktaAuth);
 
   setUIMessage('Authenticated.');
 }
@@ -124,11 +133,6 @@ async function run() {
   console.log('[io.CD Auth] Initializing. location.href =', location.href);
 
   setUIMessage('Loading ...');
-
-  // Initialize the io.CD SDK.
-  // We need that to show and hide the current window.
-  const io = await IODesktop();
-  const ioCDWindow = io.windows.my()!;
 
   // Initialize the Okta SDK.
   const oktaAuth = new OktaAuth({
@@ -162,18 +166,18 @@ async function run() {
     console.log('[io.CD Auth] Handling redirect.');
 
     await oktaAuth.handleRedirect();
-    await onAuthenticated(oktaAuth, ioCDWindow);
+    await onAuthenticated(oktaAuth);
 
     // If there is an active session. (Stored in browser storage.)
   } else if (await oktaAuth.isAuthenticated()) {
     console.log('[io.CD Auth] Authenticated on initialization.');
 
-    await onAuthenticated(oktaAuth, ioCDWindow);
+    await onAuthenticated(oktaAuth);
 
     // If there is no active session.
   } else {
     console.log('[io.CD Auth] Not authenticated on initialization.');
-    await showSignInScreen(oktaAuth, ioCDWindow);
+    await showSignInScreen(oktaAuth);
   }
 }
 

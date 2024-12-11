@@ -132,7 +132,8 @@ To configure io.Connect Desktop to use the okta sign-in page add the following c
       "window": {
         "width": 540,
         "height": 660,
-        "mode": "flat"
+        "mode": "flat",
+        "hidden": true
       }
     }
   }
