@@ -51,6 +51,12 @@ void (async () => {
   );
 
   // Implement any custom endpoints.
+  // Example body:
+  // {
+  //     "layoutType": "Global",
+  //     "layoutName": "test123",
+  //     "username": "admin"
+  // }
   app.post('/custom/publish-layout', bodyParser.json(), async (req, res) => {
     try {
       // Use the `server` object received by starting io.Manager to interface with it
