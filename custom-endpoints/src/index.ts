@@ -1,5 +1,9 @@
-import { start, type Config } from '@interopio/manager';
-import type { DataRequest } from '@interopio/manager-api';
+import {
+  type Config,
+  type DataRequest,
+  start,
+  TextFilterType,
+} from '@interopio/manager';
 
 void (async () => {
   const managerPort = 4357;
@@ -64,17 +68,17 @@ void (async () => {
       const layoutQuery: DataRequest = {
         filter: {
           type: {
-            type: 'equals',
+            type: TextFilterType.equals,
             filterType: 'text',
             filter: req.body.layoutType,
           },
           name: {
-            type: 'equals',
+            type: TextFilterType.equals,
             filterType: 'text',
             filter: req.body.layoutName,
           },
           owner: {
-            type: 'equals',
+            type: TextFilterType.equals,
             filterType: 'text',
             filter: req.body.username,
           },

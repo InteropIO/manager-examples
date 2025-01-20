@@ -1,4 +1,4 @@
-import type { User } from '@interopio/manager-api';
+import type { User } from '@interopio/manager';
 
 export const GROUP_SERVER_ADMIN = 'GLUE42_SERVER_ADMIN';
 export const GROUP_FRONT_OFFICE = 'Front Office';

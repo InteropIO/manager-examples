@@ -4,9 +4,9 @@ import type {
   Group,
   GroupsFeatures,
   User,
-} from '@interopio/manager-api';
-
-import type { GroupsService, AuditBuilder } from '@interopio/manager';
+  GroupsService,
+  AuditBuilder,
+} from '@interopio/manager';
 
 import { groups, users } from './data';
 

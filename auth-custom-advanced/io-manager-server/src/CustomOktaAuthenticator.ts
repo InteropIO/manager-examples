@@ -3,10 +3,10 @@ import type { Request, Response } from 'express';
 import * as OktaJwtVerifier from '@okta/jwt-verifier';
 
 import {
-  CustomAuthenticator,
+  type CustomAuthenticator,
+  type User,
   CustomAuthUnauthorizedError,
 } from '@interopio/manager';
-import { User } from '@interopio/manager-api';
 
 export class CustomOktaAuthenticator implements CustomAuthenticator {
   private oktaVerifier!: OktaJwtVerifier;

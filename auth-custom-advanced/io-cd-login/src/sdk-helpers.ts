@@ -6,11 +6,11 @@ declare global {
   }
 }
 
-if (!window.IODesktop) {
-  window.IODesktop = (await import('@interopio/desktop')).default;
-}
-
 export async function getWindowFromSDK() {
+  if (!window.IODesktop) {
+    window.IODesktop = (await import('@interopio/desktop')).default;
+  }
+
   const io = await window.IODesktop();
   return io.windows.my()!;
 }

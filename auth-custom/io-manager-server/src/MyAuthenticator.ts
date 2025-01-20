@@ -1,9 +1,10 @@
 import type { Request, Response } from 'express';
 import {
   type CustomAuthenticator,
+  type User,
+  type Token,
   CustomAuthUnauthorizedError,
 } from '@interopio/manager';
-import type { User, Token } from '@interopio/manager-api';
 
 import { users } from './data';
 
