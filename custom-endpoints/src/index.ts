@@ -13,6 +13,8 @@ void (async () => {
     name: 'example',
     port: managerPort,
     base: managerBase,
+    // TODO: Contact us at sales@interop.io to get a valid license.
+    licenseKey: process.env.API_LICENSE_KEY as string,
     auth_method: 'none',
     auth_exclusive_users: ['admin'],
     store: {

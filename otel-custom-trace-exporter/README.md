@@ -1,6 +1,6 @@
 # Introduction
 
-An example showing how to configure **io.Manager** to use a custom OpenTelemetry trace exporter 
+An example showing how to configure **io.Manager** to use a custom OpenTelemetry trace exporter
 
 # Prerequisites
 

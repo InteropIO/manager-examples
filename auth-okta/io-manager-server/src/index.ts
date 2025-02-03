@@ -4,6 +4,8 @@ const config: Config = {
   name: 'example',
   port: 4356,
   base: 'api',
+  // TODO: Contact us at sales@interop.io to get a valid license.
+  licenseKey: process.env.API_LICENSE_KEY as string,
   store: {
     type: 'mongo',
 

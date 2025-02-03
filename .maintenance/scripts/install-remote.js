@@ -16,7 +16,9 @@ await visitPackages(options.package, async ({ packageJson }) => {
     );
 
     for (const packageName of packageNames) {
-      await $`npm install ${packageName}`;
+      const packageNameLatest = packageName + '@latest';
+
+      await $`npm install ${packageNameLatest}`;
     }
 
     await $`npm audit fix`.nothrow();
