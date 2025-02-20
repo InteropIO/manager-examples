@@ -10,7 +10,7 @@
     "format-check": "prettier --cache --check ."
   },
   "dependencies": {
-    "@interopio/manager": "^1.7.3",
+    "@interopio/manager": "^1.7.4",
     "@opentelemetry/sdk-trace-node": "^1.27.0"
   },
   "devDependencies": {
