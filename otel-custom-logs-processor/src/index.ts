@@ -34,4 +34,4 @@ const config: Config = {
   },
 };
 
-start(config).then((server) => server.stop());
+start(config);
