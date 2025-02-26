@@ -11,12 +11,12 @@
   },
   "dependencies": {
     "@interopio/manager": "^2.0.0",
-    "@opentelemetry/exporter-logs-otlp-http": "^0.54.0",
+    "@opentelemetry/exporter-logs-otlp-http": "^0.54.2",
     "@opentelemetry/sdk-logs": "^0.54.0"
   },
   "devDependencies": {
-    "prettier": "^3.4.2",
+    "prettier": "^3.5.2",
     "rimraf": "^5.0.10",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.3"
   }
 }
