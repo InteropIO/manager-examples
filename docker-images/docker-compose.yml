@@ -1,0 +1,53 @@
+name: io-manager-example
+services:
+  db:
+    container_name: "${COMPOSE_PROJECT_NAME}-db"
+    image: mongo:8
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGODB_USER}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGODB_PASSWORD}
+    restart: unless-stopped
+    ports:
+      - "${MONGODB_PORT}:27017"
+    networks:
+      manager-network:
+        aliases:
+          - db
+    volumes:
+      - "db-config:/data/configdb"
+      - "db-data:/data/db"
+  server:
+    container_name: "${COMPOSE_PROJECT_NAME}-server"
+    image: ghcr.io/interopio/manager:latest
+    environment:
+      - API_PORT=${API_PORT}
+      - API_BASE=${API_BASE}
+      - API_LICENSE_KEY=${API_LICENSE_KEY}
+      - API_STORE_TYPE=${API_STORE_TYPE}
+      - API_STORE_MONGO=${API_STORE_MONGO}
+      - API_TOKEN_SECRET=${API_TOKEN_SECRET}
+      - API_AUTH_METHOD=${API_AUTH_METHOD}
+    restart: unless-stopped
+    ports:
+      - "${API_PORT}:${API_PORT}"
+    networks:
+      manager-network:
+        aliases:
+          - server
+  admin-ui:
+    container_name: "${COMPOSE_PROJECT_NAME}-admin-ui"
+    image: ghcr.io/interopio/manager-admin-ui:latest
+    environment:
+      - PUBLIC_URL=${PUBLIC_URL}
+      - REACT_APP_SERVER_BASE=${REACT_APP_SERVER_BASE}
+      - REACT_APP_BASE=${REACT_APP_BASE}
+      - REACT_APP_AUTH=${REACT_APP_AUTH}
+      - REACT_APP_AUTH_USER=${REACT_APP_AUTH_USER}
+    restart: unless-stopped
+    ports:
+      - "${ADMIN_UI_PORT}:80"
+volumes:
+  db-config:
+  db-data:
+networks:
+  manager-network:

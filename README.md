@@ -34,3 +34,4 @@ This repository contains various examples on how to setup **io.Manager**
 - [node-esm](./node-esm) - An example that demonstrates how to setup a **io.Manager** in a Node.js native ESM project.
 - [custom-logging-config](./custom-logging-config) - An example that demonstrates how to pass custom logging configuration to **io.Manager**.
 - [environment-variable-configuration](./environment-variable-configuration) - An example that demonstrates how to configure an **io.Manager** instance using environment variables.
+- [docker-images](./docker-images) - An example that demonstrates how to use the **io.Manager** Docker images to create an instance of **io.Manager**.
