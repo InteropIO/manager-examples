@@ -1,0 +1,20 @@
+{
+  "name": "environment-variable-configuration",
+  "version": "0.0.1",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "build": "rimraf ./dist && tsc",
+    "start": "npm run build && node ./dist/index.js",
+    "format": "prettier --cache --write .",
+    "format-check": "prettier --cache --check ."
+  },
+  "dependencies": {
+    "@interopio/manager": "^2.0.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.5.2",
+    "rimraf": "^5.0.10",
+    "typescript": "^5.7.3"
+  }
+}

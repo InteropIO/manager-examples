@@ -18,16 +18,19 @@ async function patchIndexTs(indexTsPath) {
     const line = lines[i].trim();
 
     if (line) {
-      if (line === 'start(config);') {
-        lines[i] = 'start(config).then(server => server.stop());';
-      }
-
-      if (line === 'await start(config);') {
-        lines[i] = 'const server = await start(config); await server.stop();';
-      }
-
-      if (line === '})().catch(console.error);') {
-        lines[i] = 'await server.stop(); })().catch(console.error);';
+      switch (line) {
+        case 'await start(config);':
+          lines[i] = 'const server = await start(config); await server.stop();';
+          break;
+        case 'start(config);':
+          lines[i] = 'start(config).then(server => server.stop());';
+          break;
+        case 'start();':
+          lines[i] = 'start().then(server => server.stop());';
+          break;
+        case '})().catch(console.error);':
+          lines[i] = 'await server.stop(); })().catch(console.error);';
+          break;
       }
 
       break;
