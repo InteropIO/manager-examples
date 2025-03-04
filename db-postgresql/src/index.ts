@@ -10,11 +10,13 @@ const config: Config = {
   auth_exclusive_users: ['admin'],
   store: {
     type: 'postgresql',
+    // TODO: Replace this with your own PostgreSQL connection string.
     connection: 'postgresql://db_user:Password123$@localhost:5432',
     dbName: 'io_manager',
     schemaName: 'public',
   },
   token: {
+    // TODO: Replace this with your secret.
     secret: '<YOUR_SECRET>',
   },
 };

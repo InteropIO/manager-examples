@@ -8,6 +8,8 @@ const config: Config = {
   licenseKey: process.env.API_LICENSE_KEY as string,
   auth_method: 'none',
   auth_exclusive_users: ['admin'],
+
+  // TODO: Replace this with your own MSSQL login information.
   store: {
     type: 'mssql',
     server: 'localhost',
@@ -17,6 +19,7 @@ const config: Config = {
     dbName: 'io_manager',
   },
   token: {
+    // TODO: Replace this with your secret.
     secret: '<YOUR_SECRET>',
   },
 };

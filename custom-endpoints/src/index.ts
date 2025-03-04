@@ -19,10 +19,12 @@ void (async () => {
     auth_exclusive_users: ['admin'],
     store: {
       type: 'mongo',
+      // TODO: Replace this with your own MongoDB connection string.
       connection:
         'mongodb://db_user:Password123$@localhost:27017/io_manager?authSource=admin',
     },
     token: {
+      // TODO: Replace this with your secret.
       secret: '<YOUR_SECRET>',
     },
   };
@@ -38,7 +40,7 @@ void (async () => {
   const cors = await import('cors');
   const { createProxyMiddleware } = await import('http-proxy-middleware');
 
-  // Create a new express HTTP server
+  // Create a separate express HTTP server
   const app = express();
 
   // Enable CORS
