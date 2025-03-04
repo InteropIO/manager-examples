@@ -8,17 +8,9 @@ An example that demonstrates how to setup a **io.Manager** in a Node.js native E
 
 io.Manager requires a database to connect to - this example uses MongoDB, but you can use any other of the supported databases. You will need to either have a local instance or setup a remote database to connect to. For more information visit our Documentation page on the subject: https://docs.interop.io/manager/databases/overview/index.html
 
-### interop.io Artifactory
+### License
 
-Before you begin you need to add _.npmrc_ file with the following content into this directory (placeholders can be filled in after setting up JFrog account)
-
-```sh
-@interopio:registry=https://glue42.jfrog.io/artifactory/api/npm/default-npm-virtual/
-//glue42.jfrog.io/artifactory/api/npm/:_auth=<COPY_FROM_JFROG_SETUP>
-//glue42.jfrog.io/artifactory/api/npm/default-npm-virtual/:username=<COPY_FROM_JFROG_SETUP>
-//glue42.jfrog.io/artifactory/api/npm/default-npm-virtual/:email=<COPY_FROM_JFROG_SETUP>
-//glue42.jfrog.io/artifactory/api/npm/default-npm-virtual/:always-auth=true
-```
+**io.Manager** requires a license key to operate. To acquire a license key, contact us at `sales@interop.io`.
 
 # How to run
 

@@ -4,21 +4,13 @@ This example demonstrates how to setup a io.Manager instance to use Basic authen
 
 ## Prerequisites
 
-_**Setup MongoDB or another database**_
+### Database
 
 io.Manager requires a database to connect to - this example uses MongoDB, but you can use any other of the supported databases. You will need to either have a local instance or setup a remote database to connect to. For more information visit our Documentation page on the subject: https://docs.interop.io/manager/databases/overview/index.html
 
-_**Setup access to interop.io Artifactory**_
+### License
 
-Before you begin you need to add _.npmrc_ files with the following content into _io-manager-server_ and _io-manager-admin-ui_ directories (placeholders can be filled in after setting up JFrog account)
-
-```sh
-@interopio:registry=https://glue42.jfrog.io/artifactory/api/npm/default-npm-virtual/
-//glue42.jfrog.io/artifactory/api/npm/:_auth=<COPY_FROM_JFROG_SETUP>
-//glue42.jfrog.io/artifactory/api/npm/default-npm-virtual/:username=<COPY_FROM_JFROG_SETUP>
-//glue42.jfrog.io/artifactory/api/npm/default-npm-virtual/:email=<COPY_FROM_JFROG_SETUP>
-//glue42.jfrog.io/artifactory/api/npm/default-npm-virtual/:always-auth=true
-```
+**io.Manager** requires a license key to operate. To acquire a license key, contact us at `sales@interop.io`.
 
 # How to run
 
