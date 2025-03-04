@@ -2,11 +2,7 @@ import { $ } from 'zx';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
-import {
-  localRegistryURl,
-  packageScope,
-  remoteRegistryURL,
-} from './variables.js';
+import { localRegistryURl, packageScope } from './variables.js';
 
 async function useNpmrc(contents, fn) {
   const npmrcPath = path.join($.cwd, '.npmrc');
@@ -51,21 +47,6 @@ export async function useLocalRegistryNpmrc(fn) {
       scopes: [packageScope],
       attributes: {
         _authToken: '${VERDACCIO_TOKEN}',
-      },
-    }),
-    fn
-  );
-}
-
-export async function useRemoteRegistryNpmrc(fn) {
-  await useNpmrc(
-    createNpmrcFile({
-      url: remoteRegistryURL,
-      global: false,
-      scopes: [packageScope],
-      attributes: {
-        _authToken: '${JFROG_TOKEN}',
-        'always-auth': 'true',
       },
     }),
     fn
