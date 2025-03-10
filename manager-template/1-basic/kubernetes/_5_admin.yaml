@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
       - name: admin-ui-container
-        image: ghcr.io/interopio/manager-admin-ui:2.0.0
+        image: ghcr.io/interopio/manager-admin-ui:latest
         imagePullPolicy: Always
         envFrom:
           - configMapRef:

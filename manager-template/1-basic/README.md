@@ -24,7 +24,7 @@ Use [this article](https://minikube.sigs.k8s.io/docs/start/) to setup minikube.
 
 2. Apply kubernetes configurations
    ```bash
-   cd '.\1. basic'
+   cd ./1-basic
    kubectl apply -f ./kubernetes
    ```
 
@@ -50,38 +50,3 @@ In the kubernetes folder you will find the following files:
 - `6_ingress.yaml`: Configures the ingress rules for accessing the application from outside the Kubernetes cluster
   - the server is accessed on /server
   - the admin UI is accessed on /admin-ui
-
-### Server
-
-| ENV variable                | Description                                                                                                                                     | Default                          | Possible Values                  | 
-| :-------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------- | :------------------------------- |
-| API_PORT                    | Port of the Server API                                                                                                                          | 4345                             |                                  |             
-| API_BASE                    | Base of the API - use this to prefix endpoints of the API                                                                                       | ""                               |                                  |
-| API_NAME                    | Name of the Server instance - used for logging purposes                                                                                         | local                            |                                  |
-| API_STORE_TYPE              | Store type                                                                                                  | mongo                            | mongo, postgresql, mssql         |
-| API_STORE_MONGO             | Connection string to the selected store type                                                                                                    | mongodb://localhost:27017/server |                                  |
-| API_AUTH_METHOD             | Auth method                                                                                                                                     | none                             | none, basic, auth0               |
-| API_AUTH_EXCLUSIVE_USERS    | List of users that can access the server without being part of the GLUE42_SERVER_ADMIN group                                                    | []                               |                                  |
-| API_AUTH_AUTH0_AUDIENCE     | [Only if API_AUTH_METHOD=auth0] AUTH0 audience                                                                                                  | ""                               |                                  |
-| API_AUTH_AUTH0_ISSUER       | [Only if API_AUTH_METHOD=auth0] AUTH0 issuer                                                                                                    | ""                               |                                  |
-| API_AUTH_AUTH0_JWKSURI      | [Only if API_AUTH_METHOD=auth0] AUTH0 JSKSURI                                                                                                   | ""                               |                                  |
-| API_AUTH_METHOD_BASIC_USERS | [Only if API_AUTH_METHOD=basic] List of users that can access the server without being part of the GLUE42_SERVER_ADMIN group                    | ""                               |                                  |
-| API_APP_LOG_FILE            | Location of the main app log file                                                                                                               | "logs/application.log"           |                                  |
-| API_APP_ACCESS_LOG_FILE     | Location of the access log file                                                                                                                 | "logs/access.log"                |                                  |
-| API_TOKEN_EXPIRES_IN        | Server token expiration in seconds                                                                                                              | 2592000                          |                                  |                    
-| API_MONITORING              | Set external monitoring system. Set to none to stop publishing metrics to sentry                                                                | sentry                           | sentry, none                     | 
-
-
-### Admin UI
-
-| ENV variable                | Description                                                                                                                                     | Default                          | Possible Values                  | 
-| :-------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------- | :------------------------------- |
-| REACT_APP_SERVER_BASE       | Port of the Server API                                                                                                                          | 4345                             |                                  |             
-| PUBLIC_URL                  | Base of the API - use this to prefix endpoints of the API                                                                                       | ""                               |                                  |
-| REACT_APP_BASE              | Name of the Server instance - used for logging purposes                                                                                         | local                            |                                  |
-| REACT_APP_AUTH              | Auth method used by the server                                                                                                                  | basic                            | none, basic, auth0               |
-| REACT_APP_AUTH_USER         | [Only if REACT_APP_AUTH=none] sets the user that will be used to connect to the server, should match one of the API_AUTH_EXCLUSIVE_USERS in the server config  | mongodb://localhost:27017/server |                                  |
-| REACT_APP_AUTH0_DOMAIN      | [Only if REACT_APP_AUTH=auth0] Auth0 Domain       | mongodb://localhost:27017/server |                                  |
-| REACT_APP_AUTH0_CLIENT_ID   | [Only if REACT_APP_AUTH=auth0] Auth0 Client ID    | mongodb://localhost:27017/server |                                  |
-| REACT_APP_AUTH0_AUDIENCE    | [Only if REACT_APP_AUTH=auth0] Auth0 Audience     | mongodb://localhost:27017/server |                                  |
-| REACT_APP_AUTH0_REDIRECT_URL| [Only if REACT_APP_AUTH=auth0] Auth0 Redirect URL | mongodb://localhost:27017/server |                                  |

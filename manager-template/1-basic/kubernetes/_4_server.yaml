@@ -31,7 +31,7 @@ spec:
             claimName: server-logs-pvc
       containers:
       - name: server-container
-        image: ghcr.io/interopio/manager:1.4.0
+        image: ghcr.io/interopio/manager:latest
         imagePullPolicy: Always
         envFrom:
           - configMapRef:
