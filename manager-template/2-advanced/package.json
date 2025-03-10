@@ -1,0 +1,22 @@
+{
+  "name": "io-manager-template",
+  "version": "0.0.1-beta",
+  "scripts": {
+    "build:proxy:image": "docker build --build-arg BUILD_ENV=mini -t io-manager-proxy -f ./services/proxy/Dockerfile.local .",
+    "build:admin:image": "docker build -t io-manager-admin -f ./services/admin/Dockerfile.local .",
+    "build:server:image": "docker build -t io-manager-server -f ./services/server/Dockerfile.local .",
+    "cleanImages": "docker image rm io-manager-proxy io-manager-admin io-manager-server",
+    "cleanMinikubeCache": "minikube cache delete io-manager-proxy && minikube cache delete io-manager-admin && minikube cache delete io-manager-server",
+    "set:mini:images": "minikube image load io-manager-proxy io-manager-admin io-manager-server",
+    "build:images": "concurrently \"npm run build:proxy:image\" \"npm run build:admin:image\" \"npm run build:server:image\"",
+    "reload:mini": "kubectl delete -f ./kubernetes-minikube && npm run setup:mini",
+    "setup:mini": "npm run build:images && npm run set:mini:images && kubectl apply -f ./kubernetes-minikube",
+    "tunnel:mini": "minikube tunnel",
+    "start": "docker-compose -p io-manager up --build "
+  },
+  "keywords": [],
+  "author": "",
+  "dependencies": {
+    "concurrently": "^8.1.0"
+  }
+}

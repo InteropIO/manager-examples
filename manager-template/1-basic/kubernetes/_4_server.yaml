@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: server-svc
+spec:
+  selector:
+    pod: server
+  ports:
+    - protocol: TCP
+      port: 4356
+      targetPort: 4356
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      pod: server
+  template:
+    metadata:
+      labels:
+        pod: server
+    spec:
+      volumes:
+        - name: server-logs-volume
+          persistentVolumeClaim:
+            claimName: server-logs-pvc
+      containers:
+      - name: server-container
+        image: ghcr.io/interopio/manager:1.4.0
+        imagePullPolicy: Always
+        envFrom:
+          - configMapRef:
+              name: server-config
+        resources:
+          limits:
+            memory: "512Mi"
+          requests:
+            memory: "256Mi"
+        volumeMounts:
+          - name: server-logs-volume
+            mountPath: /home/node/app/logs

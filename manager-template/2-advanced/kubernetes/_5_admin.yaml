@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: admin-svc
+spec:
+  selector:
+    pod: admin-ui
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: admin-ui-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      pod: admin-ui
+  template:
+    metadata:
+      labels:
+        pod: admin-ui
+    spec:
+      containers:
+      - name: io-manager-admin-container
+        image: "io-manager-admin"
+        imagePullPolicy: Never
+        resources:
+          limits:
+            memory: "128Mi"
+          requests:
+            memory: "64Mi"

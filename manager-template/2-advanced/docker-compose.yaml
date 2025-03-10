@@ -1,0 +1,51 @@
+version: '3.8'
+services:
+  reverse-proxy:
+    image: io-manager-proxy
+    container_name: io-manager-proxy
+    build:
+      context: .
+      dockerfile: ./services/proxy/Dockerfile.local
+      args:
+        BUILD_ENV: dev
+    ports:
+      - "8080:8080"
+      - "443:443"
+    depends_on:
+      - server
+      - admin
+  mongodb:
+    container_name: io-manager-mongo
+    image: 'mongo'
+    volumes:
+       - mongodb_data:/data/db
+       - mongodb_config:/data/configdb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: interop42
+      MONGO_INITDB_ROOT_PASSWORD: verysecret
+    command: --quiet
+  server:
+    container_name: io-manager-server
+    image: io-manager-server
+    build:
+      context: .
+      dockerfile: ./services/server/Dockerfile.local
+    # volumes:
+    #   - ./logs:/home/node/app/logs
+    depends_on:
+      - mongodb      
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: interop42
+      MONGO_INITDB_ROOT_PASSWORD: verysecret
+      CONFIG_SERVICE_URL: "http://config:4224"
+      SERVER_NAME: "Dev-Server"
+      SERVER_TOKEN_SECRET: "mV|GuHok*+6N<C5~S|I0Wy^"  
+  admin:
+    container_name: io-manager-admin
+    image: io-manager-admin
+    build:
+      context: .      
+      dockerfile: ./services/admin/Dockerfile.local
+volumes:
+  mongodb_data:
+  mongodb_config:
