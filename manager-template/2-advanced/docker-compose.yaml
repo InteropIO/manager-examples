@@ -1,4 +1,3 @@
-version: '3.8'
 services:
   reverse-proxy:
     image: io-manager-proxy
@@ -33,18 +32,17 @@ services:
     # volumes:
     #   - ./logs:/home/node/app/logs
     depends_on:
-      - mongodb      
+      - mongodb
     environment:
-      MONGO_INITDB_ROOT_USERNAME: interop42
-      MONGO_INITDB_ROOT_PASSWORD: verysecret
-      CONFIG_SERVICE_URL: "http://config:4224"
-      SERVER_NAME: "Dev-Server"
-      SERVER_TOKEN_SECRET: "mV|GuHok*+6N<C5~S|I0Wy^"  
+      API_NAME: "ioManager"
+      API_PORT: "4356"
+      API_STORE_MONGO: mongodb://interop42:verysecret@mongodb:27017/g42-home?authSource=admin
+      API_TOKEN_SECRET: <YOUR_SECRET>
   admin:
     container_name: io-manager-admin
     image: io-manager-admin
     build:
-      context: .      
+      context: .
       dockerfile: ./services/admin/Dockerfile.local
 volumes:
   mongodb_data:

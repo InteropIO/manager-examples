@@ -3,10 +3,10 @@ kind: ConfigMap
 metadata:
   name: server-config
 data:
-  SERVER_NAME: "ioManager"
-  SERVER_PORT: "4356"
-  SERVER_TOKEN_SECRET: "mV|GuHok*+6N<C5~S|I0Wy^"
-  SERVER_DB_CONNECTION_STRING: mongodb://flashio:totallysecret@server-db-svc.default:27017/g42-home?authSource=admin
+  API_NAME: "ioManager"
+  API_PORT: "4356"
+  API_STORE_MONGO: mongodb://flashio:totallysecret@server-db-svc:27017/g42-home?authSource=admin
+  API_TOKEN_SECRET: <YOUR_SECRET>
 ---
 apiVersion: v1
 kind: ConfigMap

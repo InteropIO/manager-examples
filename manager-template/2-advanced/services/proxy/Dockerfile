@@ -1,10 +1,10 @@
 ARG BUILD_ENV
 
-FROM --platform=linux/amd64 nginx:1.19-alpine as build_prod
+FROM --platform=linux/amd64 nginx:alpine as build_prod
 
 ONBUILD COPY ./services/proxy/conf/prod.nginx.conf /etc/nginx/conf.d/default.conf
 
-FROM --platform=linux/amd64 nginx:1.19-alpine as build_dev
+FROM --platform=linux/amd64 nginx:alpine as build_dev
 
 ONBUILD COPY ./services/proxy/conf/dev.nginx.conf /etc/nginx/conf.d/default.conf
 

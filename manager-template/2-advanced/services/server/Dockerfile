@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 node:18-alpine as builder
+FROM --platform=linux/amd64 node:22-alpine as builder
 
 WORKDIR /home/node/app
 
@@ -13,7 +13,7 @@ COPY ./services/server/tsconfig.json ./tsconfig.json
 
 RUN npm run build
 
-FROM --platform=linux/amd64 node:18-alpine
+FROM --platform=linux/amd64 node:22-alpine
 
 WORKDIR /home/node/app
 

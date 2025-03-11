@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 node:18-alpine as builder
+FROM --platform=linux/amd64 node:22-alpine as builder
 
 WORKDIR /home/node/app
 
@@ -9,8 +9,9 @@ COPY ./services/admin/.npmrc ./.npmrc
 RUN npm install
 
 COPY ./services/admin/src ./src
-COPY ./services/admin/public ./public
 COPY ./services/admin/tsconfig.json ./tsconfig.json
+COPY ./services/admin/index.html ./index.html
+COPY ./services/admin/vite.config.ts ./vite.config.ts
 
 RUN npm run build
 

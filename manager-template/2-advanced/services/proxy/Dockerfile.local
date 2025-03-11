@@ -1,14 +1,14 @@
 ARG BUILD_ENV
 
-FROM nginx:1.19-alpine as build_prod
+FROM nginx:alpine as build_prod
 
 ONBUILD COPY ./services/proxy/conf/prod.nginx.conf /etc/nginx/conf.d/default.conf
 
-FROM nginx:1.19-alpine as build_dev
+FROM nginx:alpine as build_dev
 
 ONBUILD COPY ./services/proxy/conf/dev.nginx.conf /etc/nginx/conf.d/default.conf
 
-FROM nginx:1.19-alpine as build_mini
+FROM nginx:alpine as build_mini
 
 ONBUILD COPY ./services/proxy/conf/mini.nginx.conf /etc/nginx/conf.d/default.conf
 

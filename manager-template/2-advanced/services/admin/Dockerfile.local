@@ -1,19 +1,17 @@
-FROM node:18-alpine as builder
+FROM node:22-alpine as builder
 
 WORKDIR /home/node/app
 
 COPY ./services/admin/package.json ./package.json
 COPY ./services/admin/package-lock.json ./package-lock.json
-COPY ./services/admin/craco.config.js ./craco.config.js
 COPY ./services/admin/.npmrc ./.npmrc
 
 RUN npm install
 
 COPY ./services/admin/src ./src
-COPY ./services/admin/public ./public
 COPY ./services/admin/tsconfig.json ./tsconfig.json
-
-ENV REACT_APP_AUTH_REDIRECT_URL "http://localhost:8080/admin"
+COPY ./services/admin/index.html ./index.html
+COPY ./services/admin/vite.config.ts ./vite.config.ts
 
 RUN npm run build
 
