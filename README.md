@@ -31,4 +31,4 @@ This repository contains various examples on how to setup **io.Manager**
 # Other
 
 - [custom-endpoints](./custom-endpoints) - An example that demonstrates how add custom endpoints to **io.Manager**.
-- [manager-template](./manager-template) - A template for building and deploying **io.Manager** to your own infrastructure
+- [manager-template](./manager-template) - A template for building and deploying **io.Manager** to your own infrastructure.
