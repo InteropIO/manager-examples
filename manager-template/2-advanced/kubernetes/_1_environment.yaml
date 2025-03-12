@@ -13,5 +13,5 @@ kind: ConfigMap
 metadata:
   name: db-config
 data:
-  MONGO_INITDB_ROOT_USERNAME: "flashio"
-  MONGO_INITDB_ROOT_PASSWORD: "totallysecret"
+  MONGO_INITDB_ROOT_USERNAME: flashio
+  MONGO_INITDB_ROOT_PASSWORD: totallysecret

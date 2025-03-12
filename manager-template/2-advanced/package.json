@@ -9,8 +9,8 @@
     "cleanMinikubeCache": "minikube cache delete io-manager-proxy && minikube cache delete io-manager-admin && minikube cache delete io-manager-server",
     "set:mini:images": "minikube image load io-manager-proxy io-manager-admin io-manager-server",
     "build:images": "concurrently \"npm run build:proxy:image\" \"npm run build:admin:image\" \"npm run build:server:image\"",
-    "reload:mini": "kubectl delete -f ./kubernetes-minikube && npm run setup:mini",
-    "setup:mini": "npm run build:images && npm run set:mini:images && kubectl apply -f ./kubernetes-minikube",
+    "reload:mini": "kubectl delete -f ./kubernetes && npm run setup:mini",
+    "setup:mini": "npm run build:images && npm run set:mini:images && kubectl apply -f ./kubernetes",
     "tunnel:mini": "minikube tunnel",
     "start": "docker-compose -p io-manager up --build"
   },

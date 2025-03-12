@@ -1,6 +1,6 @@
 # Basic Deployment 
 
-This directory contains the necessary Kubernetes YAML files to deploy the `io.Manager` application in a basic mode. In this mode you will use the Docker images already published by [interop.io](http://interop.)
+This directory contains the necessary Kubernetes YAML files to deploy the `io.Manager` application in a basic mode. In this mode you will use the Docker images already published by [interop.io](http://interop.io)
 
 ## 🌐 Local Kubernetes with minikube
 
