@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: reverse-proxy-svc
+spec:
+  selector:
+    pod: reverse-proxy
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      pod: reverse-proxy
+  template:
+    metadata:
+      labels:
+        pod: reverse-proxy
+    spec:
+      containers:
+      - name: nginx
+        image: "io-manager-proxy"
+        imagePullPolicy: Never
+        resources:
+          limits:
+            memory: "128Mi"
+          requests:
+            memory: "64Mi"

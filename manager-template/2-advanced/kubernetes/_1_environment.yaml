@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: server-config
+data:
+  API_NAME: "ioManager"
+  API_PORT: "4356"
+  API_STORE_MONGO: mongodb://flashio:totallysecret@server-db-svc:27017/g42-home?authSource=admin
+  API_TOKEN_SECRET: <YOUR_SECRET>
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: db-config
+data:
+  MONGO_INITDB_ROOT_USERNAME: flashio
+  MONGO_INITDB_ROOT_PASSWORD: totallysecret
