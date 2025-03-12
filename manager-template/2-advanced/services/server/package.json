@@ -1,0 +1,19 @@
+{
+  "name": "server-template",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "build": "rimraf ./dist && tsc",
+    "start": "npm run build && node ./dist/index.js",
+    "format": "prettier --cache --write .",
+    "format-check": "prettier --cache --check ."
+  },
+  "dependencies": {
+    "@interopio/manager": "^1.8.1"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "rimraf": "^5.0.10",
+    "typescript": "^5.6.3"
+  }
+}
