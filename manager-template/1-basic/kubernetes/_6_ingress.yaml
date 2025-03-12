@@ -10,19 +10,19 @@ metadata:
     nginx.ingress.kubernetes.io/limit-connections: "10000"
 spec:
   rules:
-  - http:
-      paths:
-      - path: /server(/|$)(.*)
-        pathType: Prefix
-        backend:
-          service:
-            name: server-svc
-            port:
-              number: 4356
-      - path: /admin-ui(/|$)(.*)
-        pathType: Prefix
-        backend:
-          service:
-            name: admin-ui-svc
-            port:
-              number: 80
+    - http:
+        paths:
+          - path: /server(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: server-svc
+                port:
+                  number: 4356
+          - path: /admin-ui(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: admin-ui-svc
+                port:
+                  number: 80

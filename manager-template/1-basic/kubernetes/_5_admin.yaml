@@ -26,14 +26,14 @@ spec:
         pod: admin-ui
     spec:
       containers:
-      - name: admin-ui-container
-        image: ghcr.io/interopio/manager-admin-ui:latest
-        imagePullPolicy: Always
-        envFrom:
-          - configMapRef:
-              name: ui-config
-        resources:
-          limits:
-            memory: "128Mi"
-          requests:
-            memory: "64Mi"
+        - name: admin-ui-container
+          image: ghcr.io/interopio/manager-admin-ui:latest
+          imagePullPolicy: Always
+          envFrom:
+            - configMapRef:
+                name: ui-config
+          resources:
+            limits:
+              memory: "128Mi"
+            requests:
+              memory: "64Mi"

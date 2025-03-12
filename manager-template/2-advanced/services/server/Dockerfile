@@ -4,7 +4,6 @@ WORKDIR /home/node/app
 
 COPY ./services/server/package.json ./package.json
 COPY ./services/server/package-lock.json ./package-lock.json
-COPY ./services/server/.npmrc ./.npmrc
 
 RUN npm ci --loglevel verbose
 

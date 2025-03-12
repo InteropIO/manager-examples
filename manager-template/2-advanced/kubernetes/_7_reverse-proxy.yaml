@@ -26,11 +26,11 @@ spec:
         pod: reverse-proxy
     spec:
       containers:
-      - name: nginx
-        image: "io-manager-proxy"
-        imagePullPolicy: Never
-        resources:
-          limits:
-            memory: "128Mi"
-          requests:
-            memory: "64Mi"
+        - name: nginx
+          image: "io-manager-proxy"
+          imagePullPolicy: Never
+          resources:
+            limits:
+              memory: "128Mi"
+            requests:
+              memory: "64Mi"

@@ -2,7 +2,7 @@
 
 This example demonstrates how to configure an io.Manager instance using environment variables.
 
-If configuration object is not provided when io.Manager is started, it will read its configuration from environment variables. 
+If configuration object is not provided when io.Manager is started, it will read its configuration from environment variables.
 
 Additionally, environment variables will be read from the [.env](./.env) file (located in the current working directory) if such file exists.
 

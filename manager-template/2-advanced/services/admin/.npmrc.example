@@ -1,4 +1,0 @@
-registry=https://registry.npmjs.org
-@glue42:registry=https://glue42.jfrog.io/artifactory/api/npm/default-npm-virtual/
-//glue42.jfrog.io/artifactory/api/npm/default-npm-virtual/:_authToken=$AUTH_TOKEN$
-//glue42.jfrog.io/artifactory/api/npm/default-npm-virtual/:always-auth=true

@@ -26,11 +26,11 @@ spec:
         pod: admin-ui
     spec:
       containers:
-      - name: io-manager-admin-container
-        image: "io-manager-admin"
-        imagePullPolicy: Never
-        resources:
-          limits:
-            memory: "128Mi"
-          requests:
-            memory: "64Mi"
+        - name: io-manager-admin-container
+          image: "io-manager-admin"
+          imagePullPolicy: Never
+          resources:
+            limits:
+              memory: "128Mi"
+            requests:
+              memory: "64Mi"

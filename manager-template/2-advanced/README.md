@@ -3,7 +3,7 @@
 - [🔍 Overview](#-overview)
 - [📂 Repository Structure](#-repository-structure)
   - [Before you start](#before-you-start)
-    - [Access to interop.io JFrog](#access-to-interopio-jfrog)
+    - [License](#license)
     - [Change the default username](#change-the-default-username)
 - [🚀 Getting Started](#-getting-started)
   - [💻 Local Development](#-local-development)
@@ -19,7 +19,7 @@
   - [Authentication](#authentication)
 
 # 🔍 Overview
-  
+
 This repository is a template for building and deploying io.Manager to your own infrastructure. It provides a Docker Compose configuration for local development and testing, as well as Kubernetes configurations for deployment to a production environment.
 
 # 📂 Repository Structure
@@ -50,25 +50,17 @@ advanced/
 
 ## Before you start
 
-### Access to interop.io JFrog
-The NPM packages exposing io.Manager and the Admin UI are hosted in a private NPM repository. To obtain access, [contact us](https://interop.io/contact/).
+### License
 
-Once you have access to JFROG you need to generate an .npmrc file that will authenticate you to the repository. To do so:
-
-1. Login to JFROG.
-2. Expand the menu in top right and click "Setup"
-3. Select "NPM".
-4. From the dropdown menu select _default-npm-virtual_.
-5. Copy the snippet.
-6. Create an .npmrc file with the copied contents and add it to the services/server and services/admin folders.
+**io.Manager** requires a license key to operate. To acquire a license key, contact us at `sales@interop.io`.
 
 ### Change the default username
 
-By default the server is configured with none authentication, which means it trust the username provided by the client and does no verifications. When connecting to the server the desktop platform will send the username of the current user. With that configuration any client can fetch data from the server, however to access the administrative UI he will need to be granted an extra role. The default set of users that have that role is hardcoded in the server. 
+By default the server is configured with none authentication, which means it trust the username provided by the client and does no verifications. When connecting to the server the desktop platform will send the username of the current user. With that configuration any client can fetch data from the server, however to access the administrative UI he will need to be granted an extra role. The default set of users that have that role is hardcoded in the server.
 
 To change the list you need to modify the file `services/server/src/index.ts` and change the value of the `auth_exclusive_users` var.
 
-If you want to switch to another authentication check the [Authentication]([#authentication](https://docs.interop.io/manager/authentication/overview/index.html)) section in our docs.
+If you want to switch to another authentication check the [Authentication](<[#authentication](https://docs.interop.io/manager/authentication/overview/index.html)>) section in our docs.
 
 # 🚀 Getting Started
 
@@ -83,6 +75,7 @@ You can clone the repository, make modifications to any of the service implement
 ### Steps
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/InteropIO/manager-examples.git
    cd manager-examples/manager-template
@@ -110,6 +103,7 @@ If you want to experiment with the Kubernetes configurations locally, you can us
 ### Deployment Steps
 
 1. Setup the minikube cluster (this will build the images, load them into minikube and apply the kubernetes configurations)
+
    ```bash
    npm run setup:mini
    ```
@@ -121,11 +115,10 @@ If you want to experiment with the Kubernetes configurations locally, you can us
 
 This should make the services available at `http://localhost:8080/server` and `http://localhost:8080/admin`.
 
-
 ### Reloading Cluster
 
 1. Use the following command to delete the cluster configurations, build new images, load the new images into minikube and apply the kubernetes configuration again
-    ```bash
+   ```bash
    npm run reload:mini
    ```
 

@@ -4,7 +4,6 @@ WORKDIR /home/node/app
 
 COPY ./services/admin/package.json ./package.json
 COPY ./services/admin/package-lock.json ./package-lock.json
-COPY ./services/admin/.npmrc ./.npmrc
 
 RUN npm install
 
