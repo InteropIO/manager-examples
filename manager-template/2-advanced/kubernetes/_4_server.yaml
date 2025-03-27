@@ -30,17 +30,17 @@ spec:
           persistentVolumeClaim:
             claimName: server-logs-pvc
       containers:
-      - name: io-manager-server-container
-        image: "io-manager-server"
-        imagePullPolicy: Never
-        envFrom:
-          - configMapRef:
-              name: server-config
-        resources:
-          limits:
-            memory: "512Mi"
-          requests:
-            memory: "256Mi"
-        volumeMounts:
-          - name: server-logs-volume
-            mountPath: /home/node/app/logs
+        - name: io-manager-server-container
+          image: 'io-manager-server'
+          imagePullPolicy: Never
+          envFrom:
+            - configMapRef:
+                name: server-config
+          resources:
+            limits:
+              memory: '512Mi'
+            requests:
+              memory: '256Mi'
+          volumeMounts:
+            - name: server-logs-volume
+              mountPath: /home/node/app/logs

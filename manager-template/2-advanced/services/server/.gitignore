@@ -1,5 +1,8 @@
-.npmrc
-node_modules
+**/node_modules
+**/.npmrc*
+
+**/.idea
+**/.vscode
+
+build
 logs
-**/**/*.js
-**/**/*.map
