@@ -1,19 +1,19 @@
-import { start, Config } from "@interopio/manager";
+import { start, Config } from '@interopio/manager';
 
 const config: Config = {
   name: process.env.API_NAME,
   port: Number(process.env.API_PORT),
-  base: process.env.API_BASE || "",
+  base: process.env.API_BASE || '',
   licenseKey: process.env.API_LICENSE_KEY,
   store: {
-    type: "mongo",
+    type: 'mongo',
     connection: process.env.API_STORE_MONGO,
   },
   token: {
     secret: process.env.API_TOKEN_SECRET as string,
   },
-  auth_method: "none",
-  auth_exclusive_users: ["admin"],
+  auth_method: 'none',
+  auth_exclusive_users: ['admin'],
 };
 
 start(config);

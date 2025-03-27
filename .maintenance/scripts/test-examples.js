@@ -40,9 +40,15 @@ async function patchIndexTs(indexTsPath) {
   return lines.join('\n');
 }
 
+const ignoreList = ['io-manager-template', 'server-template'];
+
 await visitPackages(options.package, async ({ packageJson }) => {
-  const directDependencies = Object.keys(packageJson.dependencies ?? {}).filter(
-    (x) => x.startsWith(`${packageScope}/`)
+  if (ignoreList.includes(packageJson.name)) {
+    return;
+  }
+
+  const directDependencies = Object.keys(packageJson.dependencies).filter((x) =>
+    x.startsWith(`${packageScope}/`)
   );
 
   // If the repo is based on the server package - start and stop the server.
@@ -60,8 +66,8 @@ await visitPackages(options.package, async ({ packageJson }) => {
       await fs.rm(indexTsBackupPath);
     }
 
-    // If not - just build it.
-  } else {
+    // If the repo is based on the Admin UI package - just build it.
+  } else if (directDependencies.includes('@interopio/manager-admin-ui')) {
     await $`npm run build`;
   }
 });

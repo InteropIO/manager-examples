@@ -102,13 +102,18 @@ If you want to experiment with the Kubernetes configurations locally, you can us
 
 ### Deployment Steps
 
-1. Setup the minikube cluster (this will build the images, load them into minikube and apply the kubernetes configurations)
+1. Start minikube
+   ```bash
+   minikube start
+   ```
+
+2. Setup the minikube cluster (this will build the images, load them into minikube and apply the kubernetes configurations)
 
    ```bash
    npm run setup:mini
    ```
 
-2. Run the following to tunnel the services to your local machine:
+3. Run the following to tunnel the services to your local machine:
    ```bash
    npm run tunnel:mini
    ```

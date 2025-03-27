@@ -66,6 +66,8 @@ async function getPackagesRecursively(inputDirectory, result = []) {
         packageLockJson,
         packageLockJsonContents,
       });
+
+      await getPackagesRecursively(entryPath, result);
     } else {
       await getPackagesRecursively(entryPath, result);
     }

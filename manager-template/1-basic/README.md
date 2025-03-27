@@ -9,8 +9,8 @@ If you want to experiment with the Kubernetes configurations locally, you can us
 ### Prerequisites
 
 - Docker
-- Minikube
-- `kubectl` configured to communicate with your Minikube cluster
+- Minikube and a `kubectl` configured to communicate with your Minikube cluster. Use [this article](https://minikube.sigs.k8s.io/docs/start/) to setup minikube.
+- [WMIC](https://techcommunity.microsoft.com/blog/windows-itpro-blog/how-to-install-wmic-feature-on-demand-on-windows-11/4189530) (on Windows)
 
 Use [this article](https://minikube.sigs.k8s.io/docs/start/) to setup minikube.
 

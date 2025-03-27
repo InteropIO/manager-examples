@@ -3,11 +3,11 @@ kind: ConfigMap
 metadata:
   name: server-config
 data:
-  API_NAME: "ioManager"
-  API_PORT: "4356"
+  SERVER_NAME: "ioManager"
+  SERVER_PORT: "4356"
   API_STORE_TYPE: mongo
-  API_STORE_MONGO: mongodb://admin:uUa4nPAxLfWw@server-db-svc:27017/manager?authSource=admin
-  API_AUTH_METHOD_BASIC_USERS: '["admin:admin"]'
+  API_STORE_MONGO: "mongodb://admin:uUa4nPAxLfWw@server-db-svc:27017/manager?authSource=admin"
+  API_AUTH_METHOD_BASIC_USERS: "[\"admin:admin\"]"
   API_AUTH_METHOD: basic
   API_TOKEN_SECRET: <YOUR_SECRET>
   API_LICENSE_KEY: <YOUR_LICENSE_KEY_GOES_HERE>
