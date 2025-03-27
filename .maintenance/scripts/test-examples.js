@@ -33,7 +33,13 @@ async function patchIndexTs(indexTsPath) {
   return lines.join('\n');
 }
 
+const ignoreList = ['io-manager-template', 'server-template'];
+
 await visitPackages(options.package, async ({ packageJson }) => {
+  if (ignoreList.includes(packageJson.name)) {
+    return;
+  }
+
   const directDependencies = Object.keys(packageJson.dependencies).filter((x) =>
     x.startsWith(`${packageScope}/`)
   );

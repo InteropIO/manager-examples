@@ -12,11 +12,14 @@
     "reload:mini": "kubectl delete -f ./kubernetes && npm run setup:mini",
     "setup:mini": "npm run build:images && npm run set:mini:images && kubectl apply -f ./kubernetes",
     "tunnel:mini": "minikube tunnel",
-    "start": "docker-compose -p io-manager up --build"
+    "start": "docker-compose -p io-manager up --build",
+    "format": "prettier --cache --write .",
+    "format-check": "prettier --cache --check ."
   },
   "keywords": [],
   "author": "",
   "dependencies": {
-    "concurrently": "^9.1.2"
+    "concurrently": "^9.1.2",
+    "prettier": "^3.5.3"
   }
 }

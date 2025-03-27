@@ -11,7 +11,7 @@
     "format-check": "prettier --cache --check ."
   },
   "dependencies": {
-    "@interopio/desktop": "^6.10.0",
+    "@interopio/desktop": "^6.11.0",
     "@okta/okta-auth-js": "^7.8.1"
   },
   "devDependencies": {

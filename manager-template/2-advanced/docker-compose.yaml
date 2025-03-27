@@ -8,8 +8,8 @@ services:
       args:
         BUILD_ENV: dev
     ports:
-      - "8080:8080"
-      - "443:443"
+      - '8080:8080'
+      - '443:443'
     depends_on:
       - server
       - admin
@@ -17,8 +17,8 @@ services:
     container_name: io-manager-mongo
     image: 'mongo'
     volumes:
-       - mongodb_data:/data/db
-       - mongodb_config:/data/configdb
+      - mongodb_data:/data/db
+      - mongodb_config:/data/configdb
     environment:
       MONGO_INITDB_ROOT_USERNAME: interop42
       MONGO_INITDB_ROOT_PASSWORD: verysecret
@@ -34,8 +34,8 @@ services:
     depends_on:
       - mongodb
     environment:
-      API_NAME: "ioManager"
-      API_PORT: "4356"
+      API_NAME: 'ioManager'
+      API_PORT: '4356'
       API_STORE_MONGO: mongodb://interop42:verysecret@mongodb:27017/g42-home?authSource=admin
       API_TOKEN_SECRET: <YOUR_SECRET>
   admin:

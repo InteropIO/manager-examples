@@ -15,7 +15,6 @@ ReactDOM.render(
       apiURL="/server"
       theme="dark"
       auth="none"
-
       // This will be the user that anyone accessing the Admin UI
       // will be logged in as, unless they are accessing the Admin UI from io.Connect Desktop,
       // in which case the local machine username will be used instead.

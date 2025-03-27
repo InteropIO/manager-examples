@@ -5,6 +5,10 @@ import { visitPackages } from './helpers/visit-packages.js';
 
 const options = program.parse().opts();
 
-await visitPackages(options.package, async () => {
-  await $`npm run build`;
+const ignoreList = ['io-manager-template'];
+
+await visitPackages(options.package, async ({ packageJson }) => {
+  if (!ignoreList.includes(packageJson.name)) {
+    await $`npm run build`;
+  }
 });
