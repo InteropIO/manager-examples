@@ -11,8 +11,8 @@
   },
   "dependencies": {
     "@interopio/manager": "^2.0.0",
-    "@opentelemetry/exporter-logs-otlp-http": "^0.54.2",
-    "@opentelemetry/sdk-logs": "^0.54.0"
+    "@opentelemetry/exporter-logs-otlp-http": "^0.57.2",
+    "@opentelemetry/sdk-logs": "^0.57.2"
   },
   "devDependencies": {
     "prettier": "^3.5.2",

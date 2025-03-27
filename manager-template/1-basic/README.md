@@ -14,7 +14,7 @@ If you want to experiment with the Kubernetes configurations locally, you can us
 
 Use [this article](https://minikube.sigs.k8s.io/docs/start/) to setup minikube.
 
-License - **io.Manager** requires a license key to operate. To acquire a license key, contact us at `sales@interop.io`. Apply the license key using the `API_LICENSE_KEY` environment variable in [./kubernetes/_1_environment.yaml](./kubernetes/_1_environment.yaml)
+License - **io.Manager** requires a license key to operate. To acquire a license key, contact us at `sales@interop.io`. Apply the license key using the `API_LICENSE_KEY` environment variable in [./kubernetes/\_1_environment.yaml](./kubernetes/_1_environment.yaml)
 
 ### Deployment Steps
 

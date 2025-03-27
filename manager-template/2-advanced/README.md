@@ -103,6 +103,7 @@ If you want to experiment with the Kubernetes configurations locally, you can us
 ### Deployment Steps
 
 1. Start minikube
+
    ```bash
    minikube start
    ```

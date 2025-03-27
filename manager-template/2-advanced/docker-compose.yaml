@@ -15,7 +15,7 @@ services:
       - admin
   mongodb:
     container_name: io-manager-mongo
-    image: "mongo"
+    image: 'mongo'
     volumes:
       - mongodb_data:/data/db
       - mongodb_config:/data/configdb
