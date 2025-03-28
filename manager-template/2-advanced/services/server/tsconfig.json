@@ -14,7 +14,7 @@
     "strict": true,
     "strictNullChecks": false,
     "noImplicitAny": true,
-    "outDir": "build",
+    "outDir": "dist",
     "allowSyntheticDefaultImports": true,
     "declaration": true,
     "useUnknownInCatchVariables": false

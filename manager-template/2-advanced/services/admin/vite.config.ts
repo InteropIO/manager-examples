@@ -6,7 +6,6 @@ export default defineConfig({
   base: '',
   build: {
     sourcemap: true,
-    outDir: 'build',
   },
   server: {
     cors: true,
