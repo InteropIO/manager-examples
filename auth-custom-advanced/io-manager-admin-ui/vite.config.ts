@@ -5,9 +5,6 @@ export default defineConfig({
   plugins: [react()],
   build: {
     sourcemap: true,
-    commonjsOptions: {
-      transformMixedEsModules: true,
-    },
   },
   server: {
     cors: true,

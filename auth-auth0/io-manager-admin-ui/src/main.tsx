@@ -21,8 +21,10 @@ createRoot(rootElement).render(
         // TODO: Replace this with your Client ID.
         clientId: 'Bq9dgFBMobH7iRS8mwiRq2QtJd3KOVJw',
 
-        audience: 'http://localhost:4356/api',
-        redirectUri: 'http://localhost:8080/login/callback',
+        authorizationParams: {
+          audience: 'http://localhost:4356/api',
+          redirectUri: 'http://localhost:8080/login/callback',
+        },
         cacheLocation: 'localstorage',
         useRefreshTokens: true,
       }}

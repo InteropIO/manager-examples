@@ -7,9 +7,6 @@ export default defineConfig({
   build: {
     sourcemap: true,
     outDir: 'build',
-    commonjsOptions: {
-      transformMixedEsModules: true,
-    },
   },
   server: {
     cors: true,
