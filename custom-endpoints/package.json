@@ -12,14 +12,14 @@
   "dependencies": {
     "@interopio/manager": "^2.0.0",
     "cors": "^2.8.5",
-    "express": "^4.21.1",
+    "express": "^5.1.0",
     "http-proxy-middleware": "^3.0.3"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
-    "@types/express": "^5.0.0",
-    "prettier": "^3.5.2",
-    "rimraf": "^5.0.10",
-    "typescript": "^5.7.3"
+    "@types/express": "^5.0.1",
+    "prettier": "^3.5.3",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.8.2"
   }
 }

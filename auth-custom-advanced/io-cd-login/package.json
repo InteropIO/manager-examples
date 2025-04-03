@@ -13,11 +13,11 @@
   },
   "dependencies": {
     "@interopio/desktop": "^6.11.0",
-    "@okta/okta-auth-js": "^7.11.0"
+    "@okta/okta-auth-js": "^7.11.1"
   },
   "devDependencies": {
-    "prettier": "^3.5.2",
-    "typescript": "^5.7.3",
-    "vite": "^6.2.0"
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.2",
+    "vite": "^6.2.5"
   }
 }
