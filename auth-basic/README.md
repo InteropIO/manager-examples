@@ -93,7 +93,7 @@ To configure io.Connect Desktop to use the basic auth sign-in page add the follo
   "ssoAuth": {
     "authController": "sso",
     "options": {
-      "url": "http://localhost:8080/gd",
+      "url": "http://localhost:8080/?gd",
       "keepAlive": true,
       "window": {
         "width": 540,
