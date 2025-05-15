@@ -20,9 +20,9 @@
   },
   "dependencies": {
     "commander": "^12.1.0",
-    "zx": "^8.2.4"
+    "zx": "^8.5.0"
   },
   "devDependencies": {
-    "prettier": "^3.4.2"
+    "prettier": "^3.5.3"
   }
 }

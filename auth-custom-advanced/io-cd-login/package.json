@@ -12,12 +12,12 @@
     "format-check": "prettier --cache --check ."
   },
   "dependencies": {
-    "@interopio/desktop": "^6.11.0",
-    "@okta/okta-auth-js": "^7.11.1"
+    "@interopio/desktop": "^6.13.0",
+    "@okta/okta-auth-js": "^7.12.1"
   },
   "devDependencies": {
     "prettier": "^3.5.3",
-    "typescript": "^5.8.2",
-    "vite": "^6.2.5"
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5"
   }
 }
