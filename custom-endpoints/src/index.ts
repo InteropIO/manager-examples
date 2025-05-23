@@ -17,6 +17,7 @@ void (async () => {
     licenseKey: process.env.API_LICENSE_KEY as string,
     auth_method: 'none',
     auth_exclusive_users: ['admin'],
+    skipProcessExitOnStop: false,
     store: {
       type: 'mongo',
       // TODO: Replace this with your own MongoDB connection string.

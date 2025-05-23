@@ -1,6 +1,3 @@
-import path from 'node:path';
-import fs from 'node:fs/promises';
-
 import { $ } from 'zx';
 import { program } from 'commander';
 
