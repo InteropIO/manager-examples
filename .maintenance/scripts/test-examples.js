@@ -21,8 +21,5 @@ await visitPackages(options.package, async ({ packageJson }) => {
   if (directDependencies.includes('@interopio/manager')) {
     $.env.__SERVER_INITIALIZATION_TEST__ = 'true';
     await $`npm run start`;
-    // If the repo is based on the Admin UI package - just build it.
-  } else {
-    await $`npm run build`;
   }
 });

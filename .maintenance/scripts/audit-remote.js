@@ -6,6 +6,5 @@ import { visitPackages } from './helpers/visit-packages.js';
 const options = program.parse().opts();
 
 await visitPackages(options.package, async ({ packageJson }) => {
-  await $`npm up --save`;
-  await $`npm audit fix`.nothrow();
+  await $`npm audit fix`;
 });

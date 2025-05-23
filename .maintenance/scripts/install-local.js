@@ -20,9 +20,5 @@ await visitPackages(options.package, async ({ packageJson }) => {
 
       await $`npm install ${packageNameLatest}`;
     }
-
-    await $`npm up --save`;
-
-    await $`npm audit fix`.nothrow();
   });
 });

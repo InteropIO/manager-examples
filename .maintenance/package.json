@@ -16,7 +16,11 @@
     "build": "node ./scripts/build.js",
     "format": "node ./scripts/format.js",
     "exec": "node ./scripts/exec.js",
-    "outdated": "node ./scripts/outdated.js"
+    "outdated": "node ./scripts/outdated.js",
+    "audit-local": "node ./scripts/audit-local.js",
+    "audit-remote": "node ./scripts/audit-remote.js",
+    "all-local": "npm run clean && npm run install-local && npm run update-local && npm run format && npm run build && npm run test && npm run audit-local",
+    "all-remote": "npm run clean && npm run install-remote && npm run update-remote && npm run format && npm run build && npm run test && npm run audit-remote"
   },
   "dependencies": {
     "commander": "^12.1.0",
