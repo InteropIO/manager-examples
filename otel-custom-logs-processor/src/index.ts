@@ -30,6 +30,7 @@ const config: Config = {
       customProcessor: new SimpleLogRecordProcessor(
         new OTLPLogExporter({
           url: 'http://localhost:4318/v1/logs',
+          concurrencyLimit: 999999999999,
         })
       ),
     },
