@@ -47,7 +47,6 @@ In the kubernetes folder you will find the following files:
 
 - `1_environment.yaml`: Contains the environment variables for the application:
   - By default this file comes with basic authentication configured to allow a user admin and password admin. You can change those to match your needs.
-  - The UI comes with a PUBLIC_URL set to https://127.0.0.1/admin-ui/
 - `2_volumes.yaml`: Defines the persistent storage volumes that the application will use. You might want to change those based on the environment you are deploying to.
 - `3_db.yaml`: Sets up the Mongo database deployment and service. If you plan to use any other of the supported databases you need to change this file.
 - `4_server.yaml`: Deploys the NodeJS Server application of `io.Manager`.

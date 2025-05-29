@@ -26,6 +26,5 @@ metadata:
   name: ui-config
 data:
   REACT_APP_SERVER_BASE: /server
-  PUBLIC_URL: http://localhost/admin-ui/
   REACT_APP_BASE: /admin-ui
   REACT_APP_AUTH: basic

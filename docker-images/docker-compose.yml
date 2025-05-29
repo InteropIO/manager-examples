@@ -38,7 +38,6 @@ services:
     container_name: "${COMPOSE_PROJECT_NAME}-admin-ui"
     image: ghcr.io/interopio/manager-admin-ui:latest
     environment:
-      - PUBLIC_URL=${PUBLIC_URL}
       - REACT_APP_SERVER_BASE=${REACT_APP_SERVER_BASE}
       - REACT_APP_BASE=${REACT_APP_BASE}
       - REACT_APP_AUTH=${REACT_APP_AUTH}
