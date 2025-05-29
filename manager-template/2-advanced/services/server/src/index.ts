@@ -14,6 +14,7 @@ const config: Config = {
   },
   auth_method: 'none',
   auth_exclusive_users: ['admin'],
+  interceptProcessSignals: true,
 };
 
 start(config);
