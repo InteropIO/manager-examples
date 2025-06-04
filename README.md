@@ -27,6 +27,7 @@ This repository contains various examples on how to setup **io.Manager**
 - [otel-custom-trace-exporter](./otel-custom-trace-exporter) - An example showing how to configure **io.Manager** to use a custom OpenTelemetry trace exporter
 - [otel-custom-trace-processor](./otel-custom-trace-processor) - An example showing how to configure **io.Manager** to use a custom OpenTelemetry trace processor
 - [otel-custom-trace-sampler](./otel-custom-trace-sampler) - An example showing how to configure **io.Manager** to use a custom OpenTelemetry trace sampler
+- [otel-sentry](./otel-sentry) - An example that shows how to setup **io.Manager** to send OpenTelemetry traces to Sentry.
 
 # Other
 

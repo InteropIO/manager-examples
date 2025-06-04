@@ -1,0 +1,21 @@
+{
+  "name": "otel-sentry",
+  "version": "0.0.1",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "build": "rimraf ./dist && tsc",
+    "start": "npm run build && node ./dist/index.js",
+    "format": "prettier --cache --write .",
+    "format-check": "prettier --cache --check ."
+  },
+  "dependencies": {
+    "@interopio/manager": "^2.0.0",
+    "@sentry/opentelemetry-node": "^7.114.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.5.3",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.8.3"
+  }
+}
