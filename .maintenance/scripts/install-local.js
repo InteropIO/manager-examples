@@ -1,14 +1,17 @@
+import process from 'node:process';
+
 import { $ } from 'zx/core';
-import { program } from 'commander';
 
 import { visitPackages } from './helpers/visit-packages.js';
 import { useLocalRegistryNpmrc } from './helpers/use-npmrc.js';
 import { packageScope } from './helpers/variables.js';
-import process from 'node:process';
+import { setupZx } from './helpers/setup-zx.js';
+import { parseOptions } from './helpers/parse-options.js';
 
-const options = program.parse().opts();
+setupZx();
+parseOptions();
 
-await visitPackages(options.package, async ({ packageJson }) => {
+await visitPackages(async ({ packageJson }) => {
   await useLocalRegistryNpmrc(async () => {
     if (process.env.CI_DEBUG === '1') {
       await $`npm install --loglevel verbose`;

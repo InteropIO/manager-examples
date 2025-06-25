@@ -1,14 +1,27 @@
 import { $ } from 'zx';
+
 import { setupZx } from './setup-zx.js';
 import { getPackages } from './get-packages.js';
 import { program } from 'commander';
+import { parseOptions } from './parse-options.js';
 
-program.option('-p, --package <package name>', 'package name');
+program.option('-p, --packageName <packageName>', 'package name');
 
-export async function visitPackages(packageName, fn) {
+program.option(
+  '-d, --packageDirectory <packageDirectory>',
+  'package directory'
+);
+
+export async function visitPackages(fn) {
   setupZx();
 
-  for (const packageObject of await getPackages()) {
+  const options = parseOptions();
+
+  const { packageName, packageDirectory } = options;
+
+  const packages = await getPackages(packageDirectory);
+
+  for (const packageObject of packages) {
     if (packageName && packageObject.packageJson.name !== packageName) {
       continue;
     }

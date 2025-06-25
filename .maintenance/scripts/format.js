@@ -2,17 +2,22 @@ import path from 'node:path';
 import url from 'node:url';
 
 import { $ } from 'zx/core';
-import { program } from 'commander';
 
 import { visitPackages } from './helpers/visit-packages.js';
+import { setupZx } from './helpers/setup-zx.js';
+import { parseOptions } from './helpers/parse-options.js';
 
-const options = program.parse().opts();
+setupZx();
 
-await visitPackages(options.package, async () => {
+const options = parseOptions();
+
+await visitPackages(async () => {
   await $`npm run format`;
 });
 
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 
-$.cwd = path.resolve(__dirname, '../../');
-await $`npx -y prettier --write **/*.md`;
+if (!options.packageName && !options.packageDirectory) {
+  $.cwd = path.resolve(__dirname, '../../');
+  await $`npx -y prettier --write **/*.md`;
+}

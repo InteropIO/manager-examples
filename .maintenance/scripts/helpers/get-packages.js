@@ -76,6 +76,8 @@ async function getPackagesRecursively(inputDirectory, result = []) {
   return result;
 }
 
-export async function getPackages() {
-  return getPackagesRecursively(path.resolve(__dirname, '../../../'));
+export async function getPackages(directory) {
+  const fullPath = path.resolve(__dirname, '../../../', directory || '');
+
+  return getPackagesRecursively(fullPath);
 }

@@ -1,10 +1,12 @@
 import { $ } from 'zx/core';
-import { program } from 'commander';
 
 import { visitPackages } from './helpers/visit-packages.js';
+import { setupZx } from './helpers/setup-zx.js';
+import { parseOptions } from './helpers/parse-options.js';
 
-const options = program.parse().opts();
+setupZx();
+parseOptions();
 
-await visitPackages(options.package, async ({ packageJson }) => {
+await visitPackages(async () => {
   await $`npm audit fix`;
 });
