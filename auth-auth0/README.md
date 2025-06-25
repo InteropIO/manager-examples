@@ -32,9 +32,9 @@ io.Manager requires a database to connect to - this example uses MongoDB, but yo
 - In the **Settings** tab of the API
   - Copy **Client ID**, **Domain** for later use.
 - Scroll to **Application URIs** and fill out the URLs
-  - Set **Allowed Callback URLs** to `http://localhost:8080/login/callback`
-  - Set **Allowed Logout URLs** to `http://localhost:8080/admin/logout`
-  - Set **Allowed Web Origins** to `http://localhost:8080`
+  - Set **Allowed Callback URLs** to `http://localhost:3000/admin/callback`
+  - Set **Allowed Logout URLs** to `http://localhost:3000/admin/logout`
+  - Set **Allowed Web Origins** to `http://localhost:3000`
   - Click **Save Changes**
 
 ### Assign the "admin" permission to your user
@@ -80,7 +80,7 @@ npm run start
 
 ```
 
-- The Admin UI can be found at http://localhost:8080/admin
+- The Admin UI can be found at http://localhost:3000/admin
 
 # io.Connect Desktop configuration
 
@@ -115,7 +115,7 @@ To configure io.Connect Desktop to use the Auth0 sign-in page add the following 
   "ssoAuth": {
     "authController": "sso",
     "options": {
-      "url": "http://localhost:8080/gd",
+      "url": "http://localhost:3000/gd",
       "keepAlive": true,
       "window": {
         "width": 540,

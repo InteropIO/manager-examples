@@ -22,8 +22,8 @@ Click the **Refresh Token** checkbox under **Grant type** and **Core grants**.
 
 Make sure to enter the correct redirect urls for the applications.
 
-- Set "Sign-in redirect URIs" to `http://localhost:8080/login/callback`
-- Set "Sign-out redirect URIs" to `http://localhost:8080/admin/logout`
+- Set "Sign-in redirect URIs" to `http://localhost:3000/admin/callback`
+- Set "Sign-out redirect URIs" to `http://localhost:3000/admin/logout`
 
 # How to run
 
@@ -59,7 +59,7 @@ npm run start
 
 ```
 
-- The Admin UI can be found at http://localhost:8080/admin
+- The Admin UI can be found at http://localhost:3000/admin
 
 # io.Connect Desktop configuration
 
@@ -94,7 +94,7 @@ To configure io.Connect Desktop to use the okta sign-in page add the following c
   "ssoAuth": {
     "authController": "sso",
     "options": {
-      "url": "http://localhost:8080/gd",
+      "url": "http://localhost:3000/gd",
       "keepAlive": true,
       "window": {
         "width": 540,

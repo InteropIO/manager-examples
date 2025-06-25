@@ -19,11 +19,11 @@ createRoot(rootElement).render(
         domain: 'dev-vccmw066d2ot7rcj.eu.auth0.com',
 
         // TODO: Replace this with your Client ID.
-        clientId: 'Bq9dgFBMobH7iRS8mwiRq2QtJd3KOVJw',
+        clientId: 'sBOb36xUhNOZtLetV0JHIIfHYXTG4kkr',
 
         authorizationParams: {
           audience: 'http://localhost:4356/api',
-          redirectUri: 'http://localhost:8080/login/callback',
+          redirectUri: 'http://localhost:3000/admin/callback',
         },
         cacheLocation: 'localstorage',
         useRefreshTokens: true,

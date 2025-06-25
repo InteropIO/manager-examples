@@ -18,7 +18,7 @@ npm run start
 
 # How to use
 
-This will host the app on localhost:9123
+This will host the app on localhost:3010
 
 Use this `email` address to login for the first time (defined in `io-manager-server/src/data.ts`):
 

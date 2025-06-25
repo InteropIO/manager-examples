@@ -42,7 +42,7 @@ npm run start
 
 ```
 
-- The Admin UI can be found at http://localhost:8080/admin
+- The Admin UI can be found at http://localhost:3000/admin
 
 - Use username `admin` and password `admin` to login.
 
@@ -85,7 +85,7 @@ To configure io.Connect Desktop to use the basic auth sign-in page add the follo
   "ssoAuth": {
     "authController": "sso",
     "options": {
-      "url": "http://localhost:8080/gd",
+      "url": "http://localhost:3000/gd",
       "keepAlive": true,
       "window": {
         "width": 540,

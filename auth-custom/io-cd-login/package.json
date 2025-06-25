@@ -12,7 +12,7 @@
     "format-check": "prettier --cache --check ."
   },
   "devDependencies": {
-    "prettier": "^3.5.3",
+    "prettier": "^3.6.1",
     "typescript": "^5.8.3",
     "vite": "^6.3.5"
   }

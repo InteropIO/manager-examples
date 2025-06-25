@@ -16,4 +16,4 @@ npm run start
 
 ```
 
-- The Admin UI can be found at http://localhost:8080/admin
+- The Admin UI can be found at http://localhost:3000/admin

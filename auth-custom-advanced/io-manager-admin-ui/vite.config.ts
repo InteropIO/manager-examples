@@ -8,13 +8,13 @@ export default defineConfig({
   },
   server: {
     cors: true,
-    port: 8080,
+    port: 3000,
     strictPort: true,
     host: true,
   },
   preview: {
     cors: true,
-    port: 8080,
+    port: 3000,
     strictPort: true,
     host: true,
   },

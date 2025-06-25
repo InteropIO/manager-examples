@@ -22,7 +22,7 @@ In your Okta admin panel go to the **Applications** menu and select **Create App
 
 When asked, select **OIDC - OpenID Connect** for the **Sign-in method** and **Single-Page Application** for the **Application type**.
 
-Make sure to enter the correct redirect urls for the applications. In this development setup io.Manager Admin UI is served on `http://localhost:8080`.
+Make sure to enter the correct redirect urls for the applications. In this development setup io.Manager Admin UI is served on `http://localhost:3000`.
 
 ### io.Connect Desktop
 
@@ -32,7 +32,7 @@ When asked, select **OIDC - OpenID Connect** for the **Sign-in method** and **Si
 
 Click the **Refresh Token** checkbox under **Grant type** and **Core grants**.
 
-Make sure to enter the correct redirect urls for the applications. In this development setup the io.Connect Desktop login page is served on `http://localhost:3000`.
+Make sure to enter the correct redirect urls for the applications. In this development setup the io.Connect Desktop login page is served on `http://localhost:3010`.
 
 # How to run
 
@@ -119,7 +119,7 @@ To configure io.Connect Desktop to use the okta sign-in page add the following c
   "ssoAuth": {
     "authController": "sso",
     "options": {
-      "url": "http://localhost:3000/",
+      "url": "http://localhost:3010/",
       "keepAlive": true,
       "window": {
         "width": 540,

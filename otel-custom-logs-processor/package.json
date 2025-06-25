@@ -15,7 +15,7 @@
     "@opentelemetry/sdk-logs": "^0.200.0"
   },
   "devDependencies": {
-    "prettier": "^3.5.3",
+    "prettier": "^3.6.1",
     "rimraf": "^6.0.1",
     "typescript": "^5.8.3"
   }

@@ -19,7 +19,7 @@ createRoot(rootElement).render(
         issuer: 'https://dev-10894256.okta.com/oauth2/default',
         clientId: '0oahnnb0tnrknGKUI5d7',
 
-        redirectUri: location.origin + '/login/callback',
+        redirectUri: location.origin + '/admin/callback',
       }}
     />
   </StrictMode>

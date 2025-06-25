@@ -65,7 +65,7 @@ To enable the custom login screen, use the "ssoAuth" top-level key
   "ssoAuth": {
     "authController": "sso",
     "options": {
-      "url": "http://localhost:9123/",
+      "url": "http://localhost:3010/",
       "window": {
         "width": 400,
         "height": 550,
