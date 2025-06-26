@@ -14,7 +14,6 @@ createRoot(rootElement).render(
       theme="dark"
       baseName="admin"
       auth="basic"
-      users={{ canAdd: true, havePasswords: true }}
     />
   </StrictMode>
 );
