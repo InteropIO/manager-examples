@@ -16,8 +16,8 @@
     "@okta/okta-auth-js": "^7.12.1"
   },
   "devDependencies": {
-    "prettier": "^3.6.1",
+    "prettier": "^3.6.2",
     "typescript": "^5.8.3",
-    "vite": "^6.3.5"
+    "vite": "^7.0.0"
   }
 }
