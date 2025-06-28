@@ -4,12 +4,15 @@ import { visitPackages } from './helpers/visit-packages.js';
 import { useLocalRegistryNpmrc } from './helpers/use-npmrc.js';
 import { setupZx } from './helpers/setup-zx.js';
 import { parseOptions } from './helpers/parse-options.js';
+import { useNpmOverwrites } from './helpers/use-npm-overwrites.js';
 
 setupZx();
 parseOptions();
 
 await visitPackages(async () => {
   await useLocalRegistryNpmrc(async () => {
-    await $`npm audit`;
+    await useNpmOverwrites(async () => {
+      await $`npm audit`;
+    });
   });
 });
