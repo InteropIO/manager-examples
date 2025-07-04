@@ -26,6 +26,8 @@ You will need to set up a Sentry project and obtain a DSN (Data Source Name) to 
 
 npm install
 
+npm audit fix
+
 ```
 
 - Start the server

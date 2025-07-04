@@ -50,6 +50,8 @@ Make sure to enter the correct redirect urls for the applications. In this devel
 
 npm install
 
+npm audit fix
+
 npm run start
 
 ```
@@ -66,6 +68,8 @@ npm run start
 
 npm install
 
+npm audit fix
+
 npm run start
 
 ```
@@ -81,6 +85,8 @@ npm run start
 ```sh
 
 npm install
+
+npm audit fix
 
 npm run start
 

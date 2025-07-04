@@ -24,6 +24,8 @@ For more information visit our Documentation page on the subject: https://docs.i
 
 npm install
 
+npm audit fix
+
 ```
 
 - Start the server

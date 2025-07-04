@@ -6,6 +6,8 @@
 
 npm install
 
+npm audit fix
+
 ```
 
 - Start the server

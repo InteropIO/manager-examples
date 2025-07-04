@@ -28,6 +28,8 @@ io.Manager requires a database to connect to - this example uses MongoDB, but yo
 
 npm install
 
+npm audit fix
+
 ```
 
 - Start the server
