@@ -1,14 +1,16 @@
 import { $ } from 'zx';
 
 import { packageScope } from './helpers/variables.js';
-import { visitPackages } from './helpers/visit-packages.js';
+import { visitNpmPackages } from './helpers/visit-npm-packages.js';
 import { parseOptions } from './helpers/parse-options.js';
+import { useDotEnvLocal } from './helpers/use-dotenv-local.js';
+import { fileExists } from './helpers/file-exists.js';
 
 parseOptions();
 
-const ignoreList = ['io-manager-template', 'server-template'];
+const ignoreList = ['server-template'];
 
-await visitPackages(async ({ packageJson }) => {
+await visitNpmPackages(async ({ packageJson }) => {
   if (ignoreList.includes(packageJson.name)) {
     return;
   }
@@ -19,7 +21,22 @@ await visitPackages(async ({ packageJson }) => {
 
   // If the repo is based on the server package - start and stop the server.
   if (directDependencies.includes('@interopio/manager')) {
-    $.env.__SERVER_INITIALIZATION_TEST__ = 'true';
-    await $`npm run start`;
+    async function test() {
+      $.env.__SERVER_INITIALIZATION_TEST__ = 'true';
+      await $`npm run start`;
+    }
+
+    if (await fileExists('.env')) {
+      await useDotEnvLocal(
+        {
+          API_LICENSE_KEY: process.env.API_LICENSE_KEY,
+        },
+        async () => {
+          await test();
+        }
+      );
+    } else {
+      await test();
+    }
   }
 });

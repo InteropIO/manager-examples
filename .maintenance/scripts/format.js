@@ -3,7 +3,7 @@ import url from 'node:url';
 
 import { $ } from 'zx/core';
 
-import { visitPackages } from './helpers/visit-packages.js';
+import { visitNpmPackages } from './helpers/visit-npm-packages.js';
 import { setupZx } from './helpers/setup-zx.js';
 import { parseOptions } from './helpers/parse-options.js';
 
@@ -11,7 +11,7 @@ setupZx();
 
 const options = parseOptions();
 
-await visitPackages(async () => {
+await visitNpmPackages(async () => {
   await $`npm run format`;
 });
 

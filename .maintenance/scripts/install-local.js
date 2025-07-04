@@ -2,7 +2,7 @@ import process from 'node:process';
 
 import { $ } from 'zx/core';
 
-import { visitPackages } from './helpers/visit-packages.js';
+import { visitNpmPackages } from './helpers/visit-npm-packages.js';
 import { useLocalRegistryNpmrc } from './helpers/use-npmrc.js';
 import { packageScope } from './helpers/variables.js';
 import { setupZx } from './helpers/setup-zx.js';
@@ -12,7 +12,7 @@ import { useNpmOverwrites } from './helpers/use-npm-overwrites.js';
 setupZx();
 parseOptions();
 
-await visitPackages(async ({ packageJson }) => {
+await visitNpmPackages(async ({ packageJson }) => {
   await useLocalRegistryNpmrc(async () => {
     await useNpmOverwrites(async () => {
       if (process.env.CI_DEBUG === '1') {

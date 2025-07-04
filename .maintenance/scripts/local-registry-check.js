@@ -1,12 +1,12 @@
 import process from 'node:process';
 
-import { visitPackages } from './helpers/visit-packages.js';
+import { visitNpmPackages } from './helpers/visit-npm-packages.js';
 import { localRegistryURl } from './helpers/variables.js';
 import { parseOptions } from './helpers/parse-options.js';
 
 parseOptions();
 
-await visitPackages(async ({ packageJson, packageLockJsonContents }) => {
+await visitNpmPackages(async ({ packageJson, packageLockJsonContents }) => {
   if (!packageLockJsonContents) {
     return;
   }

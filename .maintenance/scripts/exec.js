@@ -1,7 +1,7 @@
 import { $ } from 'zx/core';
 import { program } from 'commander';
 
-import { visitPackages } from './helpers/visit-packages.js';
+import { visitNpmPackages } from './helpers/visit-npm-packages.js';
 import { setupZx } from './helpers/setup-zx.js';
 import { parseOptions } from './helpers/parse-options.js';
 
@@ -13,7 +13,7 @@ program
 
 const options = parseOptions();
 
-await visitPackages(async () => {
+await visitNpmPackages(async () => {
   let proc = $`${options.command}`;
 
   if (options.nothrow) {

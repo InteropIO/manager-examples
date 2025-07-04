@@ -2,74 +2,49 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import url from 'node:url';
 
+import { fileExists } from './file-exists.js';
+
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 
-async function fileExists(filePath) {
-  try {
-    const stats = await fs.stat(filePath);
+async function getPackagesRecursively(inputPath, result = []) {
+  const fullInputPath = path.resolve(inputPath);
 
-    if (!stats.isFile()) {
-      throw new Error(
-        `Path "${filePath}" resolved to something that is not a file.`
-      );
-    }
+  const packageJsonPath = path.join(fullInputPath, 'package.json');
 
-    return true;
-  } catch (error) {
-    if (error.code === 'ENOENT') {
-      return false;
-    } else {
-      throw error;
-    }
-  }
-}
+  if (await fileExists(packageJsonPath)) {
+    const packageJsonContents = (await fs.readFile(packageJsonPath)).toString();
+    const packageJson = JSON.parse(packageJsonContents);
+    const packageLockJsonPath = path.join(fullInputPath, 'package-lock.json');
 
-async function getPackagesRecursively(inputDirectory, result = []) {
-  const directoryEntries = await fs.readdir(inputDirectory);
+    let packageLockJson;
+    let packageLockJsonContents;
 
-  for (const directoryEntry of directoryEntries) {
-    if (directoryEntry.startsWith('.') || directoryEntry === 'node_modules') {
-      continue;
-    }
-
-    const entryPath = path.join(inputDirectory, directoryEntry);
-
-    if (!(await fs.stat(entryPath)).isDirectory()) {
-      continue;
-    }
-
-    const packageJsonPath = path.join(entryPath, 'package.json');
-    if (await fileExists(packageJsonPath)) {
-      const packageJsonContents = (
-        await fs.readFile(packageJsonPath)
+    if (await fileExists(packageLockJsonPath)) {
+      packageLockJsonContents = (
+        await fs.readFile(packageLockJsonPath)
       ).toString();
 
-      const packageJson = JSON.parse(packageJsonContents);
+      packageLockJson = JSON.parse(packageLockJsonContents);
+    }
 
-      const packageLockJsonPath = path.join(entryPath, 'package-lock.json');
+    result.push({
+      packagePath: fullInputPath,
+      packageJson,
+      packageJsonContents,
+      packageLockJson,
+      packageLockJsonContents,
+    });
+  }
 
-      let packageLockJson;
-      let packageLockJsonContents;
+  const childPaths = await fs.readdir(fullInputPath);
 
-      if (await fileExists(packageLockJsonPath)) {
-        packageLockJsonContents = (
-          await fs.readFile(packageLockJsonPath)
-        ).toString();
+  for (const childPath of childPaths) {
+    if (!childPath.startsWith('.') && childPath !== 'node_modules') {
+      const fullChildPath = path.join(fullInputPath, childPath);
 
-        packageLockJson = JSON.parse(packageLockJsonContents);
+      if ((await fs.stat(fullChildPath)).isDirectory()) {
+        await getPackagesRecursively(fullChildPath, result);
       }
-
-      result.push({
-        packagePath: entryPath,
-        packageJson,
-        packageJsonContents,
-        packageLockJson,
-        packageLockJsonContents,
-      });
-
-      await getPackagesRecursively(entryPath, result);
-    } else {
-      await getPackagesRecursively(entryPath, result);
     }
   }
 

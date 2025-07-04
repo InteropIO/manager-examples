@@ -2,7 +2,7 @@ import process from 'node:process';
 
 import { $ } from 'zx/core';
 
-import { visitPackages } from './helpers/visit-packages.js';
+import { visitNpmPackages } from './helpers/visit-npm-packages.js';
 import { packageScope } from './helpers/variables.js';
 import { setupZx } from './helpers/setup-zx.js';
 import { parseOptions } from './helpers/parse-options.js';
@@ -10,7 +10,7 @@ import { parseOptions } from './helpers/parse-options.js';
 setupZx();
 parseOptions();
 
-await visitPackages(async ({ packageJson }) => {
+await visitNpmPackages(async ({ packageJson }) => {
   if (process.env.CI_DEBUG === '1') {
     await $`npm install --loglevel verbose`;
   } else {
@@ -30,8 +30,4 @@ await visitPackages(async ({ packageJson }) => {
       await $`npm install ${packageNameLatest}`;
     }
   }
-
-  await $`npm up --save`;
-
-  await $`npm audit fix`.nothrow();
 });

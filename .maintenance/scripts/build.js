@@ -1,14 +1,10 @@
 import { $ } from 'zx';
 
-import { visitPackages } from './helpers/visit-packages.js';
+import { visitNpmPackages } from './helpers/visit-npm-packages.js';
 import { parseOptions } from './helpers/parse-options.js';
 
 parseOptions();
 
-const ignoreList = ['io-manager-template'];
-
-await visitPackages(async ({ packageJson }) => {
-  if (!ignoreList.includes(packageJson.name)) {
-    await $`npm run build`;
-  }
+await visitNpmPackages(async () => {
+  await $`npm run build --if-present`;
 });
