@@ -48,11 +48,7 @@ async function useBackupFile(filePath, fn) {
     result = await fn();
   } finally {
     // Restore the original file from the backup
-    await fs.copyFile(
-      fullBackupFilePath,
-      fullFilePath,
-      fs.constants.COPYFILE_EXCL
-    );
+    await fs.copyFile(fullBackupFilePath, fullFilePath);
 
     // Remove the backup file
     await fs.rm(fullBackupFilePath);
@@ -84,4 +80,18 @@ export async function useFileContents(filePath, fileContents, fn) {
   } else {
     return useFile(fullFilePath, fileContents, fn);
   }
+}
+
+export async function useProcessedFile(filePath, processFunction, fn) {
+  const fullFilePath = path.resolve(filePath);
+
+  if (!(await fileExists(fullFilePath))) {
+    throw new Error(`File not found: "${fullFilePath}"`);
+  }
+
+  const fileContents = (await fs.readFile(fullFilePath)).toString();
+
+  const modifiedContents = await processFunction(fileContents);
+
+  return await useFileContents(fullFilePath, modifiedContents, fn);
 }

@@ -3,9 +3,10 @@ import { $ } from 'zx';
 import { init } from './helpers/init.js';
 import { packageScope } from './helpers/variables.js';
 import { visitNpmPackages } from './helpers/visit-npm-packages.js';
-import { useDotEnvLocal } from './helpers/use-dotenv-local.js';
 import { fileExists } from './helpers/file-exists.js';
 import { EnvironmentVariables } from './helpers/env/environment-variables.js';
+import { useFileContents, useProcessedFile } from './helpers/file-mod.js';
+import { formatEnvFile } from './helpers/env/format-env-file.js';
 
 await init();
 
@@ -28,16 +29,30 @@ await visitNpmPackages(async ({ packageJson }) => {
     }
 
     if (await fileExists('.env')) {
-      await useDotEnvLocal(
-        {
+      await useFileContents(
+        '.env.local',
+        formatEnvFile({
           API_LICENSE_KEY: EnvironmentVariables.API_LICENSE_KEY,
-        },
+        }),
         async () => {
           await test();
         }
       );
     } else {
-      await test();
+      await useProcessedFile(
+        'src/index.ts',
+        (contents) => {
+          contents = contents.replaceAll(
+            '<YOUR_LICENSE_KEY>',
+            EnvironmentVariables.API_LICENSE_KEY
+          );
+
+          return contents;
+        },
+        async () => {
+          await test();
+        }
+      );
     }
   }
 });
