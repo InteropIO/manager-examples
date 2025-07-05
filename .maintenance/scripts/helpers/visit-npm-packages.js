@@ -1,7 +1,7 @@
 import { setupZx } from './setup-zx.js';
-import { getPackages } from './get-packages.js';
+import { findNpmPackages } from './find-npm-packages.js';
 import { program } from 'commander';
-import { parseOptions } from './parse-options.js';
+import { parseCliArgs } from './parse-cli-args.js';
 import { useCwd } from './use-current-dir.js';
 
 program.option('-p, --packageName <packageName>', 'package name');
@@ -14,11 +14,9 @@ program.option(
 export async function visitNpmPackages(fn) {
   setupZx();
 
-  const options = parseOptions();
+  const { packageName, packageDirectory } = parseCliArgs();
 
-  const { packageName, packageDirectory } = options;
-
-  const packages = await getPackages(packageDirectory);
+  const packages = await findNpmPackages(packageDirectory);
 
   if (packages.length === 0) {
     console.error('No packages found.');

@@ -6,7 +6,7 @@ import { fileExists } from './file-exists.js';
 
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 
-async function getPackagesRecursively(inputPath, result = []) {
+async function findNpmPackagesRecursively(inputPath, result = []) {
   const fullInputPath = path.resolve(inputPath);
 
   const packageJsonPath = path.join(fullInputPath, 'package.json');
@@ -43,7 +43,7 @@ async function getPackagesRecursively(inputPath, result = []) {
       const fullChildPath = path.join(fullInputPath, childPath);
 
       if ((await fs.stat(fullChildPath)).isDirectory()) {
-        await getPackagesRecursively(fullChildPath, result);
+        await findNpmPackagesRecursively(fullChildPath, result);
       }
     }
   }
@@ -51,8 +51,8 @@ async function getPackagesRecursively(inputPath, result = []) {
   return result;
 }
 
-export async function getPackages(directory) {
+export async function findNpmPackages(directory) {
   const fullPath = path.resolve(__dirname, '../../../', directory || '');
 
-  return getPackagesRecursively(fullPath);
+  return findNpmPackagesRecursively(fullPath);
 }

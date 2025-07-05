@@ -1,10 +1,10 @@
 import path from 'node:path';
 import fs from 'node:fs/promises';
 
+import { init } from './helpers/init.js';
 import { visitNpmPackages } from './helpers/visit-npm-packages.js';
-import { parseOptions } from './helpers/parse-options.js';
 
-parseOptions();
+await init();
 
 await visitNpmPackages(async ({ packagePath }) => {
   const allPaths = [

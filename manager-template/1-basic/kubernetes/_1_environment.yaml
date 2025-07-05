@@ -7,7 +7,7 @@ data:
   SERVER_PORT: "4356"
   API_STORE_TYPE: mongo
   API_STORE_MONGO: "mongodb://admin:uUa4nPAxLfWw@server-db-svc:27017/manager?authSource=admin"
-  API_AUTH_METHOD_BASIC_USERS: "[\"admin:admin\"]"
+  API_AUTH_METHOD_BASIC_USERS: '["admin:admin"]'
   API_AUTH_METHOD: basic
   API_TOKEN_SECRET: <YOUR_SECRET>
   API_LICENSE_KEY: <YOUR_LICENSE_KEY_GOES_HERE>

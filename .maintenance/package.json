@@ -4,26 +4,21 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "format-self": "prettier --cache --write .",
-    "format-check-self": "prettier --cache --check .",
     "clean": "node ./scripts/clean.js",
-    "install-local": "node ./scripts/install-local.js",
-    "install-remote": "node ./scripts/install-remote.js",
-    "update-local": "node ./scripts/update-local.js",
-    "update-remote": "node ./scripts/update-remote.js",
+    "npm:install": "node scripts/install.js",
+    "npm:update": "node scripts/update.js",
     "test": "node ./scripts/test-examples.js",
-    "local-registry-check": "node ./scripts/local-registry-check.js",
     "build": "node ./scripts/build.js",
-    "format": "node ./scripts/format.js",
+    "format": "prettier --cache --write ..",
+    "format-check": "prettier --cache --check .",
     "exec": "node ./scripts/exec.js",
-    "outdated": "node ./scripts/outdated.js",
-    "audit-local": "node ./scripts/audit-local.js",
-    "audit-remote": "node ./scripts/audit-remote.js",
-    "all-local": "npm run clean && npm run install-local && npm run update-local && npm run format && npm run build && npm run test && npm run audit-local",
-    "all-remote": "npm run clean && npm run install-remote && npm run update-remote && npm run format && npm run build && npm run test && npm run audit-remote"
+    "npm:outdated": "node ./scripts/outdated.js",
+    "npm:audit": "node scripts/audit.js",
+    "all": "npm run clean && npm run npm:install && npm run npm:update && npm run format && npm run build && npm run test && npm run npm:audit"
   },
   "dependencies": {
     "commander": "^12.1.0",
+    "dotenv": "^17.0.1",
     "zx": "^8.5.5"
   },
   "devDependencies": {

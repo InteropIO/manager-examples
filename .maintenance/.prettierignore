@@ -1,4 +1,11 @@
-.idea
-.vscode
-dist
-logs
+**/.git
+
+**/.idea
+**/.vscode
+
+**/node_modules
+**/package-lock.json
+
+**/dist
+**/logs
+**/custom-log-location

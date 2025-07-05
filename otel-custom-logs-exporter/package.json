@@ -4,18 +4,15 @@
   "private": true,
   "type": "commonjs",
   "scripts": {
-    "build": "rimraf ./dist && tsc",
-    "start": "npm run build && node ./dist/index.js",
-    "format": "prettier --cache --write .",
-    "format-check": "prettier --cache --check ."
+    "build": "npm run delete ./dist && tsc",
+    "delete": "node -e \"const fs = require('fs'); const path = process.argv[1]; if (!path) process.exit(1); if (fs.existsSync(path)) fs.rmSync(path, { recursive: true, force: true });\"",
+    "start": "npm run build && node ./dist/index.js"
   },
   "dependencies": {
     "@interopio/manager": "^2.0.0",
     "@opentelemetry/exporter-logs-otlp-http": "^0.200.0"
   },
   "devDependencies": {
-    "prettier": "^3.6.2",
-    "rimraf": "^6.0.1",
     "typescript": "^5.8.3"
   }
 }

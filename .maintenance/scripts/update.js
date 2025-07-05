@@ -1,16 +1,14 @@
 import { $ } from 'zx/core';
 
+import { init } from './helpers/init.js';
 import { visitNpmPackages } from './helpers/visit-npm-packages.js';
-import { useLocalRegistryNpmrc } from './helpers/use-npmrc.js';
-import { setupZx } from './helpers/setup-zx.js';
-import { parseOptions } from './helpers/parse-options.js';
+import { useNpmrc } from './helpers/use-npmrc.js';
 import { useNpmOverwrites } from './helpers/use-npm-overwrites.js';
 
-setupZx();
-parseOptions();
+await init();
 
 await visitNpmPackages(async () => {
-  await useLocalRegistryNpmrc(async () => {
+  await useNpmrc(async () => {
     await useNpmOverwrites(async () => {
       await $`npm up --save`;
       await $`npm audit fix`.nothrow();
