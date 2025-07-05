@@ -4,4 +4,7 @@
 **/.idea
 **/.vscode
 
+**/dist
+**/logs
+
 **/.env.local

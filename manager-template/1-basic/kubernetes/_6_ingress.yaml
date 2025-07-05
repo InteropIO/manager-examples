@@ -4,10 +4,10 @@ metadata:
   name: io-manager-ingress
   annotations:
     kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/use-regex: 'true'
     nginx.ingress.kubernetes.io/rewrite-target: /$2
-    nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
-    nginx.ingress.kubernetes.io/limit-connections: "10000"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: '600'
+    nginx.ingress.kubernetes.io/limit-connections: '10000'
 spec:
   rules:
     - http:

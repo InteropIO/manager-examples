@@ -1,8 +1,5 @@
 **/node_modules
 
-**/.idea
-**/.vscode
-
-dist
-logs
-custom-log-location
+**/dist
+**/logs
+**/custom-log-location

@@ -23,7 +23,7 @@ io.Manager requires a database to connect to - this example uses MongoDB, but yo
 - Go to the **RBAC Settings** section and enable both **Enable RBAC** and **Add Permissions in the Access Token**
 - Scroll down and click **Save**
 - In the **Permission** tab of the API, add a permission called `admin` with a description `io.Manager Admin access`. The **Permission** tab should look like this:
-  ![image](./permissions-screenshot.png)
+  ![image](auth0-permissions-screenshot.png)
 
 ### Create an Auth0 Application
 

@@ -32,16 +32,16 @@ spec:
       containers:
         - name: io-manager-db-container
           image: mongo
-          args: ["--dbpath", "/data/db"]
+          args: ['--dbpath', '/data/db']
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
                 name: db-config
           resources:
             limits:
-              memory: "512Mi"
+              memory: '512Mi'
             requests:
-              memory: "256Mi"
+              memory: '256Mi'
           volumeMounts:
             - name: db-volume
-              mountPath: "/data/db"
+              mountPath: '/data/db'
