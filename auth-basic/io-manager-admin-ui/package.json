@@ -10,8 +10,7 @@
   },
   "scripts": {
     "start": "vite",
-    "build": "npm run typecheck && vite build",
-    "typecheck": "tsc"
+    "build": "tsc && vite build"
   },
   "devDependencies": {
     "@types/react": "^18.3.23",
