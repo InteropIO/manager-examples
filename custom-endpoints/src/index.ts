@@ -13,7 +13,7 @@ void (async () => {
     name: 'example',
     port: managerPort,
     base: managerBase,
-    // TODO: Contact us at sales@interop.io to get a license.
+    // TODO: Contact us at sales@interop.io to acquire a license key.
     licenseKey: '<YOUR_LICENSE_KEY>',
     auth_method: 'none',
     auth_exclusive_users: ['admin'],
