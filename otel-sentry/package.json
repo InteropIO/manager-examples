@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "@interopio/manager": "^2.0.0",
-    "@sentry/opentelemetry-node": "^7.114.0"
+    "@sentry/opentelemetry": "9.35.0",
+    "@sentry/node": "9.35.0"
   },
   "devDependencies": {
     "typescript": "^5.8.3"
