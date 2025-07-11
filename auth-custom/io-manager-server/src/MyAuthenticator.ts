@@ -1,6 +1,10 @@
 import type { Request, Response } from 'express';
-import type { CustomAuthenticator } from '@interopio/manager';
-import type { User, Token } from '@interopio/manager-api';
+import {
+  type CustomAuthenticator,
+  type User,
+  type Token,
+  CustomAuthUnauthorizedError,
+} from '@interopio/manager';
 
 import { users } from './data';
 
@@ -20,7 +24,7 @@ export class MyAuthenticator implements CustomAuthenticator {
     const tokenFromRequest = this.extractToken(req);
 
     if (!tokenFromRequest) {
-      next(new UnauthorizedError('can not find token'));
+      next(new CustomAuthUnauthorizedError('can not find token'));
       return;
     }
 
@@ -28,14 +32,14 @@ export class MyAuthenticator implements CustomAuthenticator {
 
     // validate the token
     if (!this.validateToken(tokenFromRequest)) {
-      next(new UnauthorizedError(`invalid token`));
+      next(new CustomAuthUnauthorizedError(`invalid token`));
       return;
     }
 
     // in this dummy example the token is actually the username, so we to try to find the user based on it
     const user = users.find((u) => u.email === userEmail);
     if (!user) {
-      next(new UnauthorizedError(`unknown user`));
+      next(new CustomAuthUnauthorizedError(`unknown user`));
       return;
     }
 
@@ -56,8 +60,4 @@ export class MyAuthenticator implements CustomAuthenticator {
   private validateToken(token: string) {
     return true;
   }
-}
-
-class UnauthorizedError extends Error {
-  statusCode: number = 401;
 }

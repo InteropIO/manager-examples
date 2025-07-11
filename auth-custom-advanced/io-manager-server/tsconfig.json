@@ -4,20 +4,12 @@
     "lib": ["ESNext"],
     "module": "commonjs",
     "moduleResolution": "node",
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
     "skipLibCheck": true,
     "sourceMap": true,
-    "pretty": true,
-    "strict": true,
-    "strictNullChecks": false,
-    "noImplicitAny": true,
-    "outDir": "dist",
-    "allowSyntheticDefaultImports": true,
     "declaration": true,
-    "useUnknownInCatchVariables": false
+    "outDir": "dist",
+    "pretty": true,
+    "strict": true
   },
   "include": ["src"]
 }

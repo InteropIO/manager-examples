@@ -1,22 +1,9 @@
 import { $ } from 'zx';
-import fs from 'node:fs/promises';
 import path from 'node:path';
 
-import {
-  localRegistryURl,
-  packageScope,
-  remoteRegistryURL,
-} from './variables.js';
-
-async function useNpmrc(contents, fn) {
-  const npmrcPath = path.join($.cwd, '.npmrc');
-  try {
-    await fs.writeFile(npmrcPath, contents);
-    await fn();
-  } finally {
-    await fs.rm(npmrcPath);
-  }
-}
+import { packageScope } from './variables.js';
+import { useFileContents } from './file-mod.js';
+import { EnvironmentVariables } from './env/environment-variables.js';
 
 function removeProtocol(url) {
   const separator = '//';
@@ -43,31 +30,24 @@ function createNpmrcFile(options) {
   return contents;
 }
 
-export async function useLocalRegistryNpmrc(fn) {
-  await useNpmrc(
-    createNpmrcFile({
-      url: localRegistryURl,
-      global: false,
-      scopes: [packageScope],
-      attributes: {
-        _authToken: '${VERDACCIO_TOKEN}',
-      },
-    }),
-    fn
-  );
-}
+export async function useNpmrc(fn) {
+  const url = EnvironmentVariables.NPM_SCOPED_PACKAGES_REGISTRY_URL;
 
-export async function useRemoteRegistryNpmrc(fn) {
-  await useNpmrc(
-    createNpmrcFile({
-      url: remoteRegistryURL,
-      global: false,
-      scopes: [packageScope],
-      attributes: {
-        _authToken: '${JFROG_TOKEN}',
-        'always-auth': 'true',
-      },
-    }),
-    fn
-  );
+  if (!url) {
+    return await fn();
+  }
+
+  const authToken = EnvironmentVariables.NPM_SCOPED_PACKAGES_REGISTRY_TOKEN;
+
+  const npmFilePath = path.join($.cwd, '.npmrc');
+  const npmFileContents = createNpmrcFile({
+    url,
+    global: false,
+    scopes: [packageScope],
+    attributes: {
+      _authToken: authToken,
+    },
+  });
+
+  return useFileContents(npmFilePath, npmFileContents, fn);
 }

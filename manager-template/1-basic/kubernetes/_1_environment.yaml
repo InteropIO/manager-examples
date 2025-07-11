@@ -3,13 +3,14 @@ kind: ConfigMap
 metadata:
   name: server-config
 data:
-  SERVER_NAME: "ioManager"
-  SERVER_PORT: "4356"
+  SERVER_NAME: 'ioManager'
+  SERVER_PORT: '4356'
   API_STORE_TYPE: mongo
-  API_STORE_MONGO: "mongodb://admin:uUa4nPAxLfWw@server-db-svc:27017/manager?authSource=admin"
-  API_AUTH_METHOD_BASIC_USERS: "[\"admin:admin\"]"
+  API_STORE_MONGO: 'mongodb://admin:uUa4nPAxLfWw@server-db-svc:27017/manager?authSource=admin'
+  API_AUTH_METHOD_BASIC_USERS: '["admin:admin"]'
   API_AUTH_METHOD: basic
   API_TOKEN_SECRET: <YOUR_SECRET>
+  API_LICENSE_KEY: <YOUR_LICENSE_KEY_GOES_HERE>
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -25,6 +26,5 @@ metadata:
   name: ui-config
 data:
   REACT_APP_SERVER_BASE: /server
-  PUBLIC_URL: http://localhost/admin-ui/
   REACT_APP_BASE: /admin-ui
   REACT_APP_AUTH: basic

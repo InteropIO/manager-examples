@@ -4,21 +4,13 @@
 
 ## Prerequisites
 
-_**Setup MongoDB or another database**_
+### Database
 
 io.Manager requires a database to connect to - this example uses MongoDB, but you can use any other of the supported databases. You will need to either have a local instance or setup a remote database to connect to. For more information visit our Documentation page on the subject: https://docs.interop.io/manager/databases/overview/index.html
 
-_**Setup access to interop.io Artifactory**_
+### License
 
-Before you begin you need to add _.npmrc_ files with the following content into _io-manager-server_ and _io-manager-admin-ui_ directories (placeholders can be filled in after setting up JFrog account)
-
-```sh
-@interopio:registry=https://glue42.jfrog.io/artifactory/api/npm/default-npm-virtual/
-//glue42.jfrog.io/artifactory/api/npm/:_auth=<COPY_FROM_JFROG_SETUP>
-//glue42.jfrog.io/artifactory/api/npm/default-npm-virtual/:username=<COPY_FROM_JFROG_SETUP>
-//glue42.jfrog.io/artifactory/api/npm/default-npm-virtual/:email=<COPY_FROM_JFROG_SETUP>
-//glue42.jfrog.io/artifactory/api/npm/default-npm-virtual/:always-auth=true
-```
+**io.Manager** requires a license key to operate. To acquire a license key, contact us at `sales@interop.io`.
 
 # Okta Setup
 
@@ -30,7 +22,7 @@ In your Okta admin panel go to the **Applications** menu and select **Create App
 
 When asked, select **OIDC - OpenID Connect** for the **Sign-in method** and **Single-Page Application** for the **Application type**.
 
-Make sure to enter the correct redirect urls for the applications. In this development setup io.Manager Admin UI is served on `http://localhost:8080`.
+Make sure to enter the correct redirect urls for the applications. In this development setup io.Manager Admin UI is served on `http://localhost:3000`.
 
 ### io.Connect Desktop
 
@@ -40,7 +32,7 @@ When asked, select **OIDC - OpenID Connect** for the **Sign-in method** and **Si
 
 Click the **Refresh Token** checkbox under **Grant type** and **Core grants**.
 
-Make sure to enter the correct redirect urls for the applications. In this development setup the io.Connect Desktop login page is served on `http://localhost:3000`.
+Make sure to enter the correct redirect urls for the applications. In this development setup the io.Connect Desktop login page is served on `http://localhost:3010`.
 
 # How to run
 
@@ -58,6 +50,8 @@ Make sure to enter the correct redirect urls for the applications. In this devel
 
 npm install
 
+npm audit fix
+
 npm run start
 
 ```
@@ -74,6 +68,8 @@ npm run start
 
 npm install
 
+npm audit fix
+
 npm run start
 
 ```
@@ -89,6 +85,8 @@ npm run start
 ```sh
 
 npm install
+
+npm audit fix
 
 npm run start
 
@@ -127,12 +125,13 @@ To configure io.Connect Desktop to use the okta sign-in page add the following c
   "ssoAuth": {
     "authController": "sso",
     "options": {
-      "url": "http://localhost:3000/",
+      "url": "http://localhost:3010/",
       "keepAlive": true,
       "window": {
         "width": 540,
         "height": 660,
-        "mode": "flat"
+        "mode": "flat",
+        "hidden": true
       }
     }
   }

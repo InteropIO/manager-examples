@@ -4,7 +4,6 @@ WORKDIR /home/node/app
 
 COPY ./services/server/package.json ./package.json
 COPY ./services/server/package-lock.json ./package-lock.json
-COPY ./services/server/.npmrc ./.npmrc
 
 RUN npm ci --loglevel verbose
 
@@ -21,4 +20,4 @@ COPY --from=builder /home/node/app /home/node/app
 
 EXPOSE 4356
 
-CMD ["node", "build/index.js"]
+CMD ["node", "dist/index.js"]

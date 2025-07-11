@@ -1,13 +1,16 @@
 import type { Request, Response } from 'express';
 
-import OktaJwtVerifier from '@okta/jwt-verifier';
+import * as OktaJwtVerifier from '@okta/jwt-verifier';
 
-import { CustomAuthenticator } from '@interopio/manager';
-import { User } from '@interopio/manager-api';
+import {
+  type CustomAuthenticator,
+  type User,
+  CustomAuthUnauthorizedError,
+} from '@interopio/manager';
 
 export class CustomOktaAuthenticator implements CustomAuthenticator {
-  private oktaVerifier: OktaJwtVerifier;
-  private audiences: string[];
+  private oktaVerifier!: OktaJwtVerifier;
+  private audiences!: string[];
 
   initialize() {
     // TODO: Specify the appropriate okta verifier options here.
@@ -27,7 +30,11 @@ export class CustomOktaAuthenticator implements CustomAuthenticator {
     const authorizationHeader = req.headers.authorization;
 
     if (!authorizationHeader) {
-      next(new UnauthorizedError('Missing or empty "Authorization" header.'));
+      next(
+        new CustomAuthUnauthorizedError(
+          'Missing or empty "Authorization" header.'
+        )
+      );
       return;
     }
 
@@ -37,7 +44,7 @@ export class CustomOktaAuthenticator implements CustomAuthenticator {
 
     if (tokenType !== 'Bearer') {
       next(
-        new UnauthorizedError(
+        new CustomAuthUnauthorizedError(
           `Expected a "Bearer" token, found "${tokenType}".`
         )
       );
@@ -63,11 +70,7 @@ export class CustomOktaAuthenticator implements CustomAuthenticator {
       })
       .catch((error) => {
         console.error(error);
-        next(new UnauthorizedError('Failed to verify access token.'));
+        next(new CustomAuthUnauthorizedError('Failed to verify access token.'));
       });
   }
-}
-
-class UnauthorizedError extends Error {
-  statusCode: number = 401;
 }

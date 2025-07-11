@@ -1,12 +1,11 @@
-import type {
+import {
   DataRequest,
-  DataResult,
-  Group,
   GroupsFeatures,
   User,
-} from '@interopio/manager-api';
-
-import type { GroupsService, AuditBuilder } from '@interopio/manager';
+  GroupsService,
+  AuditBuilder,
+  GroupDataResult,
+} from '@interopio/manager';
 
 import { groups, users } from './data';
 
@@ -27,7 +26,7 @@ export class MyGroupsService implements GroupsService {
     return localUser?.groups ?? [];
   }
 
-  public async getAllGroups(request: DataRequest): Promise<DataResult<Group>> {
+  public async getAllGroups(request: DataRequest): Promise<GroupDataResult> {
     return {
       items: groups.getAll().map((i: string) => ({ name: i })),
       total: groups.getAll().length,

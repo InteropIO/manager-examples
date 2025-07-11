@@ -4,6 +4,7 @@ const config: Config = {
   name: process.env.API_NAME,
   port: Number(process.env.API_PORT),
   base: process.env.API_BASE || '',
+  licenseKey: process.env.API_LICENSE_KEY,
   store: {
     type: 'mongo',
     connection: process.env.API_STORE_MONGO,
@@ -13,6 +14,7 @@ const config: Config = {
   },
   auth_method: 'none',
   auth_exclusive_users: ['admin'],
+  interceptProcessSignals: true,
 };
 
 start(config);

@@ -4,23 +4,19 @@
   "private": true,
   "type": "commonjs",
   "scripts": {
-    "build": "rimraf ./dist && tsc",
-    "start": "npm run build && node ./dist/index.js",
-    "format": "prettier --cache --write .",
-    "format-check": "prettier --cache --check ."
+    "build": "npm run delete ./dist && tsc",
+    "delete": "node -e \"const fs = require('fs'); const path = process.argv[1]; if (!path) process.exit(1); if (fs.existsSync(path)) fs.rmSync(path, { recursive: true, force: true });\"",
+    "start": "npm run build && node ./dist/index.js"
   },
   "dependencies": {
-    "@interopio/manager": "^1.8.2",
-    "body-parser": "^1.20.3",
+    "@interopio/manager": "^2.0.0",
     "cors": "^2.8.5",
-    "express": "^4.21.1",
-    "http-proxy-middleware": "^3.0.3"
+    "express": "^5.1.0",
+    "http-proxy-middleware": "^3.0.5"
   },
   "devDependencies": {
-    "@types/cors": "^2.8.17",
-    "@types/express": "^5.0.0",
-    "prettier": "^3.3.3",
-    "rimraf": "^5.0.10",
-    "typescript": "^5.6.3"
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "typescript": "^5.8.3"
   }
 }

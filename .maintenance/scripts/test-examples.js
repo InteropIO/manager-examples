@@ -1,66 +1,58 @@
-import path from 'node:path';
-import fs from 'node:fs/promises';
-
 import { $ } from 'zx';
-import { program } from 'commander';
 
+import { init } from './helpers/init.js';
 import { packageScope } from './helpers/variables.js';
-import { visitPackages } from './helpers/visit-packages.js';
+import { visitNpmPackages } from './helpers/visit-npm-packages.js';
+import { fileExists } from './helpers/file-exists.js';
+import { EnvironmentVariables } from './helpers/env/environment-variables.js';
+import { useFileContents, useProcessedFile } from './helpers/file-mod.js';
+import { formatEnvFile } from './helpers/env/format-env-file.js';
 
-const options = program.parse().opts();
+await init();
 
-async function patchIndexTs(indexTsPath) {
-  const indexTsContents = (await fs.readFile(indexTsPath)).toString();
+const ignoreList = ['server-template'];
 
-  const lines = indexTsContents.split('\n');
-
-  for (let i = lines.length - 1; i >= 0; i -= 1) {
-    const line = lines[i].trim();
-
-    if (line) {
-      if (line === 'start(config);') {
-        lines[i] = 'start(config).then(server => server.stop());';
-      }
-
-      if (line === '})().catch(console.error);') {
-        lines[i] = 'await server.stop(); })().catch(console.error);';
-      }
-
-      break;
-    }
-  }
-
-  return lines.join('\n');
-}
-
-const ignoreList = ['io-manager-template', 'server-template'];
-
-await visitPackages(options.package, async ({ packageJson }) => {
+await visitNpmPackages(async ({ packageJson }) => {
   if (ignoreList.includes(packageJson.name)) {
     return;
   }
 
-  const directDependencies = Object.keys(packageJson.dependencies).filter((x) =>
-    x.startsWith(`${packageScope}/`)
+  const directDependencies = Object.keys(packageJson.dependencies || {}).filter(
+    (x) => x.startsWith(`${packageScope}/`)
   );
 
   // If the repo is based on the server package - start and stop the server.
   if (directDependencies.includes('@interopio/manager')) {
-    const indexTsPath = path.join($.cwd, 'src/index.ts');
-    const indexTsBackupPath = indexTsPath + '.backup';
-    const indexTsContents = await patchIndexTs(indexTsPath);
-    try {
-      await fs.copyFile(indexTsPath, indexTsBackupPath);
-      await fs.writeFile(indexTsPath, indexTsContents);
-
+    async function test() {
+      $.env.__SERVER_INITIALIZATION_TEST__ = 'true';
       await $`npm run start`;
-    } finally {
-      await fs.copyFile(indexTsBackupPath, indexTsPath);
-      await fs.rm(indexTsBackupPath);
     }
 
-    // If the repo is based on the Admin UI package - just build it.
-  } else if (directDependencies.includes('@interopio/manager-admin-ui')) {
-    await $`npm run build`;
+    if (await fileExists('.env')) {
+      await useFileContents(
+        '.env.local',
+        formatEnvFile({
+          API_LICENSE_KEY: EnvironmentVariables.API_LICENSE_KEY,
+        }),
+        async () => {
+          await test();
+        }
+      );
+    } else {
+      await useProcessedFile(
+        'src/index.ts',
+        (contents) => {
+          contents = contents.replaceAll(
+            '<YOUR_LICENSE_KEY>',
+            EnvironmentVariables.API_LICENSE_KEY
+          );
+
+          return contents;
+        },
+        async () => {
+          await test();
+        }
+      );
+    }
   }
 });

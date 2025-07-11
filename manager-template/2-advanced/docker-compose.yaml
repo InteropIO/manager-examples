@@ -38,6 +38,7 @@ services:
       API_PORT: '4356'
       API_STORE_MONGO: mongodb://interop42:verysecret@mongodb:27017/g42-home?authSource=admin
       API_TOKEN_SECRET: <YOUR_SECRET>
+      API_LICENSE_KEY: <YOUR_LICENSE_KEY_GOES_HERE>
   admin:
     container_name: io-manager-admin
     image: io-manager-admin

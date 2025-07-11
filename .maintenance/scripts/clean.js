@@ -1,12 +1,12 @@
-import { program } from 'commander';
-
-import { visitPackages } from './helpers/visit-packages.js';
 import path from 'node:path';
 import fs from 'node:fs/promises';
 
-const options = program.parse().opts();
+import { init } from './helpers/init.js';
+import { visitNpmPackages } from './helpers/visit-npm-packages.js';
 
-await visitPackages(options.package, async ({ packagePath }) => {
+await init();
+
+await visitNpmPackages(async ({ packagePath }) => {
   const allPaths = [
     path.join(packagePath, `node_modules`),
     path.join(packagePath, `dist`),

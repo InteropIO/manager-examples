@@ -6,7 +6,7 @@ export default defineConfig({
     sourcemap: true,
   },
   server: {
-    port: 9123,
+    port: 3010,
     strictPort: true,
   },
 });

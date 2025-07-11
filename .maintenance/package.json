@@ -1,25 +1,27 @@
 {
-  "name": "maintenance",
+  "name": "example-maintenance-scripts",
   "version": "0.0.1",
   "type": "module",
   "private": true,
   "scripts": {
-    "format-self": "prettier --cache --write .",
-    "format-check-self": "prettier --cache --check .",
     "clean": "node ./scripts/clean.js",
-    "install-local": "node ./scripts/install-local.js",
-    "install-remote": "node ./scripts/install-remote.js",
+    "npm:install": "node scripts/install.js",
+    "npm:update": "node scripts/update.js",
     "test": "node ./scripts/test-examples.js",
-    "local-registry-check": "node ./scripts/local-registry-check.js",
     "build": "node ./scripts/build.js",
-    "format": "node ./scripts/format.js",
-    "exec": "node ./scripts/exec.js"
+    "format": "prettier --single-quote --trailing-comma es5 --cache --write ..",
+    "format-check": "prettier --single-quote --trailing-comma es5 --cache --check .",
+    "exec": "node ./scripts/exec.js",
+    "npm:outdated": "node ./scripts/outdated.js",
+    "npm:audit": "node scripts/audit.js",
+    "all": "npm run clean && npm run npm:install && npm run npm:update && npm run format && npm run build && npm run test && npm run npm:audit"
   },
   "dependencies": {
     "commander": "^12.1.0",
-    "zx": "^8.1.9"
+    "dotenv": "^17.0.1",
+    "zx": "^8.5.5"
   },
   "devDependencies": {
-    "prettier": "^3.3.3"
+    "prettier": "^3.5.3"
   }
 }

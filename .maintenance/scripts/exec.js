@@ -1,18 +1,24 @@
 import { $ } from 'zx/core';
 import { program } from 'commander';
 
-import { visitPackages } from './helpers/visit-packages.js';
+import { init } from './helpers/init.js';
+import { visitNpmPackages } from './helpers/visit-npm-packages.js';
+import { parseCliArgs } from './helpers/parse-cli-args.js';
 
-const options = program
+await init();
+
+program
   .option('-c, --command <command>', 'Command')
-  .option('-n, --nothrow', 'No throw')
-  .parse()
-  .opts();
+  .option('-n, --nothrow', 'No throw');
 
-await visitPackages(options.package, async () => {
-  if (options.nothrow) {
-    await $([options.command]).nothrow();
-  } else {
-    await $([options.command]);
+const { command, nothrow } = parseCliArgs();
+
+await visitNpmPackages(async () => {
+  let proc = $`${command}`;
+
+  if (nothrow) {
+    proc = proc.nothrow();
   }
+
+  await proc;
 });

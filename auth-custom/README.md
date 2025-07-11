@@ -4,15 +4,15 @@ This example demonstrates how to customize io.Manager with a custom **authentica
 
 We will also start a customized Admin UI and configure io.Connect Desktop to use a custom Login Screen.
 
-*Note that for the simplicity of the example we will use tokens that encode the username; in a real world scenario you should leverage the auth flow to an identity platform*
+_Note that for the simplicity of the example we will use tokens that encode the username; in a real world scenario you should leverage the auth flow to an identity platform_
 
 ## Customizing io.Manager Server
 
-In the server you can create a custom authenticator by implementing the `Authenticator` interface. The **authenticator** is responsible for processing every income request and authenticating the user based on data from the request. 
+In the server you can create a custom authenticator by implementing the `Authenticator` interface. The **authenticator** is responsible for processing every income request and authenticating the user based on data from the request.
 
 Once you have implemented the **authenticator** you can pass it to the server initialization options.
 
-After you don this each request to the server will goes through the custom **authenticator** that should authenticate/authorize the user. Usually the **authenticator** would use a 3-rd party lib to validate the request (by validating token, using sspi libs, etc); 
+After you don this each request to the server will goes through the custom **authenticator** that should authenticate/authorize the user. Usually the **authenticator** would use a 3-rd party lib to validate the request (by validating token, using sspi libs, etc);
 
 If successful the **authenticator** must return an object corresponding the user making the request. This object contains the user **id** and an array of **groups** that this user belongs to. Based on those groups the server determines the list of applications and layouts that should be returned to the user.
 
@@ -22,7 +22,7 @@ To start the example server follow the [instructions](./io-manager-server/README
 
 ## Adding a Custom Login Screen
 
-io.Connect Desktop allows showing a login screen before the first application is loaded. This page should authenticate the user and signal io.Connect Desktop that the authentication process is complete. 
+io.Connect Desktop allows showing a login screen before the first application is loaded. This page should authenticate the user and signal io.Connect Desktop that the authentication process is complete.
 
 In this example the login page contains a single email field and produces a "token" based on the submitted email.
 
@@ -34,20 +34,20 @@ For more info on customizing the login screen check our docs [Login Screen](http
 
 You will then need to configure io.Connect Desktop to connect to the server and use the custom login screen.
 
-To do this you should edit the *system.json* file of io.Connect Desktop located in *%LocalAppData%\interop.io\io.Connect Desktop\config*
+To do this you should edit the _system.json_ file of io.Connect Desktop located in _%LocalAppData%\interop.io\io.Connect Desktop\config_
 
 **To connect to io.Manager Server:**
 To configure io.Connect Desktop to connect to the example server, use the "server" top-level key. Add the following configuration to enable connection to the io.Manager Server:
 
 ```json
 {
-    // other configuration above
-    // copy from here....
-    "server": {
-        "enabled": true,
-        "url": "http://localhost:4356/api"
-    }
-     // ...to here
+  // other configuration above
+  // copy from here....
+  "server": {
+    "enabled": true,
+    "url": "http://localhost:4356/api"
+  }
+  // ...to here
 }
 ```
 
@@ -60,20 +60,20 @@ To enable the custom login screen, use the "ssoAuth" top-level key
 
 ```json
 {
-    // other configuration above
-    // copy from here....
-    "ssoAuth": {
-        "authController": "sso",
-        "options": {
-            "url": "http://localhost:9123/",
-            "window": {
-                "width": 400,
-                "height": 550,
-                "mode": "flat"
-            }
-        }
+  // other configuration above
+  // copy from here....
+  "ssoAuth": {
+    "authController": "sso",
+    "options": {
+      "url": "http://localhost:3010/",
+      "window": {
+        "width": 400,
+        "height": 550,
+        "mode": "flat"
+      }
     }
-    // ...to here
+  }
+  // ...to here
 }
 ```
 
@@ -82,10 +82,10 @@ To remove the default app stores, set the "appStores" top-level key to an empty 
 
 ```json
 {
-    // other configuration above
-    // copy from here....
-    "appStores": []
-    // ...to here
+  // other configuration above
+  // copy from here....
+  "appStores": []
+  // ...to here
 }
 ```
 
@@ -103,6 +103,4 @@ In a real world scenario you have the following options to protect admin-ui:
 1. Implement a custom authenticator;
    1. Implement a custom login react based login component that will authenticate the user against an in-house service and provide the token to the custom authenticator
    2. Re-use existing login page and extract the token in the custom authenticator once the user is authenticated
-   
 2. Put the Admin UI behind a reverse proxy that would handle the authentication and pass the user info to the server
-

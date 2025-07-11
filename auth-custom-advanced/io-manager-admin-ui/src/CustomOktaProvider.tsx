@@ -1,14 +1,44 @@
-import React, {
+import {
+  createContext,
   type ReactNode,
   useCallback,
+  useContext,
   useEffect,
   useMemo,
   useRef,
   useState,
 } from 'react';
-import { OktaAuth, toRelativeUrl, type AuthState } from '@okta/okta-auth-js';
+import {
+  type AuthState,
+  OktaAuth,
+  TokenManagerEventHandler,
+} from '@okta/okta-auth-js';
 import { LoginCallback, Security, useOktaAuth } from '@okta/okta-react';
 import type { AuthProvider } from '@interopio/manager-admin-ui';
+
+// Custom context to communicate the logout action to the `CustomOktaProvider` component.
+interface CustomOktaContext {
+  onLogOut: () => void;
+}
+
+const CustomOktaReactContext = createContext({} as CustomOktaContext);
+
+interface CustomOktaContextProviderProps {
+  children?: ReactNode;
+  value: CustomOktaContext;
+}
+
+function CustomOktaContextProvider(props: CustomOktaContextProviderProps) {
+  return (
+    <CustomOktaReactContext.Provider value={props.value}>
+      {props.children}
+    </CustomOktaReactContext.Provider>
+  );
+}
+
+function useCustomOktaContext() {
+  return useContext(CustomOktaReactContext);
+}
 
 interface OktaProviderProps {
   oktaAuth: OktaAuth;
@@ -43,11 +73,7 @@ export const CustomOktaProvider = ({
         originalUri
       );
 
-      history.replaceState(
-        null,
-        '',
-        toRelativeUrl(originalUri || `/${baseName ?? ''}`, location.origin)
-      );
+      location.href = originalUri || normalizeBaseName(baseName);
     },
     [baseName]
   );
@@ -88,11 +114,40 @@ export const CustomOktaProvider = ({
         );
         void oktaAuth.signInWithRedirect({
           // Where to redirect back to after auth is done. Will be passed to `restoreOriginalUri`.
-          originalUri: location.pathname,
+          originalUri: getReturnToUrl(),
         });
       }
     }
   }, [authState?.isAuthenticated, oktaAuth]);
+
+  // This is used to detect if the user has logged out in another tab or window.
+  const logoutCalledRef = useRef<boolean>(false);
+  const handleOnLogout = useCallback(() => {
+    logoutCalledRef.current = true;
+  }, []);
+
+  useEffect(() => {
+    const onTokenRemoved: TokenManagerEventHandler = async () => {
+      if (await oktaAuth.isAuthenticated()) {
+        setLogoutReturnToUrl(getReturnToUrl());
+
+        if (!logoutCalledRef.current) {
+          location.href = getLogOutUrl(baseName);
+        }
+      }
+    };
+
+    oktaAuth.tokenManager.on('removed', onTokenRemoved);
+
+    return () => {
+      oktaAuth.tokenManager.off('removed', onTokenRemoved);
+    };
+  }, [oktaAuth, baseName]);
+
+  const customOktaContextValue = useMemo<CustomOktaContext>(
+    () => ({ onLogOut: handleOnLogout }),
+    [handleOnLogout]
+  );
 
   if (isLogOutUrl(baseName)) {
     console.log(
@@ -116,10 +171,39 @@ export const CustomOktaProvider = ({
       {!authState?.isAuthenticated && (
         <LoginCallback loadingElement={<div>Loading...</div>} />
       )}
-      {authState?.isAuthenticated && children}
+
+      <CustomOktaContextProvider value={customOktaContextValue}>
+        {authState?.isAuthenticated && children}
+      </CustomOktaContextProvider>
     </Security>
   );
 };
+
+function normalizeBaseName(baseName?: string) {
+  let result = baseName || '/';
+
+  result = result.trim();
+
+  // Normalize backslashes to forward slashes.
+  result = result.replaceAll('\\', '/');
+
+  while (result.includes('//')) {
+    // Remove double slashes.
+    result = result.replaceAll('//', '/');
+  }
+
+  // Ensure it starts with a slash.
+  if (!result.startsWith('/')) {
+    result = `/${result}`;
+  }
+
+  // Remove trailing slash.
+  if (result.endsWith('/')) {
+    result = result.slice(0, -1);
+  }
+
+  return result;
+}
 
 function isRedirectUri(oktaAuth: OktaAuth): boolean {
   // This should exist if correctly configured.
@@ -138,13 +222,28 @@ function isLogOutUrl(baseName?: string) {
   return location.href.startsWith(getLogOutUrl(baseName));
 }
 
+function getReturnToUrl() {
+  return location.href.substring(location.origin.length);
+}
+
+const logoutReturnToUrlKey = 'io-manager-logout-return-to-url';
+
+function setLogoutReturnToUrl(url: string) {
+  sessionStorage.setItem(logoutReturnToUrlKey, url);
+}
+
+function getLogoutReturnToUrl() {
+  return sessionStorage.getItem(logoutReturnToUrlKey);
+}
+
 interface LoggedOutPageProps {
   baseName?: string;
 }
 
 function LoggedOutPage({ baseName }: LoggedOutPageProps) {
   const handleOnLogin = useCallback(() => {
-    location.href = `${location.origin}/${baseName ?? ''}`;
+    location.href =
+      getLogoutReturnToUrl() || `${location.origin}/${baseName ?? ''}`;
   }, [baseName]);
 
   return (
@@ -176,6 +275,7 @@ function OktaConsumer({ onAuthStateChange }: OktaConsumerProps) {
 
 export const useCustomOktaProvider = (baseName?: string) => {
   const { oktaAuth } = useOktaAuth();
+  const { onLogOut } = useCustomOktaContext();
 
   return useMemo<AuthProvider>(() => {
     return {
@@ -210,7 +310,7 @@ export const useCustomOktaProvider = (baseName?: string) => {
 
         await oktaAuth.signInWithRedirect({
           // Where to redirect back to after auth is done. Will be passed to `restoreOriginalUri`.
-          originalUri: location.pathname,
+          originalUri: getReturnToUrl(),
         });
       },
 
@@ -218,6 +318,8 @@ export const useCustomOktaProvider = (baseName?: string) => {
         console.log(
           '[io.Manager Admin UI Auth] useCustomOktaProvider - Calling logOut()'
         );
+
+        onLogOut();
 
         await oktaAuth.signOut({
           postLogoutRedirectUri: getLogOutUrl(baseName),
@@ -230,5 +332,5 @@ export const useCustomOktaProvider = (baseName?: string) => {
       isLoading: false,
       error: undefined,
     };
-  }, [oktaAuth, baseName]);
+  }, [oktaAuth, baseName, onLogOut]);
 };

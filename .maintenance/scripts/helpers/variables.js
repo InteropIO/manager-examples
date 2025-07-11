@@ -1,6 +1,5 @@
-export const localRegistryURl = 'http://localhost:4873';
-
-export const remoteRegistryURL =
-  'https://glue42.jfrog.io/artifactory/api/npm/default-npm-virtual';
+export const interdependencies = {
+  '@interopio/manager-admin-ui': ['@interopio/manager-api'],
+};
 
 export const packageScope = '@interopio';

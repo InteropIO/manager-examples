@@ -1,14 +1,13 @@
-import ReactDOM from 'react-dom';
-import React, { StrictMode } from 'react';
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
 
 import AdminUI from '@interopio/manager-admin-ui';
 
-import '@interopio/theme-demo-apps';
-import '@interopio/theme-demo-apps/dist/packages/rc-select.css';
-import '@interopio/manager-admin-ui/dist/src/styles/index.css';
-import '@ag-grid-community/core/dist/styles/ag-grid.css';
+import '@interopio/manager-admin-ui/styles.css';
 
-ReactDOM.render(
+const rootElement = document.getElementById('root')!;
+
+createRoot(rootElement).render(
   <StrictMode>
     <AdminUI
       apiURL="http://localhost:4356/api"
@@ -20,14 +19,15 @@ ReactDOM.render(
         domain: 'dev-vccmw066d2ot7rcj.eu.auth0.com',
 
         // TODO: Replace this with your Client ID.
-        clientId: 'Bq9dgFBMobH7iRS8mwiRq2QtJd3KOVJw',
+        clientId: 'sBOb36xUhNOZtLetV0JHIIfHYXTG4kkr',
 
-        audience: 'http://localhost:4356/api',
-        redirectUri: 'http://localhost:8080/login/callback',
+        authorizationParams: {
+          audience: 'http://localhost:4356/api',
+          redirectUri: 'http://localhost:3000/admin/callback',
+        },
         cacheLocation: 'localstorage',
         useRefreshTokens: true,
       }}
     />
-  </StrictMode>,
-  document.getElementById('root')!
+  </StrictMode>
 );

@@ -3,7 +3,7 @@
 - [🔍 Overview](#-overview)
 - [📂 Repository Structure](#-repository-structure)
   - [Before you start](#before-you-start)
-    - [Access to interop.io JFrog](#access-to-interopio-jfrog)
+    - [License](#license)
     - [Change the default username](#change-the-default-username)
 - [🚀 Getting Started](#-getting-started)
   - [💻 Local Development](#-local-development)
@@ -50,18 +50,9 @@ advanced/
 
 ## Before you start
 
-### Access to interop.io JFrog
+### License
 
-The NPM packages exposing io.Manager and the Admin UI are hosted in a private NPM repository. To obtain access, [contact us](https://interop.io/contact/).
-
-Once you have access to JFROG you need to generate an .npmrc file that will authenticate you to the repository. To do so:
-
-1. Login to JFROG.
-2. Expand the menu in top right and click "Setup"
-3. Select "NPM".
-4. From the dropdown menu select _default-npm-virtual_.
-5. Copy the snippet.
-6. Create an .npmrc file with the copied contents and add it to the services/server and services/admin folders.
+**io.Manager** requires a license key to operate. To acquire a license key, contact us at `sales@interop.io`.
 
 ### Change the default username
 
@@ -112,6 +103,7 @@ If you want to experiment with the Kubernetes configurations locally, you can us
 ### Deployment Steps
 
 1. Start minikube
+
    ```bash
    minikube start
    ```

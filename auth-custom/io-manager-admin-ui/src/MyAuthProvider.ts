@@ -25,7 +25,7 @@ export class MyAuthProvider implements AuthProvider {
     }
 
     if (!this.isAuthenticated) {
-      document.location.href = `http://localhost:9123/?callback=${document.location.href}`;
+      document.location.href = `http://localhost:3010/?callback=${document.location.href}`;
     }
 
     return Promise.resolve();

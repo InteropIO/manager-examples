@@ -1,5 +1,10 @@
 **/node_modules
-**/.npmrc*
+**/package-lock.json
 
 **/.idea
 **/.vscode
+
+**/dist
+**/logs
+
+**/.env.local
