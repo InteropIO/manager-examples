@@ -72,13 +72,15 @@ You can clone the repository, make modifications to any of the service implement
 
 - Docker
 
+- License - **io.Manager** requires a license key to operate. To acquire a license key, contact us at `sales@interop.io`. Apply the license key using the `API_LICENSE_KEY` environment variable in [./docker-compose.yaml](./docker-compose.yaml)
+
 ### Steps
 
 1. Clone the repository:
 
    ```bash
    git clone https://github.com/InteropIO/manager-examples.git
-   cd manager-examples/manager-template
+   cd manager-examples/manager-template/2-advanced
    ```
 
 2. Use Docker Compose to build and start the services:
@@ -99,6 +101,8 @@ If you want to experiment with the Kubernetes configurations locally, you can us
 - Docker
 - Minikube and a `kubectl` configured to communicate with your Minikube cluster. Use [this article](https://minikube.sigs.k8s.io/docs/start/) to setup minikube.
 - [WMIC](https://techcommunity.microsoft.com/blog/windows-itpro-blog/how-to-install-wmic-feature-on-demand-on-windows-11/4189530) (on Windows)
+
+- License - **io.Manager** requires a license key to operate. To acquire a license key, contact us at `sales@interop.io`. Apply the license key using the `API_LICENSE_KEY` environment variable in [./kubernetes/_1_environment.yaml](./kubernetes/_1_environment.yaml)
 
 ### Deployment Steps
 
