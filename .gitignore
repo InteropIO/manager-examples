@@ -1,8 +1,9 @@
 **/node_modules
 **/package-lock.json
 
-**/.idea
-**/.vscode
+# JetBrains IDEs
+**/.idea/modules.xml
+**/.idea/*.iml
 
 **/dist
 **/logs
