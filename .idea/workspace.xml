@@ -1,46 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="89ac5426-fd60-4c85-bfa2-8fd689c5d634" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.maintenance/scripts/clean.js" beforeDir="false" afterPath="$PROJECT_DIR$/.maintenance/scripts/clean.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth-auth0/io-manager-admin-ui/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/auth-auth0/io-manager-admin-ui/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth-auth0/io-manager-server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/auth-auth0/io-manager-server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth-basic/io-manager-admin-ui/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/auth-basic/io-manager-admin-ui/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth-basic/io-manager-server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/auth-basic/io-manager-server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth-custom-advanced/io-cd-login/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/auth-custom-advanced/io-cd-login/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth-custom-advanced/io-manager-admin-ui/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/auth-custom-advanced/io-manager-admin-ui/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth-custom-advanced/io-manager-server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/auth-custom-advanced/io-manager-server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth-custom/io-cd-login/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/auth-custom/io-cd-login/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth-custom/io-manager-admin-ui/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/auth-custom/io-manager-admin-ui/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth-custom/io-manager-server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/auth-custom/io-manager-server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth-none/io-manager-admin-ui/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/auth-none/io-manager-admin-ui/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth-none/io-manager-server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/auth-none/io-manager-server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth-okta/io-manager-admin-ui/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/auth-okta/io-manager-admin-ui/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth-okta/io-manager-server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/auth-okta/io-manager-server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom-endpoints/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/custom-endpoints/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom-logging-config/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/custom-logging-config/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db-mongo/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/db-mongo/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db-mssql/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/db-mssql/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db-postgresql/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/db-postgresql/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/environment-variable-configuration/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/environment-variable-configuration/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manager-template/2-advanced/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/manager-template/2-advanced/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manager-template/2-advanced/services/admin/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/manager-template/2-advanced/services/admin/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manager-template/2-advanced/services/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/manager-template/2-advanced/services/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node-esm/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node-esm/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/otel-basic/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/otel-basic/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/otel-custom-logs-exporter/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/otel-custom-logs-exporter/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/otel-custom-logs-processor/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/otel-custom-logs-processor/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/otel-custom-metrics-exporter/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/otel-custom-metrics-exporter/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/otel-custom-metrics-reader/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/otel-custom-metrics-reader/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/otel-custom-trace-exporter/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/otel-custom-trace-exporter/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/otel-custom-trace-processor/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/otel-custom-trace-processor/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/otel-custom-trace-sampler/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/otel-custom-trace-sampler/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/otel-sentry/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/otel-sentry/package.json" afterDir="false" />
+    <list default="true" id="fb4122bb-b76d-4c83-9aa0-1043ed6b67a3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,84 +10,31 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="vnext" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="KubernetesApiPersistence">{}</component>
-  <component name="KubernetesApiProvider">{
-  &quot;isMigrated&quot;: true
-}</component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 3
-}</component>
-  <component name="ProjectId" id="2nppnrFdqeUeMaXUrGKneLCaNwB" />
-  <component name="ProjectLevelVcsManager">
-    <OptionsSetting value="false" id="Update" />
-    <ConfirmationsSetting value="1" id="Add" />
-  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 3
+}]]></component>
+  <component name="ProjectId" id="31HPM1RoWbka4rvnjlO6rzJzIzR" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
-    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;20.19.1&quot;,
-    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;20.19.9&quot;,
-    &quot;js.last.introduce.type&quot;: &quot;CONST&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/HristoKolev/projects/io-manager/manager-examples/.maintenance/scripts&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.format.executor&quot;: &quot;Debug&quot;,
-    &quot;npm.install-local.executor&quot;: &quot;Debug&quot;,
-    &quot;npm.otel-custom-logs-exporter &gt; start.executor&quot;: &quot;Debug&quot;,
-    &quot;npm.start.executor&quot;: &quot;Debug&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\HristoKolev\\projects\\io-manager\\manager-examples\\.maintenance\\node_modules\\prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\HristoKolev\\projects\\io-manager\\manager-examples\\otel-custom-metrics-reader\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "develop",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\HristoKolev\projects\io-manager\manager-examples\.maintenance\scripts" />
-      <recent name="C:\Users\HristoKolev\projects\io-manager\manager-examples" />
-      <recent name="C:\Users\HristoKolev\projects\io-manager\manager-examples\manager-template" />
-      <recent name="C:\Users\HristoKolev\projects\io-manager\manager-examples\.maintenance\scripts\helpers" />
-      <recent name="C:\Users\HristoKolev\projects\io-manager\manager-examples\otel-sentry" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\HristoKolev\projects\io-manager\manager-examples" />
-      <recent name="C:\Users\HristoKolev\projects\io-manager\manager-examples\.maintenance\scripts\helpers\env" />
-      <recent name="C:\Users\HristoKolev\projects\io-manager\manager-examples\docker-images" />
-      <recent name="C:\Users\hkolev\projects\io-manager\manager-examples\auth-auth0" />
-      <recent name="C:\Users\hkolev\projects\io-manager\manager-examples\auth-okta\io-manager-admin-ui" />
-    </key>
-  </component>
-  <component name="RunManager">
-    <configuration name="format" type="js.build_tools.npm" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/.maintenance/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="format" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
-  </component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -133,10 +42,9 @@
       </set>
     </attachedChunks>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="89ac5426-fd60-4c85-bfa2-8fd689c5d634" name="Changes" comment="" />
+      <changelist id="fb4122bb-b76d-4c83-9aa0-1043ed6b67a3" name="Changes" comment="" />
       <created>1723553639079</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -146,16 +54,5 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
 </project>
