@@ -10,7 +10,9 @@ await init();
 
 $.cwd = path.resolve(import.meta.dirname, '..', '..');
 
-await $`git clean -dfX -e "!**/*.local" -e "!.idea/**" -e "!.maintenance/**"`;
+const excludePatterns = ['!**/*.local', '!**/.idea/**', '!**/.maintenance/**'];
+
+await $`git clean -dfX ${excludePatterns.map((x) => `-e "${x}"`).join(' ')}`;
 
 await visitNpmPackages(async ({ packagePath }) => {
   const packageLockPath = path.join(packagePath, 'package-lock.json');

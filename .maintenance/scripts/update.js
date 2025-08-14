@@ -1,4 +1,4 @@
-import { $ } from 'zx/core';
+import { $ } from 'zx';
 
 import { init } from './helpers/init.js';
 import { visitNpmPackages } from './helpers/visit-npm-packages.js';
