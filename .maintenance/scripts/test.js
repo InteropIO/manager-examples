@@ -10,7 +10,7 @@ import { formatEnvFile } from './helpers/env/format-env-file.js';
 
 await init();
 
-const ignoreList = ['server-template'];
+const ignoreList = ['manager-examples', 'server-template'];
 
 await visitNpmPackages(async ({ packageJson }) => {
   if (ignoreList.includes(packageJson.name)) {
@@ -25,7 +25,7 @@ await visitNpmPackages(async ({ packageJson }) => {
   if (directDependencies.includes('@interopio/manager')) {
     async function test() {
       $.env.__SERVER_INITIALIZATION_TEST__ = 'true';
-      await $`npm run start`;
+      await $`npm run start:node`;
     }
 
     if (await fileExists('.env')) {

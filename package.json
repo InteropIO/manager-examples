@@ -1,0 +1,28 @@
+{
+  "name": "manager-examples",
+  "version": "0.0.1",
+  "type": "module",
+  "private": true,
+  "workspaces": [
+    "**"
+  ],
+  "scripts": {
+    "clean": "node .maintenance/scripts/clean.js",
+    "packages:install": "node .maintenance/scripts/install.js",
+    "packages:update": "npm up --save --workspaces --include-workspace-root && npm audit fix --workspaces --include-workspace-root || echo 'Done.'",
+    "test": "node .maintenance/scripts/test.js",
+    "build": "npm run build --workspaces --if-present",
+    "format": "prettier --cache --write .",
+    "format-check": "prettier --cache --check .",
+    "exec": "node .maintenance/scripts/exec.js",
+    "all": "npm run clean && npm run npm:install && npm run packages:update && npm run format && npm run build && npm run test && npm audit --workspaces --include-workspace-root"
+  },
+  "dependencies": {
+    "commander": "^14.0.0",
+    "dotenv": "^17.2.1",
+    "zx": "^8.8.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.6.2"
+  }
+}
