@@ -1,27 +1,21 @@
 import path from 'node:path';
-import fs from 'node:fs/promises';
+import { spawn } from 'node:child_process';
+import process from 'node:process';
 
-import { $ } from 'zx';
+const excludePatterns = ['!**/*.local', '!**/.idea/**', '!**/.npmrc'];
 
-import { init } from './helpers/init.js';
-import { visitNpmPackages } from './helpers/visit-npm-packages.js';
-
-await init();
-
-$.cwd = path.resolve(import.meta.dirname, '..', '..');
-
-const excludePatterns = ['!**/*.local', '!**/.idea/**', '!**/.maintenance/**'];
-
-await $`git clean -dfX ${excludePatterns.map((x) => `-e "${x}"`).join(' ')}`;
-
-await visitNpmPackages(async ({ packagePath }) => {
-  const packageLockPath = path.join(packagePath, 'package-lock.json');
-
-  try {
-    await fs.rm(packageLockPath, { recursive: true, force: true });
-  } catch (error) {
-    console.warn(
-      `\x1b[33m[WARNING] Failed to delete file "${packageLockPath}"\x1b[0m`
-    );
+const child = spawn(
+  'git',
+  ['clean', '-dfX', ...excludePatterns.flatMap((x) => ['-e', x])],
+  {
+    stdio: ['inherit', 'pipe', 'pipe'],
+    cwd: path.resolve(import.meta.dirname, '..', '..'),
   }
+);
+
+child.stdout.pipe(process.stdout);
+child.stderr.pipe(process.stderr);
+child.on('close', process.exit);
+child.on('error', (error) => {
+  throw new Error(`Failed to spawn process.`, { cause: error });
 });
