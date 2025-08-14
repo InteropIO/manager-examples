@@ -2,7 +2,7 @@ import path from 'node:path';
 import { spawn } from 'node:child_process';
 import process from 'node:process';
 
-const excludePatterns = ['!**/*.local', '!**/.idea/**'];
+const excludePatterns = ['!**/*.local', '!**/.idea/**', '!**/.npmrc'];
 
 const child = spawn(
   'git',
