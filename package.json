@@ -15,7 +15,7 @@
     "format": "prettier --cache --write .",
     "format-check": "prettier --cache --check .",
     "exec": "node .maintenance/scripts/exec.js",
-    "all": "npm run clean && npm run npm:install && npm run packages:update && npm run format && npm run build && npm run test && npm audit --workspaces --include-workspace-root"
+    "all": "npm run clean && npm i && npm run packages:install && npm run packages:update && npm run format && npm run build && npm run test && npm audit --workspaces --include-workspace-root"
   },
   "dependencies": {
     "commander": "^14.0.0",
