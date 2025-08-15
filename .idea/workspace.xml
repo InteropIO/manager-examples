@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fb4122bb-b76d-4c83-9aa0-1043ed6b67a3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/auth-custom-advanced/io-manager-server/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/auth-custom-advanced/io-manager-server/src/index.ts" afterDir="false" />
     </list>
@@ -39,7 +38,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.sourceCode",
+    "settings.editor.selected.configurable": "configurable.group.appearance",
     "ts.external.directory.path": "C:\\Users\\HristoKolev\\projects\\io-manager\\manager-examples\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
