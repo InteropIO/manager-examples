@@ -3,6 +3,7 @@
 
 # JetBrains IDEs
 **/.idea/modules.xml
+**/.idea/workspace.xml
 **/.idea/*.iml
 
 **/dist
