@@ -12,6 +12,6 @@
     "@interopio/manager": "^2.0.0"
   },
   "devDependencies": {
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.3"
   }
 }

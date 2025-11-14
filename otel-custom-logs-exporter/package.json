@@ -13,6 +13,6 @@
     "@opentelemetry/exporter-logs-otlp-http": "^0.200.0"
   },
   "devDependencies": {
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.3"
   }
 }

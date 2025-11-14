@@ -17,6 +17,6 @@
   "keywords": [],
   "author": "",
   "dependencies": {
-    "concurrently": "^9.2.0"
+    "concurrently": "^9.2.1"
   }
 }

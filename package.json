@@ -18,9 +18,9 @@
     "all": "npm run clean && npm i && npm run packages:install && npm run packages:update && npm run format && npm run build && npm run test && npm audit --workspaces --include-workspace-root"
   },
   "dependencies": {
-    "commander": "^14.0.0",
-    "dotenv": "^17.2.1",
-    "zx": "^8.8.0"
+    "commander": "^14.0.2",
+    "dotenv": "^17.2.3",
+    "zx": "^8.8.5"
   },
   "devDependencies": {
     "prettier": "^3.6.2"
