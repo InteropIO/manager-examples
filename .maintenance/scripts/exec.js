@@ -1,4 +1,4 @@
-import { $ } from 'zx/core';
+import { $ } from 'zx';
 import { program } from 'commander';
 
 import { init } from './helpers/init.js';

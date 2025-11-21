@@ -1,4 +1,4 @@
-import { setupZx } from './setup-zx.js';
+import { setupZx } from './zx.js';
 import { findNpmPackages } from './find-npm-packages.js';
 import { program } from 'commander';
 import { parseCliArgs } from './parse-cli-args.js';

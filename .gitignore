@@ -1,10 +1,13 @@
 **/node_modules
 **/package-lock.json
 
-**/.idea
-**/.vscode
+# JetBrains IDEs
+**/.idea/modules.xml
+**/.idea/workspace.xml
+**/.idea/*.iml
 
 **/dist
 **/logs
 
 **/.env.local
+**/.npmrc
