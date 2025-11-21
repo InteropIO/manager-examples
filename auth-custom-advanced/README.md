@@ -24,8 +24,8 @@ When asked, select **OIDC - OpenID Connect** for the **Sign-in method** and **Si
 
 Make sure to enter the correct urls for the applications. In this development setup the urls should be set as follows:
 
-* **Sign-in redirect URIs**: `http://localhost:3000/admin/callback`
-* **Sign-out redirect URIs**: `http://localhost:3000/admin/logout`
+- **Sign-in redirect URIs**: `http://localhost:3000/admin/callback`
+- **Sign-out redirect URIs**: `http://localhost:3000/admin/logout`
 
 Click the **Refresh Token** checkbox under **Grant type** and **Core grants**.
 
@@ -39,7 +39,7 @@ Click the **Refresh Token** checkbox under **Grant type** and **Core grants**.
 
 Make sure to enter the correct urls for the applications. In this development setup the urls should be set as follows:
 
-* **Sign-in redirect URIs**: `http://localhost:3010/login/callback`
+- **Sign-in redirect URIs**: `http://localhost:3010/login/callback`
 
 # How to run
 
