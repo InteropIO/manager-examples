@@ -19,8 +19,8 @@ console.log(
 
 // TODO: Specify the appropriate okta client options here.
 const oktaAuth = new OktaAuth({
-  issuer: 'https://dev-10894256.okta.com/oauth2/default',
-  clientId: '0oahnnb0tnrknGKUI5d7',
+  issuer: 'https://integrator-3447223.okta.com/oauth2/default',
+  clientId: '0oaxn4evpozCU2H6P697',
 
   redirectUri: location.origin + '/admin/callback',
 });

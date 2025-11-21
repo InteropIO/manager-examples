@@ -15,7 +15,7 @@ export class CustomOktaAuthenticator implements CustomAuthenticator {
   initialize() {
     // TODO: Specify the appropriate okta verifier options here.
     this.oktaVerifier = new OktaJwtVerifier({
-      issuer: 'https://dev-10894256.okta.com/oauth2/default',
+      issuer: 'https://integrator-3447223.okta.com/oauth2/default',
     });
 
     // TODO: Specify the appropriate audiences here.
