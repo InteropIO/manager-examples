@@ -8,7 +8,7 @@
     "start": "npm run build && node ./dist/index.js"
   },
   "dependencies": {
-    "@interopio/manager": "^2.0.0"
+    "@interopio/manager": "^2.1.0"
   },
   "devDependencies": {
     "typescript": "^5.9.3"
