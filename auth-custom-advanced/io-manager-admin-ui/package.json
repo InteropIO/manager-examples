@@ -5,7 +5,7 @@
   "type": "module",
   "dependencies": {
     "@interopio/manager-admin-ui": "^3.1.0",
-    "@okta/okta-react": "^6.10.0",
+    "@okta/okta-react": "^6.11.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
@@ -14,10 +14,10 @@
     "build": "tsc && vite build"
   },
   "devDependencies": {
-    "@types/react": "^18.3.27",
+    "@types/react": "^18.3.28",
     "@types/react-dom": "^18.3.7",
-    "@vitejs/plugin-react": "^5.1.2",
+    "@vitejs/plugin-react": "^5.2.0",
     "typescript": "^5.9.3",
-    "vite": "^7.3.1"
+    "vite": "^7.3.2"
   }
 }

@@ -11,7 +11,7 @@
   "dependencies": {
     "@interopio/manager": "^2.1.0",
     "@opentelemetry/exporter-trace-otlp-http": "^0.200.0",
-    "@opentelemetry/sdk-trace-node": "^2.5.0"
+    "@opentelemetry/sdk-trace-node": "^2.6.1"
   },
   "devDependencies": {
     "typescript": "^5.9.3"
