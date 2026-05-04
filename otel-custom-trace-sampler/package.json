@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@interopio/manager": "^2.1.0",
-    "@opentelemetry/sdk-trace-node": "^2.6.1"
+    "@opentelemetry/sdk-trace-node": "^2.7.1"
   },
   "devDependencies": {
     "typescript": "^5.9.3"
