@@ -29,5 +29,8 @@
     "@interopio/manager-admin-ui": {
       "@interopio/manager-api": "latest"
     }
+  },
+  "@parcel/resolver-default": {
+    "packageExports": true
   }
 }

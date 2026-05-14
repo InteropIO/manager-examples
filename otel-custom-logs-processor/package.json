@@ -9,7 +9,7 @@
     "start": "npm run build && node ./dist/index.js"
   },
   "dependencies": {
-    "@interopio/manager": "^2.1.0",
+    "@interopio/manager": "^4.0.0",
     "@opentelemetry/exporter-logs-otlp-http": "^0.200.0",
     "@opentelemetry/sdk-logs": "^0.200.0"
   },
