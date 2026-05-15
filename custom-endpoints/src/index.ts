@@ -1,3 +1,7 @@
+import bodyParser from 'body-parser';
+import cors from 'cors';
+import express from 'express';
+
 import {
   type Config,
   type DataRequest,
@@ -36,9 +40,6 @@ void (async () => {
   const { getLogger } = await import('log4js');
   const proxyLogger = getLogger('proxy-logger');
 
-  const express = await import('express');
-  const bodyParser = await import('body-parser');
-  const cors = await import('cors');
   const { createProxyMiddleware } = await import('http-proxy-middleware');
 
   // Create a separate express HTTP server

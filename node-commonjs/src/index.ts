@@ -1,4 +1,4 @@
-import { start, type Config } from '@interopio/manager';
+import { Config, start } from '@interopio/manager';
 
 const config: Config = {
   name: 'example',
@@ -6,6 +6,8 @@ const config: Config = {
   base: 'api',
   // TODO: Contact us at sales@interop.io to acquire a license key.
   licenseKey: '<YOUR_LICENSE_KEY>',
+  auth_method: 'none',
+  auth_exclusive_users: ['admin'],
   store: {
     type: 'mongo',
     // TODO: Replace this with your own MongoDB connection string.
@@ -16,10 +18,8 @@ const config: Config = {
     // TODO: Replace this with your secret.
     secret: '<YOUR_SECRET>',
   },
-  auth_method: 'none',
-
-  // A list of usernames which will have admin privileges
-  auth_exclusive_users: ['admin'],
 };
 
-start(config);
+void (async () => {
+  await start(config);
+})().catch(console.error);

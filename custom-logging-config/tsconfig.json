@@ -2,11 +2,12 @@
   "compilerOptions": {
     "target": "ESNext",
     "lib": ["ESNext"],
-    "module": "commonjs",
-    "moduleResolution": "node",
+    "module": "node16",
+    "moduleResolution": "node16",
     "skipLibCheck": true,
     "sourceMap": true,
     "declaration": true,
+    "rootDir": "./src",
     "outDir": "dist",
     "pretty": true,
     "strict": true

@@ -7,7 +7,7 @@ import {
   GroupDataResult,
 } from '@interopio/manager';
 
-import { groups, users } from './data';
+import { groups, users } from './data.js';
 
 export class MyGroupsService implements GroupsService {
   public getSupportedFeatures(): GroupsFeatures {

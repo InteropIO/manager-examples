@@ -44,6 +44,7 @@ A set of examples that show how to bundle the **io.Manager Admin UI** (`@interop
 
 - [custom-endpoints](./custom-endpoints) - An example that demonstrates how to implement custom endpoints to **io.Manager**.
 - [node-esm](./node-esm) - An example that demonstrates how to setup a **io.Manager** in a Node.js native ESM project.
+- [node-commonjs](./node-commonjs) - An example that demonstrates how to setup a **io.Manager** in a Node.js native CommonJS project.
 - [custom-logging-config](./custom-logging-config) - An example that demonstrates how to pass custom logging configuration to **io.Manager**.
 - [environment-variable-configuration](./environment-variable-configuration) - An example that demonstrates how to configure an **io.Manager** instance using environment variables.
 - [docker-images](./docker-images) - An example that demonstrates how to use the **io.Manager** Docker images to create an instance of **io.Manager**.

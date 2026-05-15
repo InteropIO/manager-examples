@@ -19,6 +19,8 @@ It is a bundler-only example - there is no io.Manager server in this folder. You
 
 npm install
 
+npm audit fix
+
 ```
 
 - Start the development server:

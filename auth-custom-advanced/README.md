@@ -1,6 +1,6 @@
 # io.Manager custom authentication example (using Okta)
 
-\*\*NOTE: This is an example implementation of custom authentication and authorization for io.Manager that just happens to be using Okta. io.Manager has out of the box support for Okta authentication/authorization. An example can be found here: [auth-okta](../auth-okta)
+**NOTE:** This is an example implementation of custom authentication and authorization for io.Manager that just happens to be using Okta. io.Manager has out of the box support for Okta authentication/authorization. An example can be found here: [auth-okta](../auth-okta)
 
 ## Prerequisites
 

@@ -1,7 +1,7 @@
 import { start, type Config } from '@interopio/manager';
 
-import { MyAuthenticator } from './MyAuthenticator';
-import { MyGroupsService } from './MyGroupsService';
+import { MyAuthenticator } from './MyAuthenticator.js';
+import { MyGroupsService } from './MyGroupsService.js';
 
 const config: Config = {
   name: 'example',
