@@ -2,12 +2,6 @@ import { OktaAuth, toRelativeUrl } from '@okta/okta-auth-js';
 
 import { getWindowFromSDK } from './sdk-helpers';
 
-declare global {
-  interface Window {
-    iodesktop: any;
-  }
-}
-
 async function showWindow() {
   if (window.iodesktop?.showWindow) {
     await window.iodesktop?.showWindow();
@@ -75,6 +69,11 @@ async function setIOCDPlatformToken(oktaAuth: OktaAuth) {
   const user = await oktaAuth.getUser();
 
   console.log('[io.CD Auth] Setting the io.CD platform token.');
+
+  if (!window.iodesktop?.authDone) {
+    throw new Error('window.iodesktop.authDone is not available.');
+  }
+
   window.iodesktop.authDone({
     token: oktaAuth.getAccessToken(),
     user: user.sub,
