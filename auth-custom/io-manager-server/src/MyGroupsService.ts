@@ -5,6 +5,7 @@ import {
   GroupsService,
   AuditBuilder,
   GroupDataResult,
+  Group,
 } from '@interopio/manager';
 
 import { groups, users } from './data.js';
@@ -18,7 +19,25 @@ export class MyGroupsService implements GroupsService {
       canRemoveUserFromGroup: true,
       canGetAllGroups: true,
       canGetUserGroups: true,
+      canGetGroup: true,
+      canUpdateGroup: true,
+      canAddOrUpdateGroup: true,
     };
+  }
+
+  public async getGroup(name: string): Promise<Group | undefined> {
+    return groups.get(name);
+  }
+
+  public async updateGroup(group: Group, audit: AuditBuilder): Promise<Group> {
+    return groups.update(group);
+  }
+
+  public async addOrUpdateGroup(
+    group: Group,
+    audit: AuditBuilder
+  ): Promise<Group> {
+    return groups.addOrUpdate(group);
   }
 
   public async getUserGroups(user: string | User): Promise<string[]> {
@@ -27,14 +46,15 @@ export class MyGroupsService implements GroupsService {
   }
 
   public async getAllGroups(request: DataRequest): Promise<GroupDataResult> {
+    const items = groups.getAll();
     return {
-      items: groups.getAll().map((i: string) => ({ name: i })),
-      total: groups.getAll().length,
+      items,
+      total: items.length,
     };
   }
 
-  public async addGroup(name: string, audit: AuditBuilder): Promise<void> {
-    groups.add(name);
+  public async addGroup(group: Group, audit: AuditBuilder): Promise<Group> {
+    return groups.add(group);
   }
 
   public async removeGroup(name: string, audit: AuditBuilder): Promise<void> {

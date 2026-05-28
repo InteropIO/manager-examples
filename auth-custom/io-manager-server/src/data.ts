@@ -1,22 +1,52 @@
-import type { User } from '@interopio/manager';
+import type { Group, User } from '@interopio/manager';
 
 export const GROUP_SERVER_ADMIN = 'GLUE42_SERVER_ADMIN';
 export const GROUP_FRONT_OFFICE = 'Front Office';
 
 class InMemoryGroupsStore {
-  private groups = [GROUP_SERVER_ADMIN, GROUP_FRONT_OFFICE];
+  private groups: Group[] = [
+    { name: GROUP_SERVER_ADMIN, expandedGroups: [] },
+    { name: GROUP_FRONT_OFFICE, expandedGroups: [] },
+  ];
 
   public getAll() {
     return this.groups;
   }
 
-  public add(name: string) {
-    if (this.groups.indexOf(name) === -1) {
-      this.groups.push(name);
-    }
+  public get(name: string) {
+    return this.groups.find((g) => g.name === name);
   }
+
+  public add(group: Group) {
+    if (!this.groups.find((g) => g.name === group.name)) {
+      this.groups.push(group);
+    }
+
+    return group;
+  }
+
+  public update(group: Group) {
+    const index = this.groups.findIndex((g) => g.name === group.name);
+    if (index > -1) {
+      this.groups.splice(index, 1, group);
+    }
+
+    return group;
+  }
+
+  public addOrUpdate(group: Group) {
+    const index = this.groups.findIndex((g) => g.name === group.name);
+    if (index > -1) {
+      this.groups.splice(index, 1, group);
+    } else {
+      this.groups.push(group);
+    }
+
+    return group;
+  }
+
   public remove(name: string) {
-    const index = this.groups.indexOf(name);
+    const index = this.groups.findIndex((g) => g.name === name);
     if (index > -1) {
       this.groups.splice(index, 1);
     }
