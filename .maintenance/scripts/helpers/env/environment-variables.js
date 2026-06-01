@@ -29,4 +29,11 @@ export const EnvironmentVariables = {
   get API_LICENSE_KEY() {
     return parser.parseRequiredString('API_LICENSE_KEY');
   },
+
+  get IO_MANAGER_DIR() {
+    return parser.parseRequiredString(
+      'IO_MANAGER_DIR',
+      'The "IO_MANAGER_DIR" environment variable is required to start the dev databases. Set it to the absolute path of your io.Manager monorepo checkout (the folder containing the "start:db-dev" npm script).'
+    );
+  },
 };

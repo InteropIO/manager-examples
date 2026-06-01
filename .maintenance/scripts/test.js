@@ -3,16 +3,13 @@ import { $ } from 'zx';
 import { init } from './helpers/init.js';
 import { packageScope } from './helpers/variables.js';
 import { visitNpmPackages } from './helpers/visit-npm-packages.js';
-import { fileExists } from './helpers/file-exists.js';
-import { EnvironmentVariables } from './helpers/env/environment-variables.js';
-import { useFileContents, useProcessedFile } from './helpers/file-mod.js';
-import { formatEnvFile } from './helpers/env/format-env-file.js';
+import { withInjectedLicense } from './helpers/with-injected-license.js';
 
 await init();
 
 const ignoreList = ['manager-examples', 'server-template'];
 
-await visitNpmPackages(async ({ packageJson }) => {
+await visitNpmPackages(async ({ packageJson, packagePath }) => {
   if (ignoreList.includes(packageJson.name)) {
     return;
   }
@@ -23,36 +20,9 @@ await visitNpmPackages(async ({ packageJson }) => {
 
   // If the repo is based on the server package - start and stop the server.
   if (directDependencies.includes('@interopio/manager')) {
-    async function test() {
+    await withInjectedLicense(packagePath, async () => {
       $.env.__SERVER_INITIALIZATION_TEST__ = 'true';
       await $`node dist/index.js`;
-    }
-
-    if (await fileExists('.env')) {
-      await useFileContents(
-        '.env.local',
-        formatEnvFile({
-          API_LICENSE_KEY: EnvironmentVariables.API_LICENSE_KEY,
-        }),
-        async () => {
-          await test();
-        }
-      );
-    } else {
-      await useProcessedFile(
-        'dist/index.js',
-        (contents) => {
-          contents = contents.replaceAll(
-            '<YOUR_LICENSE_KEY>',
-            EnvironmentVariables.API_LICENSE_KEY
-          );
-
-          return contents;
-        },
-        async () => {
-          await test();
-        }
-      );
-    }
+    });
   }
 });
