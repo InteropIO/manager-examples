@@ -29,17 +29,6 @@ This repository contains various examples on how to setup **io.Manager**
 - [otel-custom-trace-sampler](./otel-custom-trace-sampler) - An example showing how to configure **io.Manager** to use a custom OpenTelemetry trace sampler
 - [otel-sentry](./otel-sentry) - An example that shows how to setup **io.Manager** to send OpenTelemetry traces to Sentry.
 
-# Admin UI Bundlers
-
-A set of examples that show how to bundle the **io.Manager Admin UI** (`@interopio/manager-admin-ui`) as a standalone React single-page application using different bundlers. Each example is bundler-only — no server, no auth, no io.Connect Desktop sign-in page — and expects an existing io.Manager server to talk to. See [admin-ui-bundler-examples](./admin-ui-bundler-examples) for the shared README.
-
-- [admin-ui-bundler-examples/webpack](./admin-ui-bundler-examples/webpack) - Bundling the Admin UI with **Webpack 5** and `webpack-dev-server`.
-- [admin-ui-bundler-examples/rspack](./admin-ui-bundler-examples/rspack) - Bundling the Admin UI with **Rspack**.
-- [admin-ui-bundler-examples/esbuild](./admin-ui-bundler-examples/esbuild) - Bundling the Admin UI with **esbuild** through its JavaScript API.
-- [admin-ui-bundler-examples/parcel](./admin-ui-bundler-examples/parcel) - Bundling the Admin UI with **Parcel** (zero-config).
-- [admin-ui-bundler-examples/rollup](./admin-ui-bundler-examples/rollup) - Bundling the Admin UI with **Rollup** and a small plugin set.
-- [admin-ui-bundler-examples/vite](./admin-ui-bundler-examples/vite) - Bundling the Admin UI with **Vite** and `@vitejs/plugin-react`.
-
 # Other
 
 - [custom-endpoints](./custom-endpoints) - An example that demonstrates how to implement custom endpoints to **io.Manager**.
