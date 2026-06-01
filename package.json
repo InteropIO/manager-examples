@@ -11,6 +11,7 @@
     "packages:install": "node .maintenance/scripts/install.js",
     "packages:update": "npm up --save --workspaces --include-workspace-root && npm audit fix --workspaces --include-workspace-root || echo 'Done.'",
     "test": "node .maintenance/scripts/test.js",
+    "start:example": "node .maintenance/scripts/start-example.js",
     "build": "npm run build --workspaces --if-present",
     "format": "prettier --cache --write .",
     "format-check": "prettier --cache --check .",
