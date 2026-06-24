@@ -5,8 +5,8 @@ export const GROUP_FRONT_OFFICE = 'Front Office';
 
 class InMemoryGroupsStore {
   private groups: Group[] = [
-    { name: GROUP_SERVER_ADMIN, expandedGroups: [] },
-    { name: GROUP_FRONT_OFFICE, expandedGroups: [] },
+    { name: GROUP_SERVER_ADMIN, expandsTo: [] },
+    { name: GROUP_FRONT_OFFICE, expandsTo: [] },
   ];
 
   public getAll() {
