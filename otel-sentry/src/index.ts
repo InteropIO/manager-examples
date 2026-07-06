@@ -22,7 +22,7 @@ void (async () => {
       type: 'mongo',
       // TODO: Replace this with your own MongoDB connection string.
       connection:
-        'mongodb://db_user:Password123$@localhost:27017/io_manager?authSource=admin',
+        'mongodb://db_user:Password123$@localhost:27017/io_manager?authSource=admin&directConnection=true',
     },
     token: {
       // TODO: Replace this with your secret.
