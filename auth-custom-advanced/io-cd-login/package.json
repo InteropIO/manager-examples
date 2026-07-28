@@ -8,11 +8,11 @@
     "build": "tsc && vite build"
   },
   "dependencies": {
-    "@interopio/desktop": "^6.20.1",
-    "@okta/okta-auth-js": "^8.0.0"
+    "@interopio/desktop": "^6.21.0",
+    "@okta/okta-auth-js": "^8.0.1"
   },
   "devDependencies": {
     "typescript": "^5.9.3",
-    "vite": "^8.0.13"
+    "vite": "^8.1.5"
   }
 }
