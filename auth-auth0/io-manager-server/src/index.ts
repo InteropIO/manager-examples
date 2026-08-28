@@ -8,10 +8,9 @@ const config: Config = {
   licenseKey: '<YOUR_LICENSE_KEY>',
   store: {
     type: 'mongo',
-
     // TODO: Replace this with your own MongoDB connection string.
     connection:
-      'mongodb://db_user:Password123$@localhost:27017/io_manager?authSource=admin',
+      'mongodb://db_user:Password123$@localhost:27017/io_manager?authSource=admin&directConnection=true',
   },
   token: {
     // TODO: Replace this with your secret.
@@ -19,7 +18,7 @@ const config: Config = {
   },
   auth_method: 'auth0',
   auth_auth0: {
-    // TODO: Replace this with your domain. (you must place https:// at the start of the string)
+    // TODO: Replace this with your Domain. (you must place https:// at the start of the string)
     issuerBaseURL: 'https://dev-vccmw066d2ot7rcj.eu.auth0.com',
     audience: 'http://localhost:4356/api',
   },

@@ -1,0 +1,22 @@
+{
+  "name": "admin-ui-bundler-rspack",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "rspack serve --mode development",
+    "build": "rspack build --mode production"
+  },
+  "dependencies": {
+    "@interopio/manager-admin-ui": "^4.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@rspack/cli": "^2.0.3",
+    "@rspack/core": "^2.0.3",
+    "@rspack/dev-server": "^2.0.1",
+    "@types/react": "^18.3.28",
+    "@types/react-dom": "^18.3.7",
+    "typescript": "^5.9.3"
+  }
+}

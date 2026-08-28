@@ -1,0 +1,19 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+  // Set project-relative paths in auto-import suggestions
+  "js/ts.preferences.importModuleSpecifier": "project-relative",
+
+  // Turn on format on save for this workspace
+  "editor.formatOnSave": true,
+
+  // Prettier settings
+  "prettier.useEditorConfig": true,
+  "prettier.requireConfig": true,
+  "prettier.configPath": ".prettierrc",
+  "[javascript][typescript][typescriptreact][json][jsonc][yaml][yml][markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // Explicitly set the TypeScript SDK path
+  "js/ts.tsdk.path": "node_modules/typescript/lib"
+}

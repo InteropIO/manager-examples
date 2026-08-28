@@ -6,7 +6,7 @@ import {
   CustomAuthUnauthorizedError,
 } from '@interopio/manager';
 
-import { users } from './data';
+import { users } from './data.js';
 
 // Custom authenticator that validates a token and returns the user info
 export class MyAuthenticator implements CustomAuthenticator {

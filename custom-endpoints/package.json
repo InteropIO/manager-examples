@@ -9,10 +9,10 @@
     "start": "npm run build && node ./dist/index.js"
   },
   "dependencies": {
-    "@interopio/manager": "^2.1.0",
+    "@interopio/manager": "^4.0.0",
     "cors": "^2.8.6",
     "express": "^5.1.0",
-    "http-proxy-middleware": "^3.0.5"
+    "http-proxy-middleware": "^3.0.7"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",

@@ -1,3 +1,7 @@
+import bodyParser from 'body-parser';
+import cors from 'cors';
+import express from 'express';
+
 import {
   type Config,
   type DataRequest,
@@ -22,7 +26,7 @@ void (async () => {
       type: 'mongo',
       // TODO: Replace this with your own MongoDB connection string.
       connection:
-        'mongodb://db_user:Password123$@localhost:27017/io_manager?authSource=admin',
+        'mongodb://db_user:Password123$@localhost:27017/io_manager?authSource=admin&directConnection=true',
     },
     token: {
       // TODO: Replace this with your secret.
@@ -36,9 +40,6 @@ void (async () => {
   const { getLogger } = await import('log4js');
   const proxyLogger = getLogger('proxy-logger');
 
-  const express = await import('express');
-  const bodyParser = await import('body-parser');
-  const cors = await import('cors');
   const { createProxyMiddleware } = await import('http-proxy-middleware');
 
   // Create a separate express HTTP server

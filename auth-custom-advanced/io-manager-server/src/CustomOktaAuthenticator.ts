@@ -1,6 +1,6 @@
 import type { Request, Response } from 'express';
 
-import * as OktaJwtVerifier from '@okta/jwt-verifier';
+import OktaJwtVerifier from '@okta/jwt-verifier';
 
 import {
   type CustomAuthenticator,

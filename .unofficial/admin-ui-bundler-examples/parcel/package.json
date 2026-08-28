@@ -1,0 +1,23 @@
+{
+  "name": "admin-ui-bundler-parcel",
+  "version": "0.0.1",
+  "private": true,
+  "source": "index.html",
+  "scripts": {
+    "start": "parcel serve index.html --port 3000",
+    "build": "parcel build index.html",
+    "postinstall": "node ./scripts/patch-zod-side-effects.mjs"
+  },
+  "dependencies": {
+    "@interopio/manager-admin-ui": "^4.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.28",
+    "@types/react-dom": "^18.3.7",
+    "parcel": "^2.16.4",
+    "process": "^0.11.10",
+    "typescript": "^5.9.3"
+  }
+}

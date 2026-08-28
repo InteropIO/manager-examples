@@ -9,7 +9,7 @@
     "start": "npm run build && node ./dist/index.js"
   },
   "dependencies": {
-    "@interopio/manager": "^2.1.0",
+    "@interopio/manager": "^4.0.0",
     "@sentry/node": "~9.35.0",
     "@sentry/opentelemetry": "~9.35.0"
   },
