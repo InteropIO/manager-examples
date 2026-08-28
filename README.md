@@ -32,6 +32,7 @@ This repository contains various examples on how to setup **io.Manager**
 # Other
 
 - [custom-endpoints](./custom-endpoints) - An example that demonstrates how to implement custom endpoints to **io.Manager**.
+- [custom-groups-service](./custom-groups-service) - An example that demonstrates how to provide a custom Groups service to **io.Manager**.
 - [node-esm](./node-esm) - An example that demonstrates how to setup a **io.Manager** in a Node.js native ESM project.
 - [node-commonjs](./node-commonjs) - An example that demonstrates how to setup a **io.Manager** in a Node.js native CommonJS project.
 - [custom-logging-config](./custom-logging-config) - An example that demonstrates how to pass custom logging configuration to **io.Manager**.
