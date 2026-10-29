@@ -21,6 +21,7 @@ export class MyGroupsService implements GroupsService {
       canUpdateGroup: true,
       canAddOrUpdateGroup: true,
       canRemoveGroup: true,
+      canRemoveAll: true,
       canAddUserToGroup: true,
       canRemoveUserFromGroup: true,
     };

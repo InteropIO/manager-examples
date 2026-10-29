@@ -1,16 +1,26 @@
 import type { Group, User } from '@interopio/manager';
 
 export const GROUP_SERVER_ADMIN = 'GLUE42_SERVER_ADMIN';
-export const GROUP_FRONT_OFFICE = 'Front Office';
-export const GROUP_TRADER = 'Trader';
+export const GROUP_APPS_MANAGER = 'Apps Manager';
+export const GROUP_APPS_LAYOUTS_MANAGER = 'Apps and Layouts Manager';
+
+// Built-in io.Manager permission groups. io.Manager always knows these, so a group
+// can expand into them without this service declaring them.
+const PERMISSION_APPS_WRITE = 'IO_MANAGER:APPS:WRITE';
+const PERMISSION_LAYOUTS_WRITE = 'IO_MANAGER:LAYOUTS:WRITE';
 
 export class InMemoryGroupsStore {
   private readonly groups: Group[] = [
     {
-      name: GROUP_FRONT_OFFICE,
+      name: GROUP_APPS_MANAGER,
+      description: 'Create, update, and delete app definitions.',
+      expandsTo: [PERMISSION_APPS_WRITE],
     },
     {
-      name: GROUP_TRADER,
+      name: GROUP_APPS_LAYOUTS_MANAGER,
+      description:
+        'Everything Apps Manager grants, plus creating, updating, and deleting Layouts.',
+      expandsTo: [GROUP_APPS_MANAGER, PERMISSION_LAYOUTS_WRITE],
     },
   ];
 
@@ -75,13 +85,13 @@ export class InMemoryUsersStore {
       id: 'number.one@company.xyz',
       email: 'number.one@company.xyz',
       apps: [],
-      groups: [GROUP_FRONT_OFFICE],
+      groups: [GROUP_APPS_MANAGER],
     },
     {
       id: 'number.two@company.xyz',
       email: 'number.two@company.xyz',
       apps: [],
-      groups: [GROUP_TRADER],
+      groups: [GROUP_APPS_LAYOUTS_MANAGER],
     },
     {
       id: 'admin',
