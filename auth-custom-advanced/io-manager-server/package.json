@@ -9,7 +9,7 @@
     "start": "npm run build && node ./dist/index.js"
   },
   "dependencies": {
-    "@interopio/manager": "^4.0.0",
+    "@interopio/manager": "^4.0.1",
     "@okta/jwt-verifier": "^4.0.2"
   },
   "devDependencies": {

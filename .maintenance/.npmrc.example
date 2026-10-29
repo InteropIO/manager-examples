@@ -1,2 +1,6 @@
 @interopio:registry=http://localhost:4873
 //localhost:4873/:_authToken=fake-token
+
+# npm 12 refuses remote tarball dependencies by default (EALLOWREMOTE). Packages served from the
+# local registry resolve some transitive deps to tarball URLs, so installs fail without this.
+allow-remote=all
